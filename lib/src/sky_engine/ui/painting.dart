@@ -128,7 +128,7 @@ class $Color implements Color, $Instance {
   int get value => $value.value;
 
   @override
-  int toARGB32() => $value.toARGB32();
+  int toARGB32() => $value.value;
 
   @override
   Color withAlpha(int a) => $value.withAlpha(a);
