@@ -89,6 +89,7 @@ import 'src/painting/alignment/alignment/core.dart';
 import 'src/painting/alignment/alignment_geometry/core.dart';
 import 'src/painting/border_radius/border_radius/core.dart';
 import 'src/painting/border_radius/border_radius_geometry/core.dart';
+import 'src/painting/border_side/border_side/core.dart';
 import 'src/painting/box_decoration/box_decoration/core.dart';
 import 'src/painting/decoration/decoration/core.dart';
 import 'src/painting/gradient/gradient-transform/core.dart';
@@ -182,7 +183,6 @@ class FlutterEvalPlugin implements EvalPlugin {
         $Icon.$declaration,
         $Spacer.$declaration,
         $ShapeBorder.$declaration,
-        $BorderSide.$declaration,
         $OutlinedBorder.$declaration,
         $BoxBorder.$declaration,
         $Border.$declaration,
@@ -249,6 +249,7 @@ class FlutterEvalPlugin implements EvalPlugin {
         $AlignmentGeometryProps.instance,
         $BorderRadiusGeometryProps.instance,
         $BorderRadiusProps.instance,
+        $BorderSideProps.instance,
       ];
 
   @override
@@ -364,8 +365,7 @@ class FlutterEvalPlugin implements EvalPlugin {
           'EdgeInsets.all', $EdgeInsets.$all)
       ..registerBridgeFunc('package:flutter/src/painting/edge_insets.dart',
           'EdgeInsets.only', $EdgeInsets.$only)
-      ..registerBridgeFunc('package:flutter/src/painting/borders.dart',
-          'BorderSide.', $BorderSide.$new)
+      // BorderSide now uses InstanceDefault pattern
       ..registerBridgeFunc('package:flutter/src/painting/box_border.dart',
           'Border.', $Border.$new)
       ..registerBridgeFunc('package:flutter/src/painting/box_border.dart',
