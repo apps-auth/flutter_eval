@@ -41,7 +41,6 @@ import 'package:flutter_eval/src/material/theme.dart';
 import 'package:flutter_eval/src/material/theme_data.dart';
 import 'package:flutter_eval/src/painting.dart';
 import 'package:flutter_eval/src/painting/basic_types.dart';
-import 'package:flutter_eval/src/painting/border_radius.dart';
 import 'package:flutter_eval/src/painting/borders.dart';
 import 'package:flutter_eval/src/painting/box_border.dart';
 import 'package:flutter_eval/src/painting/box_fit.dart';
@@ -88,6 +87,8 @@ import 'package:flutter_eval/src/widgets/text.dart';
 
 import 'src/painting/alignment/alignment/core.dart';
 import 'src/painting/alignment/alignment_geometry/core.dart';
+import 'src/painting/border_radius/border_radius/core.dart';
+import 'src/painting/border_radius/border_radius_geometry/core.dart';
 import 'src/painting/box_decoration/box_decoration/core.dart';
 import 'src/painting/decoration/decoration/core.dart';
 import 'src/painting/gradient/gradient-transform/core.dart';
@@ -216,8 +217,6 @@ class FlutterEvalPlugin implements EvalPlugin {
         $AspectRatio.$declaration,
         $Align.$declaration,
         $Radius.$declaration,
-        $BorderRadiusGeometry.$declaration,
-        $BorderRadius.$declaration,
         $Baseline.$declaration,
         $ClipRRect.$declaration,
         $ColoredBox.$declaration,
@@ -248,6 +247,8 @@ class FlutterEvalPlugin implements EvalPlugin {
         $BoxDecorationProps.instance,
         $AlignmentProps.instance,
         $AlignmentGeometryProps.instance,
+        $BorderRadiusGeometryProps.instance,
+        $BorderRadiusProps.instance,
       ];
 
   @override
@@ -373,16 +374,6 @@ class FlutterEvalPlugin implements EvalPlugin {
           'Border.fromBorderSide', $Border.$fromBorderSide)
       ..registerBridgeFunc('package:flutter/src/painting/box_border.dart',
           'Border.symmetric', $Border.$symmetric)
-      ..registerBridgeFunc('package:flutter/src/painting/border_radius.dart',
-          'BorderRadius.all', $BorderRadius.$all)
-      ..registerBridgeFunc('package:flutter/src/painting/border_radius.dart',
-          'BorderRadius.only', $BorderRadius.$only)
-      ..registerBridgeFunc('package:flutter/src/painting/border_radius.dart',
-          'BorderRadius.circular', $BorderRadius.$circular)
-      ..registerBridgeFunc('package:flutter/src/painting/border_radius.dart',
-          'BorderRadius.vertical', $BorderRadius.$vertical)
-      ..registerBridgeFunc('package:flutter/src/painting/border_radius.dart',
-          'BorderRadius.horizontal', $BorderRadius.$horizontal)
       ..registerBridgeFunc('package:flutter/src/painting/edge_insets.dart',
           'EdgeInsets.symmetric', $EdgeInsets.$symmetric)
       ..registerBridgeFunc('package:flutter/src/painting/text_style.dart',

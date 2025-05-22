@@ -4,7 +4,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
 import '../../../sky_engine/ui/painting.dart';
-import '../../border_radius.dart';
+import '../../border_radius/border_radius_geometry/core.dart';
 import '../../box_border.dart';
 import '../../decoration/decoration/core.dart';
 import '../core.dart';
