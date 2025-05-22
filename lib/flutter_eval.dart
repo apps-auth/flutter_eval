@@ -89,15 +89,15 @@ import 'src/painting/alignment/alignment/core.dart';
 import 'src/painting/alignment/alignment_geometry/core.dart';
 import 'src/painting/border_radius/border_radius/core.dart';
 import 'src/painting/border_radius/border_radius_geometry/core.dart';
-import 'src/painting/border_side/border_side/core.dart';
+import 'src/painting/borders/border_side/core.dart';
 import 'src/painting/box_decoration/box_decoration/core.dart';
 import 'src/painting/decoration/decoration/core.dart';
 import 'src/painting/gradient/gradient-transform/core.dart';
 import 'src/painting/gradient/gradient/core.dart';
 import 'src/painting/gradient/linear_gradient/core.dart';
 import 'src/painting/rounded_rectangle_border.dart';
-import 'src/painting/border_side/shape_border/core.dart';
-import 'src/painting/border_side/outlined_border/core.dart';
+import 'src/painting/borders/shape_border/core.dart';
+import 'src/painting/borders/outlined_border/core.dart';
 import 'src/sky_engine/ui/painting/tile_mode.dart';
 
 /// Global instance of [FlutterEvalPlugin]

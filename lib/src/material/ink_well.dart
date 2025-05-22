@@ -5,7 +5,7 @@ import 'package:flutter_eval/src/foundation/key.dart';
 import 'package:flutter_eval/src/sky_engine/ui/painting.dart';
 import 'package:flutter_eval/src/widgets/framework.dart';
 
-import '../painting/border_side/shape_border/core.dart';
+import '../painting/borders/shape_border/core.dart';
 
 class $InkWell implements $Instance {
   static const $type = BridgeTypeRef(

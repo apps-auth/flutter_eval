@@ -1,8 +1,8 @@
 import 'package:dart_eval/dart_eval_bridge.dart';
 import 'package:flutter/painting.dart';
 import 'border_radius/border_radius/core.dart';
-import 'border_side/border_side/core.dart';
-import 'border_side/outlined_border/core.dart';
+import 'borders/border_side/core.dart';
+import 'borders/outlined_border/core.dart';
 
 class $RoundedRectangleBorder implements $Instance {
   static const $type = BridgeTypeRef(
