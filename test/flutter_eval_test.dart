@@ -4,7 +4,7 @@ import 'package:dart_eval/stdlib/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_eval/flutter_eval.dart';
 import 'package:flutter_eval/src/animation/curves.dart';
-import 'package:flutter_eval/src/painting/alignment.dart';
+import 'package:flutter_eval/src/painting/alignment/alignment/core.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

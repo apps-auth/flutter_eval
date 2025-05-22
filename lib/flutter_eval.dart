@@ -40,15 +40,12 @@ import 'package:flutter_eval/src/material/text_theme.dart';
 import 'package:flutter_eval/src/material/theme.dart';
 import 'package:flutter_eval/src/material/theme_data.dart';
 import 'package:flutter_eval/src/painting.dart';
-import 'package:flutter_eval/src/painting/alignment.dart';
 import 'package:flutter_eval/src/painting/basic_types.dart';
 import 'package:flutter_eval/src/painting/border_radius.dart';
 import 'package:flutter_eval/src/painting/borders.dart';
 import 'package:flutter_eval/src/painting/box_border.dart';
-import 'package:flutter_eval/src/painting/box_decoration.dart';
 import 'package:flutter_eval/src/painting/box_fit.dart';
 import 'package:flutter_eval/src/painting/colors.dart';
-import 'package:flutter_eval/src/painting/decoration.dart';
 import 'package:flutter_eval/src/painting/edge_insets.dart';
 import 'package:flutter_eval/src/painting/image_provider.dart';
 import 'package:flutter_eval/src/painting/text_style.dart';
@@ -89,8 +86,15 @@ import 'package:flutter_eval/src/widgets/scroll_view.dart';
 import 'package:flutter_eval/src/widgets/spacer.dart';
 import 'package:flutter_eval/src/widgets/text.dart';
 
-import 'src/painting/gradient.dart';
+import 'src/painting/alignment/alignment/core.dart';
+import 'src/painting/alignment/alignment_geometry/core.dart';
+import 'src/painting/box_decoration/box_decoration/core.dart';
+import 'src/painting/decoration/decoration/core.dart';
+import 'src/painting/gradient/gradient-transform/core.dart';
+import 'src/painting/gradient/gradient/core.dart';
+import 'src/painting/gradient/linear_gradient/core.dart';
 import 'src/painting/rounded_rectangle_border.dart';
+import 'src/sky_engine/ui/painting/tile_mode.dart';
 
 /// Global instance of [FlutterEvalPlugin]
 const flutterEvalPlugin = FlutterEvalPlugin();
@@ -159,8 +163,6 @@ class FlutterEvalPlugin implements EvalPlugin {
         $Theme.$declaration,
         $ElevatedButton.$declaration,
         $Builder.$declaration,
-        $AlignmentGeometry.$declaration,
-        $Alignment.$declaration,
         $Constraints.$declaration,
         $BoxConstraints.$declaration,
         $ParametricCurve.$declaration,
@@ -178,8 +180,6 @@ class FlutterEvalPlugin implements EvalPlugin {
         $IconData.$declaration,
         $Icon.$declaration,
         $Spacer.$declaration,
-        $Decoration.$declaration,
-        $BoxDecoration.$declaration,
         $ShapeBorder.$declaration,
         $BorderSide.$declaration,
         $OutlinedBorder.$declaration,
@@ -213,7 +213,6 @@ class FlutterEvalPlugin implements EvalPlugin {
         $MethodCodec.$declaration,
         $MethodChannel.$declaration,
         $MethodCall.$declaration,
-        $Alignment.$declaration,
         $AspectRatio.$declaration,
         $Align.$declaration,
         $Radius.$declaration,
@@ -239,16 +238,16 @@ class FlutterEvalPlugin implements EvalPlugin {
         $MaterialPageRoute.$declaration,
         $RouteSettings.$declaration,
         $RoundedRectangleBorder.$declaration,
-        //
-        $Gradient.$declaration,
-        $LinearGradient.$declaration,
-        $GradientTransform.$declaration,
       ];
 
   List<InstanceDefaultProps> get classesDefault => [
-        $GradientProps(),
-        $LinearGradientProps(),
-        $GradientTransformProps(),
+        $GradientProps.instance,
+        $LinearGradientProps.instance,
+        $GradientTransformProps.instance,
+        $DecorationProps.instance,
+        $BoxDecorationProps.instance,
+        $AlignmentProps.instance,
+        $AlignmentGeometryProps.instance,
       ];
 
   @override
@@ -358,26 +357,6 @@ class FlutterEvalPlugin implements EvalPlugin {
       ..registerBridgeFunc('package:flutter/src/widgets/framework.dart',
           'State.', $State$bridge.$new,
           isBridge: true)
-      ..registerBridgeFunc('package:flutter/src/painting/alignment.dart',
-          'Alignment.', $Alignment.$new)
-      ..registerBridgeFunc('package:flutter/src/painting/alignment.dart',
-          'Alignment.topLeft*g', $Alignment.$topLeft)
-      ..registerBridgeFunc('package:flutter/src/painting/alignment.dart',
-          'Alignment.topCenter*g', $Alignment.$topCenter)
-      ..registerBridgeFunc('package:flutter/src/painting/alignment.dart',
-          'Alignment.topRight*g', $Alignment.$topRight)
-      ..registerBridgeFunc('package:flutter/src/painting/alignment.dart',
-          'Alignment.centerLeft*g', $Alignment.$centerLeft)
-      ..registerBridgeFunc('package:flutter/src/painting/alignment.dart',
-          'Alignment.center*g', $Alignment.$center)
-      ..registerBridgeFunc('package:flutter/src/painting/alignment.dart',
-          'Alignment.centerRight*g', $Alignment.$centerRight)
-      ..registerBridgeFunc('package:flutter/src/painting/alignment.dart',
-          'Alignment.bottomLeft*g', $Alignment.$bottomLeft)
-      ..registerBridgeFunc('package:flutter/src/painting/alignment.dart',
-          'Alignment.bottomCenter*g', $Alignment.$bottomCenter)
-      ..registerBridgeFunc('package:flutter/src/painting/alignment.dart',
-          'Alignment.bottomRight*g', $Alignment.$bottomRight)
       ..registerBridgeFunc('package:flutter/src/painting/edge_insets.dart',
           'EdgeInsets.fromLTRB', $EdgeInsets.$fromLTRB)
       ..registerBridgeFunc('package:flutter/src/painting/edge_insets.dart',
@@ -394,8 +373,6 @@ class FlutterEvalPlugin implements EvalPlugin {
           'Border.fromBorderSide', $Border.$fromBorderSide)
       ..registerBridgeFunc('package:flutter/src/painting/box_border.dart',
           'Border.symmetric', $Border.$symmetric)
-      ..registerBridgeFunc('package:flutter/src/painting/box_decoration.dart',
-          'BoxDecoration.', $BoxDecoration.$new)
       ..registerBridgeFunc('package:flutter/src/painting/border_radius.dart',
           'BorderRadius.all', $BorderRadius.$all)
       ..registerBridgeFunc('package:flutter/src/painting/border_radius.dart',
