@@ -8,6 +8,7 @@ import '../../borders.dart';
 part 'constructors.dart';
 part 'gettersStatic.dart';
 part 'getters.dart';
+part 'methods.dart';
 
 const String _className = "BorderSide";
 const _type = BridgeTypeRef(
@@ -66,5 +67,10 @@ class $BorderSideProps extends InstanceDefaultProps {
     $BorderSideGetterStrokeInset(),
     $BorderSideGetterStrokeOutset(),
     $BorderSideGetterStrokeOffset(),
+  ];
+
+  @override
+  final List<InstanceDefaultPropsMethod> methods = [
+    $BorderSideMethodCopyWith(),
   ];
 }
