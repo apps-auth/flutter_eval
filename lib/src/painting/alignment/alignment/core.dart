@@ -1,5 +1,3 @@
-// ignore_for_file: unnecessary_overrides
-
 import 'package:dart_eval/dart_eval_bridge.dart';
 import 'package:dart_eval/stdlib/core.dart';
 import 'package:flutter/painting.dart';
@@ -26,16 +24,6 @@ class $Alignment extends $InstanceDefault<Alignment> {
         );
 
   static const $type = _type;
-
-  @override
-  $Value? $getProperty(Runtime runtime, String identifier) {
-    return super.$getProperty(runtime, identifier);
-  }
-
-  @override
-  void $setProperty(Runtime runtime, String identifier, $Value value) {
-    super.$setProperty(runtime, identifier, value);
-  }
 }
 
 class $AlignmentProps extends InstanceDefaultProps {

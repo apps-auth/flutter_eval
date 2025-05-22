@@ -1,5 +1,3 @@
-// ignore_for_file: unnecessary_overrides
-
 import 'package:dart_eval/dart_eval_bridge.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
@@ -24,18 +22,6 @@ class $BoxDecoration extends $InstanceDefault<BoxDecoration> {
           superclass: $Decoration.wrap($value),
           props: $BoxDecorationProps.instance,
         );
-
-  static const $type = _type;
-
-  @override
-  $Value? $getProperty(Runtime runtime, String identifier) {
-    return super.$getProperty(runtime, identifier);
-  }
-
-  @override
-  void $setProperty(Runtime runtime, String identifier, $Value value) {
-    super.$setProperty(runtime, identifier, value);
-  }
 }
 
 class $BoxDecorationProps extends InstanceDefaultProps {
