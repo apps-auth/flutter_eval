@@ -8,9 +8,14 @@ class $BoxBorder implements $Instance {
       'package:flutter/src/painting/box_border.dart', 'BoxBorder'));
 
   static const $declaration = BridgeClassDef(
-      BridgeClassType($type, isAbstract: true),
-      constructors: {},
-      wrap: true);
+    BridgeClassType(
+      $type,
+      isAbstract: true,
+      $extends: $ShapeBorder.$type,
+    ),
+    constructors: {},
+    wrap: true,
+  );
 
   $BoxBorder.wrap(this.$value) : _superclass = $ShapeBorder.wrap($value);
 
@@ -41,7 +46,11 @@ class $Border implements $Instance {
       BridgeTypeSpec('package:flutter/src/painting/box_border.dart', 'Border'));
 
   static const $declaration = BridgeClassDef(
-      BridgeClassType($type, isAbstract: false),
+      BridgeClassType(
+        $type,
+        isAbstract: false,
+        $extends: $BoxBorder.$type,
+      ),
       constructors: {
         '': BridgeConstructorDef(BridgeFunctionDef(
             returns: BridgeTypeAnnotation($type),

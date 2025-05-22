@@ -600,7 +600,7 @@ class $Expanded implements $Instance {
   static $Value? $new(Runtime runtime, $Value? target, List<$Value?> args) {
     return $Expanded.wrap(Expanded(
       key: args[0]?.$value,
-      flex: args[1]?.$value,
+      flex: args[1]?.$value ?? 1,
       child: args[2]?.$value,
     ));
   }

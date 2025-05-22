@@ -8,66 +8,176 @@ class $Color implements Color, $Instance {
   static const $type = BridgeTypeRef(BridgeTypeSpec('dart:ui', 'Color'));
 
   /// dart_eval class declaration for [Color]
-  static const $declaration = BridgeClassDef(BridgeClassType($type),
-      constructors: {
-        '': BridgeConstructorDef(
-            BridgeFunctionDef(returns: BridgeTypeAnnotation($type), params: [
-          BridgeParameter('value',
-              BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.int)), false)
-        ])),
-        'from': BridgeConstructorDef(BridgeFunctionDef(
-            returns: BridgeTypeAnnotation($type),
-            namedParams: [
-              BridgeParameter('alpha',
-                  BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.int)), false),
-              BridgeParameter('red',
-                  BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.int)), false),
-              BridgeParameter('green',
-                  BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.int)), false),
-              BridgeParameter('blue',
-                  BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.int)), false),
-              BridgeParameter(
-                  'colorSpace', BridgeTypeAnnotation($ColorSpace.$type), true)
-            ])),
-        'fromARGB': BridgeConstructorDef(
-            BridgeFunctionDef(returns: BridgeTypeAnnotation($type), params: [
-          BridgeParameter(
-              'a', BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.int)), false),
-          BridgeParameter(
-              'r', BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.int)), false),
-          BridgeParameter(
-              'g', BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.int)), false),
-          BridgeParameter(
-              'b', BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.int)), false)
-        ])),
-        'fromRGBO': BridgeConstructorDef(
-            BridgeFunctionDef(returns: BridgeTypeAnnotation($type), params: [
-          BridgeParameter(
-              'r', BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.int)), false),
-          BridgeParameter(
-              'g', BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.int)), false),
-          BridgeParameter(
-              'b', BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.int)), false),
-          BridgeParameter(
-              'o', BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.int)), false)
-        ]))
-      },
-      fields: {
-        'a': BridgeFieldDef(
-            BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.double))),
-        'r': BridgeFieldDef(
-            BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.double))),
-        'g': BridgeFieldDef(
-            BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.double))),
-        'b': BridgeFieldDef(
-            BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.double))),
-        'colorSpace': BridgeFieldDef(BridgeTypeAnnotation($ColorSpace.$type))
-      },
-      wrap: true);
+  static const $declaration = BridgeClassDef(
+    BridgeClassType($type),
+    constructors: {
+      '': BridgeConstructorDef(
+        BridgeFunctionDef(
+          returns: BridgeTypeAnnotation($type),
+          params: [
+            BridgeParameter(
+              'value',
+              BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.int)),
+              false,
+            )
+          ],
+        ),
+      ),
+      'from': BridgeConstructorDef(
+        BridgeFunctionDef(
+          returns: BridgeTypeAnnotation($type),
+          namedParams: [
+            BridgeParameter(
+              'alpha',
+              BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.int)),
+              false,
+            ),
+            BridgeParameter(
+              'red',
+              BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.int)),
+              false,
+            ),
+            BridgeParameter(
+              'green',
+              BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.int)),
+              false,
+            ),
+            BridgeParameter(
+              'blue',
+              BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.int)),
+              false,
+            ),
+            BridgeParameter(
+              'colorSpace',
+              BridgeTypeAnnotation($ColorSpace.$type),
+              true,
+            )
+          ],
+        ),
+      ),
+      'fromARGB': BridgeConstructorDef(
+        BridgeFunctionDef(
+          returns: BridgeTypeAnnotation($type),
+          params: [
+            BridgeParameter(
+              'a',
+              BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.int)),
+              false,
+            ),
+            BridgeParameter(
+              'r',
+              BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.int)),
+              false,
+            ),
+            BridgeParameter(
+              'g',
+              BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.int)),
+              false,
+            ),
+            BridgeParameter(
+              'b',
+              BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.int)),
+              false,
+            )
+          ],
+        ),
+      ),
+      'fromRGBO': BridgeConstructorDef(
+        BridgeFunctionDef(
+          returns: BridgeTypeAnnotation($type),
+          params: [
+            BridgeParameter(
+              'r',
+              BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.int)),
+              false,
+            ),
+            BridgeParameter(
+              'g',
+              BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.int)),
+              false,
+            ),
+            BridgeParameter(
+              'b',
+              BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.int)),
+              false,
+            ),
+            BridgeParameter(
+              'o',
+              BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.int)),
+              false,
+            )
+          ],
+        ),
+      )
+    },
+    fields: {
+      'a':
+          BridgeFieldDef(BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.double))),
+      'r':
+          BridgeFieldDef(BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.double))),
+      'g':
+          BridgeFieldDef(BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.double))),
+      'b':
+          BridgeFieldDef(BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.double))),
+      'colorSpace': BridgeFieldDef(
+        BridgeTypeAnnotation($ColorSpace.$type),
+      )
+    },
+    wrap: true,
+  );
 
   /// Wrap a [Color] in an [$Color]
-  static $Value? $new(Runtime runtime, $Value? target, List<$Value?> args) {
+  static $Value? $new(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
     return $Color.wrap(Color(args[0]!.$value));
+  }
+
+  static $Value? $fromARGB(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    return $Color.wrap(
+      Color.fromARGB(
+        args[0]!.$value,
+        args[1]!.$value,
+        args[2]!.$value,
+        args[3]!.$value,
+      ),
+    );
+  }
+
+  static $Value? $fromRGBO(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    return $Color.wrap(
+      Color.fromRGBO(
+        args[0]!.$value,
+        args[1]!.$value,
+        args[2]!.$value,
+        args[3]!.$value,
+      ),
+    );
+  }
+
+  static $Value? $from(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    return $Color.wrap(
+      Color.from(
+        alpha: args[0]!.$value,
+        red: args[1]!.$value,
+        green: args[2]!.$value,
+        blue: args[3]!.$value,
+      ),
+    );
   }
 
   $Color.wrap(this.$value);

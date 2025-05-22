@@ -89,6 +89,8 @@ import 'package:flutter_eval/src/widgets/scroll_view.dart';
 import 'package:flutter_eval/src/widgets/spacer.dart';
 import 'package:flutter_eval/src/widgets/text.dart';
 
+import 'src/painting/rounded_rectangle_border.dart';
+
 /// Global instance of [FlutterEvalPlugin]
 const flutterEvalPlugin = FlutterEvalPlugin();
 
@@ -179,7 +181,9 @@ class FlutterEvalPlugin implements EvalPlugin {
       $Spacer.$declaration,
       $Decoration.$declaration,
       $BoxDecoration.$declaration,
+      $ShapeBorder.$declaration,
       $BorderSide.$declaration,
+      $OutlinedBorder.$declaration,
       $BoxBorder.$declaration,
       $Border.$declaration,
       $InkWell.$declaration,
@@ -235,6 +239,7 @@ class FlutterEvalPlugin implements EvalPlugin {
       $PageRoute$bridge.$declaration,
       $MaterialPageRoute.$declaration,
       $RouteSettings.$declaration,
+      $RoundedRectangleBorder.$declaration,
     ];
 
     for (final cls in classes) {
@@ -312,6 +317,9 @@ class FlutterEvalPlugin implements EvalPlugin {
   void configureForRuntime(Runtime runtime) {
     runtime
       ..registerBridgeFunc('dart:ui', 'Color.', $Color.$new)
+      ..registerBridgeFunc('dart:ui', 'Color.fromARGB', $Color.$fromARGB)
+      ..registerBridgeFunc('dart:ui', 'Color.fromRGBO', $Color.$fromRGBO)
+      ..registerBridgeFunc('dart:ui', 'Color.from', $Color.$from)
       ..registerBridgeFunc('dart:ui', 'Size.', $Size.$new)
       ..registerBridgeFunc('dart:ui', 'Offset.', $Offset.$new)
       ..registerBridgeFunc('dart:ui', 'Radius.circular', $Radius.$circular)
@@ -496,10 +504,12 @@ class FlutterEvalPlugin implements EvalPlugin {
           'Image.network', $Image.$network)
       ..registerBridgeFunc('package:flutter/src/widgets/image.dart',
           'Image.asset', $Image.$asset)
-      ..registerBridgeFunc('package:flutter/src/widgets/image.dart',
-          'Image.file', $Image.$file)
+      ..registerBridgeFunc(
+          'package:flutter/src/widgets/image.dart', 'Image.file', $Image.$file)
       ..registerBridgeFunc('package:flutter/src/widgets/image.dart',
           'Image.memory', $Image.$memory)
+      ..registerBridgeFunc('package:flutter/src/material/ink_well.dart',
+          'InkWell.', $InkWell.$new)
       ..registerBridgeFunc('package:flutter/src/material/list_tile.dart',
           'ListTile.', $ListTile.$new)
       ..registerBridgeFunc('package:flutter/src/material/switch_list_tile.dart',
@@ -558,8 +568,16 @@ class FlutterEvalPlugin implements EvalPlugin {
           'DragDownDetails.', $DragDownDetails.$new)
       ..registerBridgeFunc('package:flutter/src/gestures/velocity_tracker.dart',
           'Velocity.', $Velocity.$new)
-      ..registerBridgeFunc('package:flutter/src/services/platform_channel.dart',
-          'MethodChannel.', $MethodChannel.$new)
+      ..registerBridgeFunc(
+        'package:flutter/src/services/platform_channel.dart',
+        'MethodChannel.',
+        $MethodChannel.$new,
+      )
+      ..registerBridgeFunc(
+        'package:flutter/src/painting/rounded_rectangle_border.dart',
+        'RoundedRectangleBorder.',
+        $RoundedRectangleBorder.$new,
+      )
       ..registerBridgeEnumValues('dart:ui', 'FontWeight', $FontWeight.$values)
       ..registerBridgeEnumValues('dart:ui', 'FontStyle', $FontStyle.$values)
       ..registerBridgeEnumValues(

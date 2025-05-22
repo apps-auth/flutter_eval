@@ -5,6 +5,8 @@ import 'package:flutter_eval/src/painting/edge_insets.dart';
 import 'package:flutter_eval/src/sky_engine/ui/painting.dart';
 import 'package:flutter_eval/src/widgets/framework.dart';
 
+import '../painting/borders.dart';
+
 /// dart_eval wrapper for [Card]
 class $Card implements $Instance {
   /// Compile-type type reference for [Card]
@@ -13,35 +15,92 @@ class $Card implements $Instance {
 
   /// Compile-type class declaration for [Card]
   static const $declaration = BridgeClassDef(
-      BridgeClassType($type,
-          isAbstract: false, $extends: $StatelessWidget$bridge.$type),
-      constructors: {
-        '': BridgeConstructorDef(BridgeFunctionDef(
-            returns: BridgeTypeAnnotation($type),
-            namedParams: [
-              BridgeParameter('key', BridgeTypeAnnotation($Key.$type), true),
-              BridgeParameter(
-                  'color', BridgeTypeAnnotation($Color.$type), true),
-              BridgeParameter(
-                  'shadowColor', BridgeTypeAnnotation($Color.$type), true),
-              BridgeParameter(
-                  'surfaceTintColor', BridgeTypeAnnotation($Color.$type), true),
-              BridgeParameter('elevation',
-                  BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.double)), true),
-              BridgeParameter(
-                  'margin',
-                  BridgeTypeAnnotation($EdgeInsetsGeometry.$type,
-                      nullable: true),
-                  true),
-              BridgeParameter('clipBehavior',
-                  BridgeTypeAnnotation($Clip.$type, nullable: true), true),
-              BridgeParameter('semanticContainer',
-                  BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.bool)), true),
-              BridgeParameter(
-                  'child', BridgeTypeAnnotation($Widget.$type), true),
-            ]))
-      },
-      wrap: true);
+    BridgeClassType($type,
+        isAbstract: false, $extends: $StatelessWidget$bridge.$type),
+    constructors: {
+      '': BridgeConstructorDef(
+        BridgeFunctionDef(
+          returns: BridgeTypeAnnotation($type),
+          namedParams: [
+            BridgeParameter(
+              'key',
+              BridgeTypeAnnotation($Key.$type, nullable: true),
+              true,
+            ),
+            BridgeParameter(
+              'color',
+              BridgeTypeAnnotation($Color.$type, nullable: true),
+              true,
+            ),
+            BridgeParameter(
+              'shadowColor',
+              BridgeTypeAnnotation($Color.$type, nullable: true),
+              true,
+            ),
+            BridgeParameter(
+              'surfaceTintColor',
+              BridgeTypeAnnotation($Color.$type, nullable: true),
+              true,
+            ),
+            BridgeParameter(
+              'elevation',
+              BridgeTypeAnnotation(
+                BridgeTypeRef(CoreTypes.double),
+                nullable: true,
+              ),
+              true,
+            ),
+            BridgeParameter(
+              'margin',
+              BridgeTypeAnnotation(
+                $EdgeInsetsGeometry.$type,
+                nullable: true,
+              ),
+              true,
+            ),
+            BridgeParameter(
+              'clipBehavior',
+              BridgeTypeAnnotation(
+                $Clip.$type,
+                nullable: true,
+              ),
+              true,
+            ),
+            BridgeParameter(
+              'shape',
+              BridgeTypeAnnotation(
+                $ShapeBorder.$type,
+                nullable: true,
+              ),
+              true,
+            ),
+            BridgeParameter(
+              'borderOnForeground',
+              BridgeTypeAnnotation(
+                BridgeTypeRef(CoreTypes.bool),
+                nullable: true,
+              ),
+              true,
+            ),
+            BridgeParameter(
+              'semanticContainer',
+              BridgeTypeAnnotation(
+                BridgeTypeRef(CoreTypes.bool),
+                nullable: true,
+              ),
+              true,
+            ),
+            BridgeParameter(
+              'child',
+              BridgeTypeAnnotation($Widget.$type, nullable: true),
+              true,
+            ),
+          ],
+        ),
+      )
+    },
+    wrap: true,
+  );
 
   late final _superclass = $StatelessWidget.wrap($value);
 
@@ -53,17 +112,21 @@ class $Card implements $Instance {
 
   /// Wrapper for [Card.new] using [args]
   static $Value? $new(Runtime runtime, $Value? target, List<$Value?> args) {
-    return $Card.wrap(Card(
-      key: args[0]?.$value,
-      color: args[1]?.$value,
-      shadowColor: args[2]?.$value,
-      surfaceTintColor: args[3]?.$value,
-      elevation: args[4]?.$value,
-      margin: args[5]?.$value,
-      clipBehavior: args[6]?.$value,
-      semanticContainer: args[7]?.$value ?? true,
-      child: args[8]?.$value,
-    ));
+    return $Card.wrap(
+      Card(
+        key: args[0]?.$value,
+        color: args[1]?.$value,
+        shadowColor: args[2]?.$value,
+        surfaceTintColor: args[3]?.$value,
+        elevation: args[4]?.$value,
+        margin: args[5]?.$value,
+        clipBehavior: args[6]?.$value,
+        shape: args[7]?.$value,
+        borderOnForeground: args[8]?.$value ?? true,
+        semanticContainer: args[9]?.$value ?? true,
+        child: args[10]?.$value,
+      ),
+    );
   }
 
   @override
