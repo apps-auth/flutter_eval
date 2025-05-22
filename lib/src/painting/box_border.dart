@@ -4,6 +4,7 @@ import 'package:flutter_eval/src/painting/borders.dart';
 import 'package:flutter_eval/src/sky_engine/ui/painting.dart';
 
 import 'border_side/border_side/core.dart';
+import 'border_side/shape_border/core.dart';
 
 class $BoxBorder implements $Instance {
   static const $type = BridgeTypeRef(BridgeTypeSpec(

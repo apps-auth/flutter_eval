@@ -96,6 +96,7 @@ import 'src/painting/gradient/gradient-transform/core.dart';
 import 'src/painting/gradient/gradient/core.dart';
 import 'src/painting/gradient/linear_gradient/core.dart';
 import 'src/painting/rounded_rectangle_border.dart';
+import 'src/painting/border_side/shape_border/core.dart';
 import 'src/sky_engine/ui/painting/tile_mode.dart';
 
 /// Global instance of [FlutterEvalPlugin]
@@ -182,7 +183,6 @@ class FlutterEvalPlugin implements EvalPlugin {
         $IconData.$declaration,
         $Icon.$declaration,
         $Spacer.$declaration,
-        $ShapeBorder.$declaration,
         $OutlinedBorder.$declaration,
         $BoxBorder.$declaration,
         $Border.$declaration,
@@ -250,6 +250,7 @@ class FlutterEvalPlugin implements EvalPlugin {
         $BorderRadiusGeometryProps.instance,
         $BorderRadiusProps.instance,
         $BorderSideProps.instance,
+        $ShapeBorderProps.instance,
       ];
 
   @override
