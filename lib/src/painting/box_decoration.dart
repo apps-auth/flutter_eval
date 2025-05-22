@@ -21,24 +21,36 @@ class $BoxDecoration implements $Instance {
           namedParams: [
             BridgeParameter(
               'color',
-              BridgeTypeAnnotation($Color.$type, nullable: true),
+              BridgeTypeAnnotation(
+                $Color.$type,
+                nullable: true,
+              ),
               true,
             ),
-            // BridgeParameter(
-            //   'image',
-            //   BridgeTypeAnnotation($DecorationImage.$type, nullable: true),
-            //   true,
-            // ),
+            BridgeParameter(
+              'image',
+              BridgeTypeAnnotation(
+                BridgeTypeRef(CoreTypes.dynamic),
+                nullable: true,
+              ),
+              true,
+            ),
             BridgeParameter(
               'border',
-              BridgeTypeAnnotation($BoxBorder.$type, nullable: true),
+              BridgeTypeAnnotation(
+                $BoxBorder.$type,
+                nullable: true,
+              ),
               true,
             ),
-            // BridgeParameter(
-            //   'borderRadius',
-            //   BridgeTypeAnnotation($BorderRadius.$type, nullable: true),
-            //   true,
-            // ),
+            BridgeParameter(
+              'borderRadius',
+              BridgeTypeAnnotation(
+                BridgeTypeRef(CoreTypes.dynamic),
+                nullable: true,
+              ),
+              true,
+            ),
             BridgeParameter(
               'boxShadow',
               BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.list)),
@@ -46,19 +58,28 @@ class $BoxDecoration implements $Instance {
             ),
             BridgeParameter(
               'gradient',
-              BridgeTypeAnnotation($Gradient.$type, nullable: true),
+              BridgeTypeAnnotation(
+                BridgeTypeRef(CoreTypes.dynamic),
+                nullable: true,
+              ),
               true,
             ),
-            // BridgeParameter(
-            //   'backgroundBlendMode',
-            //   BridgeTypeAnnotation($BlendMode.$type, nullable: true),
-            //   true,
-            // ),
-            // BridgeParameter(
-            //   'shape',
-            //   BridgeTypeAnnotation($BoxShape.$type, nullable: true),
-            //   true,
-            // ),
+            BridgeParameter(
+              'backgroundBlendMode',
+              BridgeTypeAnnotation(
+                BridgeTypeRef(CoreTypes.dynamic),
+                nullable: true,
+              ),
+              true,
+            ),
+            BridgeParameter(
+              'shape',
+              BridgeTypeAnnotation(
+                BridgeTypeRef(CoreTypes.dynamic),
+                nullable: true,
+              ),
+              true,
+            ),
           ],
         ),
       ),
