@@ -1,8 +1,6 @@
 import 'package:dart_eval/dart_eval_bridge.dart';
 import 'package:dart_eval/stdlib/core.dart';
 import 'package:flutter/painting.dart';
-import 'border_side/border_side/core.dart';
-import 'border_side/shape_border/core.dart';
 
 class $BorderStyle implements $Instance {
   static const $type = BridgeTypeRef(BridgeTypeSpec(
@@ -39,59 +37,5 @@ class $BorderStyle implements $Instance {
   }
 }
 
-// ShapeBorder implementation moved to shape_border/shape_border/core.dart
-
-class $OutlinedBorder implements $Instance {
-  static const $type = BridgeTypeRef(
-    BridgeTypeSpec(
-      'package:flutter/src/painting/borders.dart',
-      'OutlinedBorder',
-    ),
-  );
-
-  static const $declaration = BridgeClassDef(
-    BridgeClassType(
-      $type,
-      isAbstract: true,
-      $extends: $ShapeBorder.$type,
-    ),
-    constructors: {
-      '': BridgeConstructorDef(
-        BridgeFunctionDef(
-          returns: BridgeTypeAnnotation($type),
-          namedParams: [
-            BridgeParameter(
-              'side',
-              BridgeTypeAnnotation($BorderSide.$type),
-              false,
-            ),
-          ],
-        ),
-      )
-    },
-    wrap: true,
-  );
-
-  $OutlinedBorder.wrap(this.$value) : _superclass = $ShapeBorder.wrap($value);
-
-  final $Instance _superclass;
-
-  @override
-  final ShapeBorder $value;
-
-  @override
-  get $reified => $value;
-
-  @override
-  int $getRuntimeType(Runtime runtime) => runtime.lookupType($type.spec!);
-
-  @override
-  $Value? $getProperty(Runtime runtime, String identifier) {
-    return _superclass.$getProperty(runtime, identifier);
-  }
-
-  @override
-  void $setProperty(Runtime runtime, String identifier, $Value value) {
-    _superclass.$setProperty(runtime, identifier, value);
-  }
-}
+// ShapeBorder implementation moved to border_side/shape_border/core.dart
+// OutlinedBorder implementation moved to outlined_border/outlined_border/core.dart
