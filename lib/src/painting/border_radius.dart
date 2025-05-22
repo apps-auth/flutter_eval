@@ -73,14 +73,14 @@ class $BorderRadius implements $Instance {
         'only': BridgeConstructorDef(BridgeFunctionDef(
             returns: BridgeTypeAnnotation($type),
             namedParams: [
-              BridgeParameter(
-                  'topLeft', BridgeTypeAnnotation($Radius.$type), false),
-              BridgeParameter(
-                  'topRight', BridgeTypeAnnotation($Radius.$type), false),
-              BridgeParameter(
-                  'bottomLeft', BridgeTypeAnnotation($Radius.$type), false),
-              BridgeParameter(
-                  'bottomRight', BridgeTypeAnnotation($Radius.$type), false),
+              BridgeParameter('topLeft',
+                  BridgeTypeAnnotation($Radius.$type, nullable: true), true),
+              BridgeParameter('topRight',
+                  BridgeTypeAnnotation($Radius.$type, nullable: true), true),
+              BridgeParameter('bottomLeft',
+                  BridgeTypeAnnotation($Radius.$type, nullable: true), true),
+              BridgeParameter('bottomRight',
+                  BridgeTypeAnnotation($Radius.$type, nullable: true), true),
             ])),
       },
       wrap: true);
@@ -127,10 +127,10 @@ class $BorderRadius implements $Instance {
   /// Create a new [$BorderRadius] using [BorderRadius.only] from [args]
   static $Value? $only(Runtime runtime, $Value? target, List<$Value?> args) {
     return $BorderRadius.wrap(BorderRadius.only(
-      topLeft: args[0]!.$value ?? Radius.zero,
-      topRight: args[1]!.$value ?? Radius.zero,
-      bottomLeft: args[2]!.$value ?? Radius.zero,
-      bottomRight: args[3]!.$value ?? Radius.zero,
+      topLeft: args[0]?.$value ?? Radius.zero,
+      topRight: args[1]?.$value ?? Radius.zero,
+      bottomLeft: args[2]?.$value ?? Radius.zero,
+      bottomRight: args[3]?.$value ?? Radius.zero,
     ));
   }
 

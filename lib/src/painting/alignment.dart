@@ -46,14 +46,17 @@ class $Alignment implements $Instance {
       BridgeClassType($type,
           isAbstract: false, $extends: $AlignmentGeometry.$type),
       constructors: {
-        '': BridgeConstructorDef(BridgeFunctionDef(
+        '': BridgeConstructorDef(
+          BridgeFunctionDef(
             returns: BridgeTypeAnnotation($type),
-            namedParams: [
+            params: [
               BridgeParameter('x',
                   BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.double)), false),
               BridgeParameter('y',
                   BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.double)), false),
-            ]))
+            ],
+          ),
+        )
       },
       getters: {
         'x': BridgeMethodDef(BridgeFunctionDef(

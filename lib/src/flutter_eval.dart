@@ -107,6 +107,7 @@ class _CompilerWidgetState extends State<CompilerWidget> {
     try {
       _recompile(false);
     } catch (e, stackTrace) {
+      codeCache = {};
       _setError(e, stackTrace, false);
     }
   }

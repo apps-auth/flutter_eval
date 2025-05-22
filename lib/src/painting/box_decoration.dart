@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_eval/src/painting/box_border.dart';
 import 'package:flutter_eval/src/sky_engine/ui/painting.dart';
 
+import 'border_radius.dart';
 import 'decoration.dart';
 
 class $BoxDecoration implements $Instance {
@@ -46,7 +47,7 @@ class $BoxDecoration implements $Instance {
             BridgeParameter(
               'borderRadius',
               BridgeTypeAnnotation(
-                BridgeTypeRef(CoreTypes.dynamic),
+                $BorderRadiusGeometry.$type,
                 nullable: true,
               ),
               true,
@@ -93,14 +94,14 @@ class $BoxDecoration implements $Instance {
 
   static $Value? $new(Runtime runtime, $Value? target, List<$Value?> args) {
     return $BoxDecoration.wrap(BoxDecoration(
-      color: args[0]?.$value,
-      //image: args[1]?.value as DecorationImage?,
-      border: args[1]?.$value,
-      //borderRadius: args[3]?.value as BorderRadius?,
-      boxShadow: args[2]?.$value,
-      //gradient: args[5]?.value as Gradient?,
-      //backgroundBlendMode: args[6]?.value as BlendMode?,
-      //shape: args[7]?.value as BoxShape?
+      color: args[0]?.$reified,
+      //image: args[1]?.$reified,
+      border: args[1]?.$reified,
+      borderRadius: args[3]?.$reified,
+      boxShadow: args[2]?.$reified,
+      gradient: args[5]?.$reified,
+      //backgroundBlendMode: args[6]?.$reified,
+      // shape: args[7]?.$reified,
     ));
   }
 
