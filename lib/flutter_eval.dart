@@ -40,7 +40,7 @@ import 'package:flutter_eval/src/material/text_theme.dart';
 import 'package:flutter_eval/src/material/theme.dart';
 import 'package:flutter_eval/src/material/theme_data.dart';
 import 'package:flutter_eval/src/painting.dart';
-import 'package:flutter_eval/src/painting/basic_types.dart';
+import 'package:flutter_eval/src/painting/basic_types/basic_types.dart';
 import 'package:flutter_eval/src/painting/box_fit/box_fit/core.dart';
 
 import 'package:flutter_eval/src/painting/decoration_image/decoration_image/core.dart';
@@ -51,6 +51,8 @@ import 'package:flutter_eval/src/painting/image_provider/resize_image/core.dart'
 import 'package:flutter_eval/src/painting/image_repeat/image_repeat/core.dart';
 import 'package:flutter_eval/src/painting/text_style/text_style/core.dart';
 import 'package:flutter_eval/src/painting/color_swatch/color_swatch/core.dart';
+import 'package:flutter_eval/src/painting/basic_types/vertical_direction/core.dart';
+import 'package:flutter_eval/src/painting/basic_types/axis/core.dart';
 import 'package:flutter_eval/src/rendering.dart';
 import 'package:flutter_eval/src/rendering/box.dart';
 import 'package:flutter_eval/src/rendering/flex.dart';
@@ -274,6 +276,8 @@ class FlutterEvalPlugin implements EvalPlugin {
         $MemoryImageProps.instance,
         $ResizeImageProps.instance,
         $ColorSwatchProps.instance,
+        $VerticalDirectionProps.instance,
+        $AxisProps.instance,
       ];
 
   @override
@@ -292,9 +296,7 @@ class FlutterEvalPlugin implements EvalPlugin {
     registry.defineBridgeEnum($FontWeight.$declaration);
     registry.defineBridgeEnum($FontStyle.$declaration);
     registry.defineBridgeEnum($TextDirection.$declaration);
-    registry.defineBridgeEnum($VerticalDirection.$declaration);
     registry.defineBridgeEnum($TextBaseline.$declaration);
-    registry.defineBridgeEnum($Axis.$declaration);
 
     registry.defineBridgeEnum($FilterQuality.$declaration);
     registry.defineBridgeEnum($PointerDeviceKind.$declaration);
@@ -568,14 +570,6 @@ class FlutterEvalPlugin implements EvalPlugin {
       ..registerBridgeEnumValues(
           'dart:ui', 'PointerDeviceKind', $PointerDeviceKind.$values)
       ..registerBridgeEnumValues('dart:ui', 'Clip', $Clip.$values)
-      ..registerBridgeEnumValues(
-          'package:flutter/src/painting/basic_types.dart',
-          'VerticalDirection',
-          $VerticalDirection.$values)
-      ..registerBridgeEnumValues(
-          'package:flutter/src/painting/basic_types.dart',
-          'Axis',
-          $Axis.$values)
       ..registerBridgeEnumValues(
           'dart:ui', 'FilterQuality', $FilterQuality.$values)
       ..registerBridgeEnumValues('package:flutter/src/rendering/flex.dart',

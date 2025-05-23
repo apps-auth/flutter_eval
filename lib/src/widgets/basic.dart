@@ -2,7 +2,7 @@ import 'package:dart_eval/dart_eval_bridge.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_eval/src/foundation/key.dart';
-import 'package:flutter_eval/src/painting/basic_types.dart';
+import 'package:flutter_eval/src/painting/basic_types/vertical_direction/core.dart';
 import 'package:flutter_eval/src/painting/box_fit/box_fit/core.dart';
 import 'package:flutter_eval/src/rendering/flex.dart';
 import 'package:flutter_eval/src/rendering/stack.dart';

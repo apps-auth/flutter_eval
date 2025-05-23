@@ -2,7 +2,7 @@ import 'package:dart_eval/dart_eval_bridge.dart';
 import 'package:dart_eval/stdlib/core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_eval/painting.dart';
+import 'package:flutter_eval/src/painting/basic_types/axis/core.dart';
 import 'package:flutter_eval/src/foundation/key.dart';
 import 'package:flutter_eval/src/widgets/framework.dart';
 import 'package:flutter_eval/src/widgets/scroll_controller.dart';
