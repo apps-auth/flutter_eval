@@ -43,7 +43,9 @@ import 'package:flutter_eval/src/painting.dart';
 import 'package:flutter_eval/src/painting/basic_types.dart';
 import 'package:flutter_eval/src/painting/box_fit.dart';
 import 'package:flutter_eval/src/painting/colors.dart';
+import 'package:flutter_eval/src/painting/decoration_image/decoration_image/core.dart';
 import 'package:flutter_eval/src/painting/image_provider.dart';
+import 'package:flutter_eval/src/painting/image_repeat/image_repeat/core.dart';
 import 'package:flutter_eval/src/painting/text_style.dart';
 import 'package:flutter_eval/src/rendering.dart';
 import 'package:flutter_eval/src/rendering/box.dart';
@@ -241,6 +243,7 @@ class FlutterEvalPlugin implements EvalPlugin {
         $LinearGradientProps.instance,
         $GradientTransformProps.instance,
         $DecorationProps.instance,
+        $DecorationImageProps.instance,
         $BoxDecorationProps.instance,
         $AlignmentProps.instance,
         $AlignmentGeometryProps.instance,
@@ -255,6 +258,7 @@ class FlutterEvalPlugin implements EvalPlugin {
         $EdgeInsetsGeometryProps.instance,
         $EdgeInsetsProps.instance,
         $RoundedRectangleBorderProps.instance,
+        $ImageRepeatProps.instance,
       ];
 
   @override
