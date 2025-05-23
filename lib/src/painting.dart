@@ -13,6 +13,6 @@ export 'src/painting/decoration.dart';
 export 'src/painting/edge_insets.dart';
 export 'src/painting/image_provider.dart';
 export 'src/painting/text_style.dart';
-export 'src/painting/rounded_rectangle_border.dart';
+export 'src/painting/rounded_rectangle_border/core.dart';
 export 'src/painting/gradient.dart';
 ''';

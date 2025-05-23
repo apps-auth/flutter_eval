@@ -97,7 +97,7 @@ import 'src/painting/edge_insets/edge_insets_geometry/core.dart';
 import 'src/painting/gradient/gradient-transform/core.dart';
 import 'src/painting/gradient/gradient/core.dart';
 import 'src/painting/gradient/linear_gradient/core.dart';
-import 'src/painting/rounded_rectangle_border.dart';
+import 'src/painting/rounded_rectangle_border/rounded_rectangle_border/core.dart';
 import 'src/painting/borders/shape_border/core.dart';
 import 'src/painting/borders/outlined_border/core.dart';
 import 'src/sky_engine/ui/painting/tile_mode.dart';
@@ -234,7 +234,6 @@ class FlutterEvalPlugin implements EvalPlugin {
         $PageRoute$bridge.$declaration,
         $MaterialPageRoute.$declaration,
         $RouteSettings.$declaration,
-        $RoundedRectangleBorder.$declaration,
       ];
 
   List<IInstanceDefaultProps> get classesDefault => [
@@ -255,6 +254,7 @@ class FlutterEvalPlugin implements EvalPlugin {
         $BorderProps.instance,
         $EdgeInsetsGeometryProps.instance,
         $EdgeInsetsProps.instance,
+        $RoundedRectangleBorderProps.instance,
       ];
 
   @override
@@ -547,11 +547,6 @@ class FlutterEvalPlugin implements EvalPlugin {
         'package:flutter/src/services/platform_channel.dart',
         'MethodChannel.',
         $MethodChannel.$new,
-      )
-      ..registerBridgeFunc(
-        'package:flutter/src/painting/rounded_rectangle_border.dart',
-        'RoundedRectangleBorder.',
-        $RoundedRectangleBorder.$new,
       )
       ..registerBridgeEnumValues('dart:ui', 'FontWeight', $FontWeight.$values)
       ..registerBridgeEnumValues('dart:ui', 'FontStyle', $FontStyle.$values)
