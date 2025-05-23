@@ -2,13 +2,13 @@ import 'package:dart_eval/dart_eval_bridge.dart';
 import 'package:dart_eval/stdlib/core.dart';
 import 'package:flutter/painting.dart';
 
+import '../../edge_insets/edge_insets_geometry/core.dart';
 import '../core.dart';
 import '../box_border/core.dart';
 import '../../../sky_engine/ui/painting.dart';
 import '../../borders/border_side/core.dart';
 import '../../borders/border_style/core.dart';
 import '../../borders/shape_border/core.dart';
-import '../../edge_insets.dart';
 
 part 'constructors.dart';
 part 'gettersStatic.dart';

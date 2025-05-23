@@ -2,34 +2,33 @@ import 'package:dart_eval/dart_eval_bridge.dart';
 import 'package:dart_eval/stdlib/core.dart';
 import 'package:flutter/painting.dart';
 
-import '../../edge_insets/edge_insets/core.dart';
-import '../../edge_insets/edge_insets_geometry/core.dart';
 import '../core.dart';
+import '../edge_insets_geometry/core.dart';
 
 part 'constructors.dart';
 part 'gettersStatic.dart';
 part 'getters.dart';
 part 'methods.dart';
 
-const String _className = "ShapeBorder";
+const String _className = "EdgeInsets";
 const _type = BridgeTypeRef(
   BridgeTypeSpec(flutterFileName, _className),
 );
 
-class $ShapeBorder extends $InstanceDefault<ShapeBorder> {
-  $ShapeBorder.wrap(super.$value)
+class $EdgeInsets extends $InstanceDefault<EdgeInsets> {
+  $EdgeInsets.wrap(super.$value)
       : super.wrap(
-          superclass: $Object($value),
-          props: $ShapeBorderProps.instance,
+          superclass: $EdgeInsetsGeometry.wrap($value),
+          props: $EdgeInsetsProps.instance,
         );
 
   static const $type = _type;
 }
 
-class $ShapeBorderProps extends InstanceDefaultProps {
-  static final $ShapeBorderProps instance = $ShapeBorderProps._();
+class $EdgeInsetsProps extends InstanceDefaultProps {
+  static final $EdgeInsetsProps instance = $EdgeInsetsProps._();
 
-  $ShapeBorderProps._();
+  $EdgeInsetsProps._();
 
   @override
   String get className => _className;
@@ -40,31 +39,35 @@ class $ShapeBorderProps extends InstanceDefaultProps {
   @override
   BridgeClassType get type => const BridgeClassType(
         _type,
-        isAbstract: true,
-        $extends: $Object.$type,
+        isAbstract: false,
+        $extends: $EdgeInsetsGeometry.$type,
       );
 
   @override
   final List<InstanceDefaultPropsConstructor> constructors = [
-    // ShapeBorder é abstrata, não tem construtores públicos
+    $EdgeInsetsConstructorDefault(),
+    $EdgeInsetsConstructorFromLTRB(),
+    $EdgeInsetsConstructorAll(),
+    $EdgeInsetsConstructorOnly(),
+    $EdgeInsetsConstructorSymmetric(),
+    $EdgeInsetsConstructorLerp(),
   ];
 
   @override
   final List<InstanceDefaultPropsGetterStatic> gettersStatic = [
-    // ShapeBorder não tem getters estáticos específicos
+    $EdgeInsetsGetterStaticZero(),
   ];
 
   @override
   final List<InstanceDefaultPropsGetter> getters = [
-    $ShapeBorderGetterDimensions(),
+    $EdgeInsetsGetterLeft(),
+    $EdgeInsetsGetterTop(),
+    $EdgeInsetsGetterRight(),
+    $EdgeInsetsGetterBottom(),
   ];
 
   @override
   final List<InstanceDefaultPropsMethod> methods = [
-    $ShapeBorderMethodAdd(),
-    $ShapeBorderMethodScale(),
-    $ShapeBorderMethodLerpFrom(),
-    $ShapeBorderMethodLerpTo(),
-    $ShapeBorderMethodToString(),
+    $EdgeInsetsMethodCopyWith(),
   ];
 }

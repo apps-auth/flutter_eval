@@ -4,9 +4,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_eval/painting.dart';
 import 'package:flutter_eval/src/foundation/key.dart';
-import 'package:flutter_eval/src/painting/edge_insets.dart';
 import 'package:flutter_eval/src/widgets/framework.dart';
 import 'package:flutter_eval/src/widgets/scroll_controller.dart';
+
+import '../painting/edge_insets/edge_insets_geometry/core.dart';
 
 /// dart_eval wrapper for [ListView]
 class $ListView implements $Instance {

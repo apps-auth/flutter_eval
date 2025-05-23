@@ -43,7 +43,6 @@ import 'package:flutter_eval/src/painting.dart';
 import 'package:flutter_eval/src/painting/basic_types.dart';
 import 'package:flutter_eval/src/painting/box_fit.dart';
 import 'package:flutter_eval/src/painting/colors.dart';
-import 'package:flutter_eval/src/painting/edge_insets.dart';
 import 'package:flutter_eval/src/painting/image_provider.dart';
 import 'package:flutter_eval/src/painting/text_style.dart';
 import 'package:flutter_eval/src/rendering.dart';
@@ -93,6 +92,8 @@ import 'src/painting/box_border/border/core.dart';
 import 'src/painting/box_border/box_border/core.dart';
 import 'src/painting/box_decoration/box_decoration/core.dart';
 import 'src/painting/decoration/decoration/core.dart';
+import 'src/painting/edge_insets/edge_insets/core.dart';
+import 'src/painting/edge_insets/edge_insets_geometry/core.dart';
 import 'src/painting/gradient/gradient-transform/core.dart';
 import 'src/painting/gradient/gradient/core.dart';
 import 'src/painting/gradient/linear_gradient/core.dart';
@@ -139,8 +140,6 @@ class FlutterEvalPlugin implements EvalPlugin {
         $Container.$declaration,
         $Key.$declaration,
         $Color.$declaration,
-        $EdgeInsetsGeometry.$declaration,
-        $EdgeInsets.$declaration,
         $ColorSwatch.$declaration,
         $WidgetsApp.$declaration,
         $MaterialApp.$declaration,
@@ -254,6 +253,8 @@ class FlutterEvalPlugin implements EvalPlugin {
         $BorderStyleProps.instance,
         $BoxBorderProps.instance,
         $BorderProps.instance,
+        $EdgeInsetsGeometryProps.instance,
+        $EdgeInsetsProps.instance,
       ];
 
   @override
@@ -362,14 +363,6 @@ class FlutterEvalPlugin implements EvalPlugin {
       ..registerBridgeFunc('package:flutter/src/widgets/framework.dart',
           'State.', $State$bridge.$new,
           isBridge: true)
-      ..registerBridgeFunc('package:flutter/src/painting/edge_insets.dart',
-          'EdgeInsets.fromLTRB', $EdgeInsets.$fromLTRB)
-      ..registerBridgeFunc('package:flutter/src/painting/edge_insets.dart',
-          'EdgeInsets.all', $EdgeInsets.$all)
-      ..registerBridgeFunc('package:flutter/src/painting/edge_insets.dart',
-          'EdgeInsets.only', $EdgeInsets.$only)
-      ..registerBridgeFunc('package:flutter/src/painting/edge_insets.dart',
-          'EdgeInsets.symmetric', $EdgeInsets.$symmetric)
       ..registerBridgeFunc('package:flutter/src/painting/text_style.dart',
           'TextStyle.', $TextStyle.$new)
       ..registerBridgeFunc(
