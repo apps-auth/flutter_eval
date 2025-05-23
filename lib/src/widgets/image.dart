@@ -1,7 +1,7 @@
 import 'package:dart_eval/dart_eval_bridge.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_eval/src/foundation/key.dart';
-import 'package:flutter_eval/src/painting/box_fit.dart';
+import 'package:flutter_eval/src/painting/box_fit/box_fit/core.dart';
 import 'package:flutter_eval/src/painting/image_provider.dart';
 import 'package:flutter_eval/src/sky_engine/ui/image.dart';
 import 'package:flutter_eval/src/sky_engine/ui/painting.dart';

@@ -41,7 +41,7 @@ import 'package:flutter_eval/src/material/theme.dart';
 import 'package:flutter_eval/src/material/theme_data.dart';
 import 'package:flutter_eval/src/painting.dart';
 import 'package:flutter_eval/src/painting/basic_types.dart';
-import 'package:flutter_eval/src/painting/box_fit.dart';
+import 'package:flutter_eval/src/painting/box_fit/box_fit/core.dart';
 import 'package:flutter_eval/src/painting/colors.dart';
 import 'package:flutter_eval/src/painting/decoration_image/decoration_image/core.dart';
 import 'package:flutter_eval/src/painting/image_provider.dart';
@@ -269,6 +269,7 @@ class FlutterEvalPlugin implements EvalPlugin {
         $ColorFilterProps.instance,
         $BoxShapeProps.instance,
         $TextStyleProps.instance,
+        $BoxFitProps.instance,
       ];
 
   @override
@@ -290,7 +291,7 @@ class FlutterEvalPlugin implements EvalPlugin {
     registry.defineBridgeEnum($VerticalDirection.$declaration);
     registry.defineBridgeEnum($TextBaseline.$declaration);
     registry.defineBridgeEnum($Axis.$declaration);
-    registry.defineBridgeEnum($BoxFit.$declaration);
+
     registry.defineBridgeEnum($FilterQuality.$declaration);
     registry.defineBridgeEnum($PointerDeviceKind.$declaration);
     registry.defineBridgeEnum($HitTestBehavior.$declaration);
@@ -577,8 +578,6 @@ class FlutterEvalPlugin implements EvalPlugin {
           'package:flutter/src/painting/basic_types.dart',
           'Axis',
           $Axis.$values)
-      ..registerBridgeEnumValues('package:flutter/src/painting/box_fit.dart',
-          'BoxFit', $BoxFit.$values)
       ..registerBridgeEnumValues(
           'dart:ui', 'FilterQuality', $FilterQuality.$values)
       ..registerBridgeEnumValues('package:flutter/src/rendering/flex.dart',

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import '../../image_repeat/image_repeat/core.dart';
 import '../core.dart';
 import '../../image_provider.dart';
-import '../../box_fit.dart';
+import '../../box_fit/box_fit/core.dart';
 import '../../alignment/alignment_geometry/core.dart';
 import '../../../sky_engine/ui/image.dart';
 import '../../../sky_engine/ui/geometry/rect/core.dart';
