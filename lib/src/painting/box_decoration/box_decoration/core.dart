@@ -5,7 +5,7 @@ import 'package:flutter/widgets.dart';
 
 import '../../../sky_engine/ui/painting.dart';
 import '../../border_radius/border_radius_geometry/core.dart';
-import '../../box_border.dart';
+import '../../box_border/box_border/core.dart';
 import '../../decoration/decoration/core.dart';
 import '../core.dart';
 

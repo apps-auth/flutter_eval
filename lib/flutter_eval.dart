@@ -41,7 +41,6 @@ import 'package:flutter_eval/src/material/theme.dart';
 import 'package:flutter_eval/src/material/theme_data.dart';
 import 'package:flutter_eval/src/painting.dart';
 import 'package:flutter_eval/src/painting/basic_types.dart';
-import 'package:flutter_eval/src/painting/box_border.dart';
 import 'package:flutter_eval/src/painting/box_fit.dart';
 import 'package:flutter_eval/src/painting/colors.dart';
 import 'package:flutter_eval/src/painting/edge_insets.dart';
@@ -90,6 +89,8 @@ import 'src/painting/border_radius/border_radius/core.dart';
 import 'src/painting/border_radius/border_radius_geometry/core.dart';
 import 'src/painting/borders/border_side/core.dart';
 import 'src/painting/borders/border_style/core.dart';
+import 'src/painting/box_border/border/core.dart';
+import 'src/painting/box_border/box_border/core.dart';
 import 'src/painting/box_decoration/box_decoration/core.dart';
 import 'src/painting/decoration/decoration/core.dart';
 import 'src/painting/gradient/gradient-transform/core.dart';
@@ -184,8 +185,6 @@ class FlutterEvalPlugin implements EvalPlugin {
         $IconData.$declaration,
         $Icon.$declaration,
         $Spacer.$declaration,
-        $BoxBorder.$declaration,
-        $Border.$declaration,
         $InkWell.$declaration,
         $ListView.$declaration,
         $ScrollController.$declaration,
@@ -253,6 +252,8 @@ class FlutterEvalPlugin implements EvalPlugin {
         $ShapeBorderProps.instance,
         $OutlinedBorderProps.instance,
         $BorderStyleProps.instance,
+        $BoxBorderProps.instance,
+        $BorderProps.instance,
       ];
 
   @override
@@ -367,15 +368,6 @@ class FlutterEvalPlugin implements EvalPlugin {
           'EdgeInsets.all', $EdgeInsets.$all)
       ..registerBridgeFunc('package:flutter/src/painting/edge_insets.dart',
           'EdgeInsets.only', $EdgeInsets.$only)
-      // BorderSide now uses InstanceDefault pattern
-      ..registerBridgeFunc('package:flutter/src/painting/box_border.dart',
-          'Border.', $Border.$new)
-      ..registerBridgeFunc('package:flutter/src/painting/box_border.dart',
-          'Border.all', $Border.$all)
-      ..registerBridgeFunc('package:flutter/src/painting/box_border.dart',
-          'Border.fromBorderSide', $Border.$fromBorderSide)
-      ..registerBridgeFunc('package:flutter/src/painting/box_border.dart',
-          'Border.symmetric', $Border.$symmetric)
       ..registerBridgeFunc('package:flutter/src/painting/edge_insets.dart',
           'EdgeInsets.symmetric', $EdgeInsets.$symmetric)
       ..registerBridgeFunc('package:flutter/src/painting/text_style.dart',
