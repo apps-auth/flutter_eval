@@ -20,7 +20,7 @@ class $BoxDecorationConstructorNew extends InstanceDefaultPropsConstructor {
             BridgeParameter(
               'image',
               BridgeTypeAnnotation(
-                BridgeTypeRef(CoreTypes.dynamic),
+                $DecorationImage.$type,
                 nullable: true,
               ),
               true,
@@ -49,7 +49,7 @@ class $BoxDecorationConstructorNew extends InstanceDefaultPropsConstructor {
             BridgeParameter(
               'gradient',
               BridgeTypeAnnotation(
-                BridgeTypeRef(CoreTypes.dynamic),
+                $Gradient.$type,
                 nullable: true,
               ),
               true,
@@ -57,19 +57,19 @@ class $BoxDecorationConstructorNew extends InstanceDefaultPropsConstructor {
             BridgeParameter(
               'backgroundBlendMode',
               BridgeTypeAnnotation(
-                BridgeTypeRef(CoreTypes.dynamic),
+                $BlendMode.$type,
                 nullable: true,
               ),
               true,
             ),
-            BridgeParameter(
-              'shape',
-              BridgeTypeAnnotation(
-                BridgeTypeRef(CoreTypes.dynamic),
-                nullable: true,
-              ),
-              true,
-            ),
+            // BridgeParameter(
+            //   'shape',
+            //   BridgeTypeAnnotation(
+            //     $BoxShape.$type,
+            //     nullable: true,
+            //   ),
+            //   true,
+            // ),
           ],
         ),
       );
@@ -79,12 +79,12 @@ class $BoxDecorationConstructorNew extends InstanceDefaultPropsConstructor {
     return $BoxDecoration.wrap(
       BoxDecoration(
         color: args[0]?.$reified,
-        //image: args[1]?.$reified,
-        border: args[1]?.$reified,
+        image: args[1]?.$reified,
+        border: args[2]?.$reified,
         borderRadius: args[3]?.$reified,
-        boxShadow: args[2]?.$reified,
+        boxShadow: args[4]?.$reified,
         gradient: args[5]?.$reified,
-        //backgroundBlendMode: args[6]?.$reified,
+        backgroundBlendMode: args[6]?.$reified,
         // shape: args[7]?.$reified,
       ),
     );

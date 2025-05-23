@@ -78,7 +78,6 @@ class $DecorationImageConstructorDefault
 
   @override
   $Value? run(Runtime runtime, $Value? target, List<$Value?> args) {
-    ColorFilter.;
     return $DecorationImage.wrap(
       DecorationImage(
         image: args[0]!.$reified, // image (obrigatório)
