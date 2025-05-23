@@ -44,7 +44,10 @@ import 'package:flutter_eval/src/painting/basic_types.dart';
 import 'package:flutter_eval/src/painting/box_fit/box_fit/core.dart';
 import 'package:flutter_eval/src/painting/colors.dart';
 import 'package:flutter_eval/src/painting/decoration_image/decoration_image/core.dart';
-import 'package:flutter_eval/src/painting/image_provider.dart';
+import 'package:flutter_eval/src/painting/image_provider/image_provider/core.dart';
+import 'package:flutter_eval/src/painting/image_provider/network_image/core.dart';
+import 'package:flutter_eval/src/painting/image_provider/memory_image/core.dart';
+import 'package:flutter_eval/src/painting/image_provider/resize_image/core.dart';
 import 'package:flutter_eval/src/painting/image_repeat/image_repeat/core.dart';
 import 'package:flutter_eval/src/painting/text_style/text_style/core.dart';
 import 'package:flutter_eval/src/rendering.dart';
@@ -198,10 +201,6 @@ class FlutterEvalPlugin implements EvalPlugin {
         $ListTile.$declaration,
         $SwitchListTile.$declaration,
         $Image.$declaration,
-        $ImageProvider.$declaration,
-        $NetworkImage.$declaration,
-        $MemoryImage.$declaration,
-        $ResizeImage.$declaration,
         $Offset.$declaration,
         $Velocity.$declaration,
         $GestureDetector.$declaration,
@@ -270,6 +269,10 @@ class FlutterEvalPlugin implements EvalPlugin {
         $BoxShapeProps.instance,
         $TextStyleProps.instance,
         $BoxFitProps.instance,
+        $ImageProviderProps.instance,
+        $NetworkImageProps.instance,
+        $MemoryImageProps.instance,
+        $ResizeImageProps.instance,
       ];
 
   @override
@@ -528,12 +531,6 @@ class FlutterEvalPlugin implements EvalPlugin {
           'Navigator.', $Navigator.$new)
       ..registerBridgeFunc('package:flutter/src/widgets/navigator.dart',
           'Navigator.of', $Navigator.$of)
-      ..registerBridgeFunc('package:flutter/src/painting/image_provider.dart',
-          'NetworkImage.', $NetworkImage.$new)
-      ..registerBridgeFunc('package:flutter/src/painting/image_provider.dart',
-          'MemoryImage.', $MemoryImage.$new)
-      ..registerBridgeFunc('package:flutter/src/painting/image_provider.dart',
-          'ResizeImage.', $ResizeImage.$new)
       ..registerBridgeFunc('package:flutter/src/widgets/gesture_detector.dart',
           'GestureDetector.', $GestureDetector.$new)
       ..registerBridgeFunc('package:flutter/src/gestures/tap.dart',
