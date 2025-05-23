@@ -46,7 +46,7 @@ import 'package:flutter_eval/src/painting/colors.dart';
 import 'package:flutter_eval/src/painting/decoration_image/decoration_image/core.dart';
 import 'package:flutter_eval/src/painting/image_provider.dart';
 import 'package:flutter_eval/src/painting/image_repeat/image_repeat/core.dart';
-import 'package:flutter_eval/src/painting/text_style.dart';
+import 'package:flutter_eval/src/painting/text_style/text_style/core.dart';
 import 'package:flutter_eval/src/rendering.dart';
 import 'package:flutter_eval/src/rendering/box.dart';
 import 'package:flutter_eval/src/rendering/flex.dart';
@@ -166,7 +166,6 @@ class FlutterEvalPlugin implements EvalPlugin {
         $ScaffoldMessenger.$declaration,
         $ScaffoldMessengerState.$declaration,
         $SnackBar.$declaration,
-        $TextStyle.$declaration,
         $TextTheme.$declaration,
         $IconButton.$declaration,
         $TextButton.$declaration,
@@ -269,6 +268,7 @@ class FlutterEvalPlugin implements EvalPlugin {
         $ImageFilterProps.instance,
         $ColorFilterProps.instance,
         $BoxShapeProps.instance,
+        $TextStyleProps.instance,
       ];
 
   @override
@@ -377,8 +377,6 @@ class FlutterEvalPlugin implements EvalPlugin {
       ..registerBridgeFunc('package:flutter/src/widgets/framework.dart',
           'State.', $State$bridge.$new,
           isBridge: true)
-      ..registerBridgeFunc('package:flutter/src/painting/text_style.dart',
-          'TextStyle.', $TextStyle.$new)
       ..registerBridgeFunc(
           'package:flutter/src/animation/animation_controller.dart',
           'AnimationController.',
