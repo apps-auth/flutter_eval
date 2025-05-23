@@ -239,7 +239,7 @@ class FlutterEvalPlugin implements EvalPlugin {
         $RoundedRectangleBorder.$declaration,
       ];
 
-  List<InstanceDefaultProps> get classesDefault => [
+  List<IInstanceDefaultProps> get classesDefault => [
         $GradientProps.instance,
         $LinearGradientProps.instance,
         $GradientTransformProps.instance,
@@ -252,6 +252,7 @@ class FlutterEvalPlugin implements EvalPlugin {
         $BorderSideProps.instance,
         $ShapeBorderProps.instance,
         $OutlinedBorderProps.instance,
+        $BorderStyleProps.instance,
       ];
 
   @override
@@ -273,7 +274,6 @@ class FlutterEvalPlugin implements EvalPlugin {
     registry.defineBridgeEnum($VerticalDirection.$declaration);
     registry.defineBridgeEnum($TextBaseline.$declaration);
     registry.defineBridgeEnum($Axis.$declaration);
-    registry.defineBridgeEnum($BorderStyle.$declaration);
     registry.defineBridgeEnum($BoxFit.$declaration);
     registry.defineBridgeEnum($FilterQuality.$declaration);
     registry.defineBridgeEnum($PointerDeviceKind.$declaration);
