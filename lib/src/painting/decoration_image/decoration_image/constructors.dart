@@ -52,12 +52,11 @@ class $DecorationImageConstructorDefault
               BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.double)),
               true,
             ),
-            // colorFilter comentado pois $ColorFilter não está implementado
-            // BridgeParameter(
-            //   'colorFilter',
-            //   BridgeTypeAnnotation($ColorFilter.$type, nullable: true),
-            //   true,
-            // ),
+            BridgeParameter(
+              'colorFilter',
+              BridgeTypeAnnotation($ColorFilter.$type, nullable: true),
+              true,
+            ),
             BridgeParameter(
               'invertColors',
               BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.bool)),
@@ -79,6 +78,7 @@ class $DecorationImageConstructorDefault
 
   @override
   $Value? run(Runtime runtime, $Value? target, List<$Value?> args) {
+    ColorFilter.;
     return $DecorationImage.wrap(
       DecorationImage(
         image: args[0]!.$reified, // image (obrigatório)
@@ -89,11 +89,11 @@ class $DecorationImageConstructorDefault
         matchTextDirection: args[5]?.$reified ?? false, // matchTextDirection
         scale: args[6]?.$reified ?? 1.0, // scale
         opacity: args[7]?.$reified ?? 1.0, // opacity
-        // colorFilter: args[-1]?.$reified,                           // colorFilter (comentado)
-        invertColors: args[8]?.$reified ?? false, // invertColors
-        isAntiAlias: args[9]?.$reified ?? false, // isAntiAlias
+        colorFilter: args[8]?.$reified, // colorFilter (comentado)
+        invertColors: args[9]?.$reified ?? false, // invertColors
+        isAntiAlias: args[10]?.$reified ?? false, // isAntiAlias
         filterQuality:
-            args[10]?.$reified ?? FilterQuality.medium, // filterQuality
+            args[11]?.$reified ?? FilterQuality.medium, // filterQuality
       ),
     );
   }

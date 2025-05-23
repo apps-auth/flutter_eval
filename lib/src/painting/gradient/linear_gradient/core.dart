@@ -6,7 +6,7 @@ import 'package:flutter/widgets.dart';
 
 import '../../alignment/alignment/core.dart';
 import '../core.dart';
-import '../../../sky_engine/ui/painting/tile_mode.dart';
+import '../../../sky_engine/ui/painting/tile_mode/tile_mode.dart';
 import '../gradient-transform/core.dart';
 import '../gradient/core.dart';
 

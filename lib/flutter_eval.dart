@@ -103,7 +103,7 @@ import 'src/painting/rounded_rectangle_border/rounded_rectangle_border/core.dart
 import 'src/painting/borders/shape_border/core.dart';
 import 'src/painting/borders/outlined_border/core.dart';
 import 'src/sky_engine/ui/geometry/rect/core.dart';
-import 'src/sky_engine/ui/painting/tile_mode.dart';
+import 'src/sky_engine/ui/painting/tile_mode/tile_mode.dart';
 
 /// Global instance of [FlutterEvalPlugin]
 const flutterEvalPlugin = FlutterEvalPlugin();
