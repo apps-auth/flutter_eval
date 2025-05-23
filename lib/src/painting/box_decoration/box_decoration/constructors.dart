@@ -82,10 +82,12 @@ class $BoxDecorationConstructorNew extends InstanceDefaultPropsConstructor {
         image: args[1]?.$reified,
         border: args[2]?.$reified,
         borderRadius: args[3]?.$reified,
-        boxShadow: args[4]?.$reified,
+        boxShadow: args[4]?.$reified != null
+            ? List<BoxShadow>.from(args[4]?.$reified ?? [])
+            : null,
         gradient: args[5]?.$reified,
         backgroundBlendMode: args[6]?.$reified,
-        shape: args[7]?.$reified,
+        shape: args[7]?.$reified ?? BoxShape.rectangle,
       ),
     );
   }
