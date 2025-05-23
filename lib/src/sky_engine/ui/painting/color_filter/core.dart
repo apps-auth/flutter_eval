@@ -1,9 +1,9 @@
 import 'package:dart_eval/dart_eval_bridge.dart';
 import 'dart:ui';
 
+import '../../blend_mode/blend_mode/core.dart';
 import '../core.dart';
 import '../../painting.dart';
-import '../../blend_mode.dart';
 import '../image_filter/core.dart';
 
 part 'constructors.dart';

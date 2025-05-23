@@ -106,7 +106,7 @@ import 'src/sky_engine/ui/geometry/rect/core.dart';
 import 'src/sky_engine/ui/painting/tile_mode/tile_mode.dart';
 import 'src/sky_engine/ui/painting/image_filter/core.dart';
 import 'src/sky_engine/ui/painting/color_filter/core.dart';
-import 'package:flutter_eval/src/sky_engine/ui/blend_mode.dart';
+import 'src/sky_engine/ui/blend_mode/blend_mode/core.dart';
 
 /// Global instance of [FlutterEvalPlugin]
 const flutterEvalPlugin = FlutterEvalPlugin();
@@ -263,6 +263,7 @@ class FlutterEvalPlugin implements EvalPlugin {
         $EdgeInsetsProps.instance,
         $RoundedRectangleBorderProps.instance,
         $ImageRepeatProps.instance,
+        $BlendModeProps.instance,
         $RectProps.instance,
         $ImageFilterProps.instance,
         $ColorFilterProps.instance,
@@ -295,7 +296,6 @@ class FlutterEvalPlugin implements EvalPlugin {
     registry.defineBridgeEnum($StackFit.$declaration);
     registry.defineBridgeEnum($AnimationStatus.$declaration);
     registry.defineBridgeEnum($TileMode.$declaration);
-    registry.defineBridgeEnum($BlendMode.$declaration);
 
     registry.addSource(DartSource('dart:ui', dartUiSource));
 
@@ -589,7 +589,6 @@ class FlutterEvalPlugin implements EvalPlugin {
           'CrossAxisAlignment', $CrossAxisAlignment.$values)
       ..registerBridgeEnumValues('package:flutter/src/rendering/proxy_box.dart',
           'HitTestBehavior', $HitTestBehavior.$values)
-      ..registerBridgeEnumValues('dart:ui', 'BlendMode', $BlendMode.$values)
       ..registerBridgeEnumValues('dart:ui', 'TileMode', $TileMode.$values);
   }
 }

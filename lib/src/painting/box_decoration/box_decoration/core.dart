@@ -3,7 +3,7 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
-import '../../../sky_engine/ui/blend_mode.dart';
+import '../../../sky_engine/ui/blend_mode/blend_mode/core.dart';
 import '../../../sky_engine/ui/painting.dart';
 import '../../border_radius/border_radius_geometry/core.dart';
 import '../../box_border/box_border/core.dart';
