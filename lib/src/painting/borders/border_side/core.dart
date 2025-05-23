@@ -1,9 +1,9 @@
 import 'package:dart_eval/dart_eval_bridge.dart';
 import 'package:dart_eval/stdlib/core.dart';
 import 'package:flutter/painting.dart';
+import '../border_style/core.dart';
 import '../core.dart';
 import '../../../sky_engine/ui/painting.dart';
-import '../../borders.dart';
 
 part 'constructors.dart';
 part 'gettersStatic.dart';

@@ -1,9 +1,9 @@
 import 'package:dart_eval/dart_eval_bridge.dart';
 import 'package:flutter/painting.dart';
-import 'package:flutter_eval/src/painting/borders.dart';
 import 'package:flutter_eval/src/sky_engine/ui/painting.dart';
 
 import 'borders/border_side/core.dart';
+import 'borders/border_style/core.dart';
 import 'borders/shape_border/core.dart';
 
 class $BoxBorder implements $Instance {
