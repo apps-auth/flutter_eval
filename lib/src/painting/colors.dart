@@ -8,18 +8,42 @@ class $ColorSwatch implements $Instance {
       'package:flutter/src/painting/colors.dart', 'ColorSwatch'));
 
   static const $declaration = BridgeClassDef(
-      BridgeClassType($type,
-          generics: {'T': BridgeGenericParam()}, $extends: $Color.$type),
-      constructors: {
-        '': BridgeConstructorDef(
-            BridgeFunctionDef(returns: BridgeTypeAnnotation($type), params: [
-          BridgeParameter('primary',
-              BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.int)), false),
-          BridgeParameter('_swatch',
-              BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.map)), false)
-        ])),
-      },
-      wrap: true);
+    BridgeClassType($type,
+        generics: {'T': BridgeGenericParam()}, $extends: $Color.$type),
+    constructors: {
+      '': BridgeConstructorDef(
+        BridgeFunctionDef(
+          returns: BridgeTypeAnnotation($type),
+          params: [
+            BridgeParameter('primary',
+                BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.int)), false),
+            BridgeParameter('_swatch',
+                BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.map)), false)
+          ],
+        ),
+      ),
+    },
+    methods: {
+      '[]': BridgeMethodDef(
+        BridgeFunctionDef(
+          returns: BridgeTypeAnnotation($type),
+          params: [
+            BridgeParameter(
+              'index',
+              BridgeTypeAnnotation(
+                BridgeTypeRef(CoreTypes.int, []),
+                nullable: false,
+              ),
+              false,
+            )
+          ],
+          namedParams: [],
+        ),
+        isStatic: false,
+      ),
+    },
+    wrap: true,
+  );
 
   static $Value? $new(Runtime runtime, $Value? target, List<$Value?> args) {
     return $ColorSwatch.wrap(ColorSwatch(args[0]!.$value, args[1]!.$value));

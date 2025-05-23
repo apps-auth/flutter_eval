@@ -1,6 +1,7 @@
 import 'package:dart_eval/dart_eval_bridge.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_eval/src/painting/colors.dart';
+import 'package:flutter_eval/src/sky_engine/ui/painting.dart';
 
 const materialColorsSource = '''
 import 'package:flutter/painting.dart';
@@ -1718,18 +1719,75 @@ class $MaterialColor implements $Instance {
       'package:flutter/src/material/colors.dart', 'MaterialColor'));
 
   static const $declaration = BridgeClassDef(
-      BridgeClassType($type,
-          generics: {'T': BridgeGenericParam()}, $extends: $ColorSwatch.$type),
-      constructors: {
-        '': BridgeConstructorDef(
-            BridgeFunctionDef(returns: BridgeTypeAnnotation($type), params: [
-          BridgeParameter('primary',
-              BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.int)), false),
-          BridgeParameter('_swatch',
-              BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.map)), false)
-        ])),
-      },
-      wrap: true);
+    BridgeClassType($type,
+        generics: {'T': BridgeGenericParam()}, $extends: $ColorSwatch.$type),
+    constructors: {
+      '': BridgeConstructorDef(
+        BridgeFunctionDef(
+          returns: BridgeTypeAnnotation($type),
+          params: [
+            BridgeParameter('primary',
+                BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.int)), false),
+            BridgeParameter('_swatch',
+                BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.map)), false)
+          ],
+        ),
+      ),
+    },
+    getters: {
+      'shade50': BridgeMethodDef(
+        BridgeFunctionDef(
+          returns: BridgeTypeAnnotation($type),
+        ),
+      ),
+      'shade100': BridgeMethodDef(
+        BridgeFunctionDef(
+          returns: BridgeTypeAnnotation($type),
+        ),
+      ),
+      'shade200': BridgeMethodDef(
+        BridgeFunctionDef(
+          returns: BridgeTypeAnnotation($type),
+        ),
+      ),
+      'shade300': BridgeMethodDef(
+        BridgeFunctionDef(
+          returns: BridgeTypeAnnotation($type),
+        ),
+      ),
+      'shade400': BridgeMethodDef(
+        BridgeFunctionDef(
+          returns: BridgeTypeAnnotation($type),
+        ),
+      ),
+      'shade500': BridgeMethodDef(
+        BridgeFunctionDef(
+          returns: BridgeTypeAnnotation($type),
+        ),
+      ),
+      'shade600': BridgeMethodDef(
+        BridgeFunctionDef(
+          returns: BridgeTypeAnnotation($type),
+        ),
+      ),
+      'shade700': BridgeMethodDef(
+        BridgeFunctionDef(
+          returns: BridgeTypeAnnotation($type),
+        ),
+      ),
+      'shade800': BridgeMethodDef(
+        BridgeFunctionDef(
+          returns: BridgeTypeAnnotation($type),
+        ),
+      ),
+      'shade900': BridgeMethodDef(
+        BridgeFunctionDef(
+          returns: BridgeTypeAnnotation($type),
+        ),
+      ),
+    },
+    wrap: true,
+  );
 
   static $Value? $new(Runtime runtime, $Value? target, List<$Value?> args) {
     return $MaterialColor.wrap(MaterialColor(
@@ -1744,7 +1802,30 @@ class $MaterialColor implements $Instance {
 
   @override
   $Value? $getProperty(Runtime runtime, String identifier) {
-    return _superclass.$getProperty(runtime, identifier);
+    switch (identifier) {
+      case 'shade50':
+        return $Color.wrap($value.shade50);
+      case 'shade100':
+        return $Color.wrap($value.shade100);
+      case 'shade200':
+        return $Color.wrap($value.shade200);
+      case 'shade300':
+        return $Color.wrap($value.shade300);
+      case 'shade400':
+        return $Color.wrap($value.shade400);
+      case 'shade500':
+        return $Color.wrap($value.shade500);
+      case 'shade600':
+        return $Color.wrap($value.shade600);
+      case 'shade700':
+        return $Color.wrap($value.shade700);
+      case 'shade800':
+        return $Color.wrap($value.shade800);
+      case 'shade900':
+        return $Color.wrap($value.shade900);
+      default:
+        return _superclass.$getProperty(runtime, identifier);
+    }
   }
 
   @override
