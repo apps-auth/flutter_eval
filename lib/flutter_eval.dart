@@ -42,7 +42,7 @@ import 'package:flutter_eval/src/material/theme_data.dart';
 import 'package:flutter_eval/src/painting.dart';
 import 'package:flutter_eval/src/painting/basic_types.dart';
 import 'package:flutter_eval/src/painting/box_fit/box_fit/core.dart';
-import 'package:flutter_eval/src/painting/colors.dart';
+
 import 'package:flutter_eval/src/painting/decoration_image/decoration_image/core.dart';
 import 'package:flutter_eval/src/painting/image_provider/image_provider/core.dart';
 import 'package:flutter_eval/src/painting/image_provider/network_image/core.dart';
@@ -50,6 +50,7 @@ import 'package:flutter_eval/src/painting/image_provider/memory_image/core.dart'
 import 'package:flutter_eval/src/painting/image_provider/resize_image/core.dart';
 import 'package:flutter_eval/src/painting/image_repeat/image_repeat/core.dart';
 import 'package:flutter_eval/src/painting/text_style/text_style/core.dart';
+import 'package:flutter_eval/src/painting/color_swatch/color_swatch/core.dart';
 import 'package:flutter_eval/src/rendering.dart';
 import 'package:flutter_eval/src/rendering/box.dart';
 import 'package:flutter_eval/src/rendering/flex.dart';
@@ -150,7 +151,6 @@ class FlutterEvalPlugin implements EvalPlugin {
         $Container.$declaration,
         $Key.$declaration,
         $Color.$declaration,
-        $ColorSwatch.$declaration,
         $WidgetsApp.$declaration,
         $MaterialApp.$declaration,
         $MaterialColor.$declaration,
@@ -273,6 +273,7 @@ class FlutterEvalPlugin implements EvalPlugin {
         $NetworkImageProps.instance,
         $MemoryImageProps.instance,
         $ResizeImageProps.instance,
+        $ColorSwatchProps.instance,
       ];
 
   @override
