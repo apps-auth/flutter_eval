@@ -92,6 +92,7 @@ import 'src/painting/borders/border_side/core.dart';
 import 'src/painting/borders/border_style/core.dart';
 import 'src/painting/box_border/border/core.dart';
 import 'src/painting/box_border/box_border/core.dart';
+import 'src/painting/box_border/box_shape/core.dart';
 import 'src/painting/box_decoration/box_decoration/core.dart';
 import 'src/painting/decoration/decoration/core.dart';
 import 'src/painting/edge_insets/edge_insets/core.dart';
@@ -267,6 +268,7 @@ class FlutterEvalPlugin implements EvalPlugin {
         $RectProps.instance,
         $ImageFilterProps.instance,
         $ColorFilterProps.instance,
+        $BoxShapeProps.instance,
       ];
 
   @override

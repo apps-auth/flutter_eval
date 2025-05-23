@@ -7,6 +7,7 @@ import '../../../sky_engine/ui/blend_mode/blend_mode/core.dart';
 import '../../../sky_engine/ui/painting.dart';
 import '../../border_radius/border_radius_geometry/core.dart';
 import '../../box_border/box_border/core.dart';
+import '../../box_border/box_shape/core.dart';
 import '../../decoration/decoration/core.dart';
 import '../../decoration_image/decoration_image/core.dart';
 import '../../gradient/gradient/core.dart';

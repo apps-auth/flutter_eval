@@ -62,14 +62,14 @@ class $BoxDecorationConstructorNew extends InstanceDefaultPropsConstructor {
               ),
               true,
             ),
-            // BridgeParameter(
-            //   'shape',
-            //   BridgeTypeAnnotation(
-            //     $BoxShape.$type,
-            //     nullable: true,
-            //   ),
-            //   true,
-            // ),
+            BridgeParameter(
+              'shape',
+              BridgeTypeAnnotation(
+                $BoxShape.$type,
+                nullable: true,
+              ),
+              true,
+            ),
           ],
         ),
       );
@@ -85,7 +85,7 @@ class $BoxDecorationConstructorNew extends InstanceDefaultPropsConstructor {
         boxShadow: args[4]?.$reified,
         gradient: args[5]?.$reified,
         backgroundBlendMode: args[6]?.$reified,
-        // shape: args[7]?.$reified,
+        shape: args[7]?.$reified,
       ),
     );
   }
