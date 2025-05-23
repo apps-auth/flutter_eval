@@ -8,6 +8,7 @@ import '../../image_provider.dart';
 import '../../box_fit.dart';
 import '../../alignment/alignment_geometry/core.dart';
 import '../../../sky_engine/ui/image.dart';
+import '../../../sky_engine/ui/geometry/rect/core.dart';
 
 part 'constructors.dart';
 part 'getters.dart';

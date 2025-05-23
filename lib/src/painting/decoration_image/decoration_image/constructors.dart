@@ -32,12 +32,11 @@ class $DecorationImageConstructorDefault
               BridgeTypeAnnotation($ImageRepeat.$type),
               true,
             ),
-            // centerSlice comentado pois $Rect não está implementado
-            // BridgeParameter(
-            //   'centerSlice',
-            //   BridgeTypeAnnotation($Rect.$type, nullable: true),
-            //   true,
-            // ),
+            BridgeParameter(
+              'centerSlice',
+              BridgeTypeAnnotation($Rect.$type, nullable: true),
+              true,
+            ),
             BridgeParameter(
               'matchTextDirection',
               BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.bool)),
@@ -86,15 +85,15 @@ class $DecorationImageConstructorDefault
         fit: args[1]?.$reified, // fit
         alignment: args[2]?.$reified ?? Alignment.center, // alignment
         repeat: args[3]?.$reified ?? ImageRepeat.noRepeat, // repeat
-        // centerSlice: args[4]?.$reified,                           // centerSlice (comentado)
-        matchTextDirection: args[4]?.$reified ?? false, // matchTextDirection
-        scale: args[5]?.$reified ?? 1.0, // scale
-        opacity: args[6]?.$reified ?? 1.0, // opacity
-        // colorFilter: args[7]?.$reified,                           // colorFilter (comentado)
-        invertColors: args[7]?.$reified ?? false, // invertColors
-        isAntiAlias: args[8]?.$reified ?? false, // isAntiAlias
+        centerSlice: args[4]?.$reified, // centerSlice (comentado)
+        matchTextDirection: args[5]?.$reified ?? false, // matchTextDirection
+        scale: args[6]?.$reified ?? 1.0, // scale
+        opacity: args[7]?.$reified ?? 1.0, // opacity
+        // colorFilter: args[-1]?.$reified,                           // colorFilter (comentado)
+        invertColors: args[8]?.$reified ?? false, // invertColors
+        isAntiAlias: args[9]?.$reified ?? false, // isAntiAlias
         filterQuality:
-            args[9]?.$reified ?? FilterQuality.medium, // filterQuality
+            args[10]?.$reified ?? FilterQuality.medium, // filterQuality
       ),
     );
   }
