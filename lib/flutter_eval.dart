@@ -162,6 +162,8 @@ import 'src/painting/circle_border/circle_border/core.dart';
 import 'src/painting/flutter_logo/flutter_logo_style/core.dart';
 import 'src/painting/flutter_logo/flutter_logo_decoration/core.dart';
 import 'src/painting/image_resolution/asset_image/core.dart';
+import 'src/painting/linear_border/linear_border_edge/core.dart';
+import 'src/painting/linear_border/linear_border/core.dart';
 
 /// Global instance of [FlutterEvalPlugin]
 const flutterEvalPlugin = FlutterEvalPlugin();
@@ -373,6 +375,8 @@ class FlutterEvalPlugin implements EvalPlugin {
         $ClipContextProps.instance,
         $FlutterLogoStyleProps.instance,
         $FlutterLogoDecorationProps.instance,
+        $LinearBorderEdgeProps.instance,
+        $LinearBorderProps.instance,
       ];
 
   @override
