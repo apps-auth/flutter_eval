@@ -104,6 +104,7 @@ import 'src/painting/box_border/border_directional/core.dart';
 import 'src/painting/box_border/box_border/core.dart';
 import 'src/painting/box_border/box_shape/core.dart';
 import 'src/painting/box_decoration/box_decoration/core.dart';
+import 'src/painting/clip_context/clip_context/core.dart';
 import 'src/painting/decoration/decoration/core.dart';
 import 'src/painting/edge_insets/edge_insets/core.dart';
 import 'src/painting/edge_insets/edge_insets_geometry/core.dart';
@@ -351,6 +352,7 @@ class FlutterEvalPlugin implements EvalPlugin {
         $PathMetricProps.instance,
         $BoxShadowProps.instance,
         $CircleBorderProps.instance,
+        $ClipContextProps.instance,
       ];
 
   @override
