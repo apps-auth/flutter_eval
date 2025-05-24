@@ -133,6 +133,12 @@ import 'src/sky_engine/ui/painting/tile_mode/core.dart';
 import 'src/sky_engine/ui/painting/vertex_mode/core.dart';
 import 'src/sky_engine/ui/painting/point_mode/core.dart';
 import 'src/sky_engine/ui/painting/clip_op/core.dart';
+import 'src/sky_engine/ui/painting/engine_layer/core.dart';
+import 'src/sky_engine/ui/painting/path/core.dart';
+import 'src/sky_engine/ui/painting/canvas/core.dart';
+import 'src/sky_engine/ui/painting/picture/core.dart';
+import 'src/sky_engine/ui/painting/picture_recorder/core.dart';
+import 'src/sky_engine/ui/painting/image_descriptor/core.dart';
 
 /// Global instance of [FlutterEvalPlugin]
 const flutterEvalPlugin = FlutterEvalPlugin();
@@ -316,6 +322,12 @@ class FlutterEvalPlugin implements EvalPlugin {
         $VertexModeProps.instance,
         $PointModeProps.instance,
         $ClipOpProps.instance,
+        $EngineLayerProps.instance,
+        $PathProps.instance,
+        $CanvasProps.instance,
+        $PictureProps.instance,
+        $PictureRecorderProps.instance,
+        $ImageDescriptorProps.instance,
       ];
 
   @override
