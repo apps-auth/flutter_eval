@@ -176,6 +176,8 @@ import 'src/painting/linear_border/linear_border/core.dart';
 import 'src/painting/text_painter/placeholder_dimensions/core.dart';
 import 'src/painting/text_painter/text_painter/core.dart';
 import 'src/painting/text_span/text_span/core.dart';
+import 'src/services/clipboard/clipboard/core.dart';
+import 'src/services/clipboard/clipboard_data/core.dart';
 
 /// Global instance of [FlutterEvalPlugin]
 const flutterEvalPlugin = FlutterEvalPlugin();
@@ -398,6 +400,8 @@ class FlutterEvalPlugin implements EvalPlugin {
         $PlaceholderDimensionsProps.instance,
         $TextPainterProps.instance,
         $TextSpanProps.instance,
+        $ClipboardProps.instance,
+        $ClipboardDataProps.instance,
       ];
 
   @override
