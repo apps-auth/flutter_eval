@@ -211,6 +211,11 @@ import 'src/gestures/events/pointer_move_event/core.dart';
 import 'src/gestures/events/pointer_up_event/core.dart';
 import 'src/gestures/events/pointer_cancel_event/core.dart';
 import 'src/gestures/events/pointer_scroll_event/core.dart';
+import 'src/gestures/hit_test/hit_testable/core.dart';
+import 'src/gestures/hit_test/hit_test_dispatcher/core.dart';
+import 'src/gestures/hit_test/hit_test_target/core.dart';
+import 'src/gestures/hit_test/hit_test_entry/core.dart';
+import 'src/gestures/hit_test/hit_test_result/core.dart';
 
 /// Global instance of [FlutterEvalPlugin]
 const flutterEvalPlugin = FlutterEvalPlugin();
@@ -463,6 +468,11 @@ class FlutterEvalPlugin implements EvalPlugin {
         $PointerUpEventProps.instance,
         $PointerCancelEventProps.instance,
         $PointerScrollEventProps.instance,
+        $HitTestableProps.instance,
+        $HitTestDispatcherProps.instance,
+        $HitTestTargetProps.instance,
+        $HitTestEntryProps.instance,
+        $HitTestResultProps.instance,
       ];
 
   @override
