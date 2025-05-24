@@ -18,7 +18,6 @@ import 'package:flutter_eval/src/foundation/change_notifier.dart';
 import 'package:flutter_eval/src/foundation/key.dart';
 import 'package:flutter_eval/src/gestures.dart';
 import 'package:flutter_eval/src/gestures/tap.dart';
-import 'package:flutter_eval/src/gestures/velocity_tracker.dart';
 import 'package:flutter_eval/src/material.dart';
 import 'package:flutter_eval/src/material/app.dart';
 import 'package:flutter_eval/src/material/app_bar.dart';
@@ -229,6 +228,11 @@ import 'src/gestures/recognizer/primary_pointer_gesture_recognizer/core.dart';
 import 'src/gestures/recognizer/offset_pair/core.dart';
 import 'src/gestures/gesture_settings/device_gesture_settings/core.dart';
 import 'src/gestures/team/gesture_arena_team/core.dart';
+import 'src/gestures/velocity_tracker/velocity/core.dart';
+import 'src/gestures/velocity_tracker/velocity_estimate/core.dart';
+import 'src/gestures/velocity_tracker/velocity_tracker/core.dart';
+import 'src/gestures/velocity_tracker/ios_scroll_view_fling_velocity_tracker/core.dart';
+import 'src/gestures/velocity_tracker/macos_scroll_view_fling_velocity_tracker/core.dart';
 
 /// Global instance of [FlutterEvalPlugin]
 const flutterEvalPlugin = FlutterEvalPlugin();
@@ -318,7 +322,6 @@ class FlutterEvalPlugin implements EvalPlugin {
         $SwitchListTile.$declaration,
         $Image.$declaration,
         $Offset.$declaration,
-        $Velocity.$declaration,
         $GestureDetector.$declaration,
         $TapDownDetails.$declaration,
         $TapUpDetails.$declaration,
@@ -499,6 +502,11 @@ class FlutterEvalPlugin implements EvalPlugin {
         $OffsetPairProps.instance,
         $DeviceGestureSettingsProps.instance,
         $GestureArenaTeamProps.instance,
+        $VelocityProps.instance,
+        $VelocityEstimateProps.instance,
+        $VelocityTrackerProps.instance,
+        $IOSScrollViewFlingVelocityTrackerProps.instance,
+        $MacOSScrollViewFlingVelocityTrackerProps.instance,
       ];
 
   @override
@@ -755,8 +763,6 @@ class FlutterEvalPlugin implements EvalPlugin {
           'TapDownDetails.', $TapDownDetails.$new)
       ..registerBridgeFunc('package:flutter/src/gestures/tap.dart',
           'TapUpDetails.', $TapUpDetails.$new)
-      ..registerBridgeFunc('package:flutter/src/gestures/velocity_tracker.dart',
-          'Velocity.', $Velocity.$new)
       ..registerBridgeFunc(
         'package:flutter/src/services/platform_channel.dart',
         'MethodChannel.',
