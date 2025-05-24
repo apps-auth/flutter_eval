@@ -240,6 +240,12 @@ import 'src/gestures/monodrag/drag_gesture_recognizer/core.dart';
 import 'src/gestures/monodrag/vertical_drag_gesture_recognizer/core.dart';
 import 'src/gestures/monodrag/horizontal_drag_gesture_recognizer/core.dart';
 import 'src/gestures/monodrag/pan_gesture_recognizer/core.dart';
+import 'src/gestures/multidrag/multi_drag_pointer_state/core.dart';
+import 'src/gestures/multidrag/multi_drag_gesture_recognizer/core.dart';
+import 'src/gestures/multidrag/immediate_multi_drag_gesture_recognizer/core.dart';
+import 'src/gestures/multidrag/horizontal_multi_drag_gesture_recognizer/core.dart';
+import 'src/gestures/multidrag/vertical_multi_drag_gesture_recognizer/core.dart';
+import 'src/gestures/multidrag/delayed_multi_drag_gesture_recognizer/core.dart';
 
 /// Global instance of [FlutterEvalPlugin]
 const flutterEvalPlugin = FlutterEvalPlugin();
@@ -521,6 +527,12 @@ class FlutterEvalPlugin implements EvalPlugin {
         $VerticalDragGestureRecognizerProps.instance,
         $HorizontalDragGestureRecognizerProps.instance,
         $PanGestureRecognizerProps.instance,
+        $MultiDragPointerStateProps.instance,
+        $MultiDragGestureRecognizerProps.instance,
+        $ImmediateMultiDragGestureRecognizerProps.instance,
+        $HorizontalMultiDragGestureRecognizerProps.instance,
+        $VerticalMultiDragGestureRecognizerProps.instance,
+        $DelayedMultiDragGestureRecognizerProps.instance,
       ];
 
   @override
