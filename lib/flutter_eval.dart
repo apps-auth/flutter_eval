@@ -115,6 +115,8 @@ import 'src/painting/edge_insets/edge_insets_geometry/core.dart';
 import 'src/painting/gradient/gradient-transform/core.dart';
 import 'src/painting/gradient/gradient/core.dart';
 import 'src/painting/gradient/linear_gradient/core.dart';
+import 'src/painting/gradient/radial_gradient/core.dart';
+import 'src/painting/gradient/sweep_gradient/core.dart';
 import 'src/painting/rounded_rectangle_border/rounded_rectangle_border/core.dart';
 import 'src/painting/beveled_rectangle_border/beveled_rectangle_border/core.dart';
 import 'src/painting/continuous_rectangle_border/continuous_rectangle_border/core.dart';
@@ -290,6 +292,8 @@ class FlutterEvalPlugin implements EvalPlugin {
   List<IInstanceDefaultProps> get classesDefault => [
         $GradientProps.instance,
         $LinearGradientProps.instance,
+        $RadialGradientProps.instance,
+        $SweepGradientProps.instance,
         $GradientTransformProps.instance,
         $DecorationProps.instance,
         $BoxPainterProps.instance,
