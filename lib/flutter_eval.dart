@@ -193,6 +193,10 @@ import 'src/services/text_input/scribble_client/core.dart';
 import 'src/services/text_input/text_input_type/core.dart';
 import 'src/services/text_input/text_editing_value/core.dart';
 import 'src/services/text_input/text_input/core.dart';
+import 'src/gestures/arena/gesture_disposition/core.dart';
+import 'src/gestures/arena/gesture_arena_member/core.dart';
+import 'src/gestures/arena/gesture_arena_entry/core.dart';
+import 'src/gestures/arena/gesture_arena_manager/core.dart';
 
 /// Global instance of [FlutterEvalPlugin]
 const flutterEvalPlugin = FlutterEvalPlugin();
@@ -432,6 +436,10 @@ class FlutterEvalPlugin implements EvalPlugin {
         $TextInputTypeProps.instance,
         $TextEditingValueProps.instance,
         $TextInputProps.instance,
+        $GestureDispositionProps.instance,
+        $GestureArenaMemberProps.instance,
+        $GestureArenaEntryProps.instance,
+        $GestureArenaManagerProps.instance,
       ];
 
   @override
