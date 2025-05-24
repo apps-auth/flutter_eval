@@ -36,7 +36,7 @@ class $AxisProps extends InstanceDefaultEnumProps {
   BridgeTypeRef get type => _type;
 
   @override
-  List<String> get values => Axis.values.map((e) => e.name).toList();
+  List<$Axis> get values => Axis.values.map((e) => $Axis.wrap(e)).toList();
 
   @override
   final List<InstanceDefaultEnumPropsGetter> getters = [
