@@ -96,6 +96,7 @@ import 'src/painting/alignment/alignment_geometry/core.dart';
 import 'src/painting/alignment/text_align_vertical/core.dart';
 import 'src/painting/border_radius/border_radius/core.dart';
 import 'src/painting/border_radius/border_radius_geometry/core.dart';
+import 'src/painting/border_radius/border_radius_directional/core.dart';
 import 'src/painting/borders/border_side/core.dart';
 import 'src/painting/borders/border_style/core.dart';
 import 'src/painting/box_border/border/core.dart';
@@ -258,6 +259,7 @@ class FlutterEvalPlugin implements EvalPlugin {
         $AlignmentGeometryProps.instance,
         $BorderRadiusGeometryProps.instance,
         $BorderRadiusProps.instance,
+        $BorderRadiusDirectionalProps.instance,
         $BorderSideProps.instance,
         $ShapeBorderProps.instance,
         $OutlinedBorderProps.instance,
