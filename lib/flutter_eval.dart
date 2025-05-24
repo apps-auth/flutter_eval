@@ -228,6 +228,7 @@ import 'src/gestures/recognizer/one_sequence_gesture_recognizer/core.dart';
 import 'src/gestures/recognizer/primary_pointer_gesture_recognizer/core.dart';
 import 'src/gestures/recognizer/offset_pair/core.dart';
 import 'src/gestures/gesture_settings/device_gesture_settings/core.dart';
+import 'src/gestures/team/gesture_arena_team/core.dart';
 
 /// Global instance of [FlutterEvalPlugin]
 const flutterEvalPlugin = FlutterEvalPlugin();
@@ -497,6 +498,7 @@ class FlutterEvalPlugin implements EvalPlugin {
         $PrimaryPointerGestureRecognizerProps.instance,
         $OffsetPairProps.instance,
         $DeviceGestureSettingsProps.instance,
+        $GestureArenaTeamProps.instance,
       ];
 
   @override
