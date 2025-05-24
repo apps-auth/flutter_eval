@@ -93,6 +93,7 @@ import 'package:flutter_eval/src/widgets/text.dart';
 import 'src/painting/alignment/alignment/core.dart';
 import 'src/painting/alignment/alignment_directional/core.dart';
 import 'src/painting/alignment/alignment_geometry/core.dart';
+import 'src/painting/alignment/text_align_vertical/core.dart';
 import 'src/painting/border_radius/border_radius/core.dart';
 import 'src/painting/border_radius/border_radius_geometry/core.dart';
 import 'src/painting/borders/border_side/core.dart';
@@ -272,6 +273,7 @@ class FlutterEvalPlugin implements EvalPlugin {
         $ColorFilterProps.instance,
         $BoxShapeProps.instance,
         $TextStyleProps.instance,
+        $TextAlignVerticalProps.instance,
         $BoxFitProps.instance,
         $ImageProviderProps.instance,
         $NetworkImageProps.instance,
