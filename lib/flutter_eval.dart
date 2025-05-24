@@ -5,6 +5,7 @@ library flutter_eval;
 export 'src/flutter_eval.dart';
 export 'src/painting/text_painter/text_overflow/core.dart';
 export 'src/painting/text_painter/text_width_basis/core.dart';
+export 'src/sky_engine/ui/text/placeholder_alignment/core.dart';
 
 import 'package:dart_eval/dart_eval.dart';
 import 'package:dart_eval/dart_eval_bridge.dart';
@@ -172,6 +173,8 @@ import 'src/painting/flutter_logo/flutter_logo_decoration/core.dart';
 import 'src/painting/image_resolution/asset_image/core.dart';
 import 'src/painting/linear_border/linear_border_edge/core.dart';
 import 'src/painting/linear_border/linear_border/core.dart';
+import 'src/painting/text_painter/placeholder_dimensions/core.dart';
+import 'src/painting/text_painter/text_painter/core.dart';
 
 /// Global instance of [FlutterEvalPlugin]
 const flutterEvalPlugin = FlutterEvalPlugin();
@@ -391,6 +394,8 @@ class FlutterEvalPlugin implements EvalPlugin {
         $FlutterLogoDecorationProps.instance,
         $LinearBorderEdgeProps.instance,
         $LinearBorderProps.instance,
+        $PlaceholderDimensionsProps.instance,
+        $TextPainterProps.instance,
       ];
 
   @override
