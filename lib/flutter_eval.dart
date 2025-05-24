@@ -199,6 +199,7 @@ import 'src/gestures/arena/gesture_arena_entry/core.dart';
 import 'src/gestures/arena/gesture_arena_manager/core.dart';
 import 'src/gestures/binding/sampling_clock/core.dart';
 import 'src/gestures/binding/flutter_error_details_for_pointer_event_dispatcher/core.dart';
+import 'src/gestures/drag/drag/core.dart';
 
 /// Global instance of [FlutterEvalPlugin]
 const flutterEvalPlugin = FlutterEvalPlugin();
@@ -444,6 +445,7 @@ class FlutterEvalPlugin implements EvalPlugin {
         $GestureArenaManagerProps.instance,
         $SamplingClockProps.instance,
         $FlutterErrorDetailsForPointerEventDispatcherProps.instance,
+        $DragProps.instance,
       ];
 
   @override
