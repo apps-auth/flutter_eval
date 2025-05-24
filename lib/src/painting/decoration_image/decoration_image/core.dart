@@ -2,7 +2,7 @@ import 'package:dart_eval/dart_eval_bridge.dart';
 import 'package:dart_eval/stdlib/core.dart';
 import 'package:flutter/material.dart';
 
-import '../../image_repeat/image_repeat/core.dart';
+import '../image_repeat/core.dart';
 import '../core.dart';
 import '../../image_provider/image_provider/core.dart';
 import '../../box_fit/box_fit/core.dart';

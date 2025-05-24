@@ -48,7 +48,7 @@ import 'package:flutter_eval/src/painting/image_provider/image_provider/core.dar
 import 'package:flutter_eval/src/painting/image_provider/network_image/core.dart';
 import 'package:flutter_eval/src/painting/image_provider/memory_image/core.dart';
 import 'package:flutter_eval/src/painting/image_provider/resize_image/core.dart';
-import 'package:flutter_eval/src/painting/image_repeat/image_repeat/core.dart';
+import 'package:flutter_eval/src/painting/decoration_image/image_repeat/core.dart';
 import 'package:flutter_eval/src/painting/text_style/text_style/core.dart';
 import 'package:flutter_eval/src/painting/colors/color_swatch/core.dart';
 import 'package:flutter_eval/src/painting/colors/hsv_color/core.dart';
