@@ -163,6 +163,7 @@ import 'src/painting/oval_border/oval_border/core.dart';
 import 'src/painting/shape_decoration/shape_decoration/core.dart';
 import 'src/painting/stadium_border/stadium_border/core.dart';
 import 'src/painting/star_border/star_border/core.dart';
+import 'src/painting/strut_style/strut_style/core.dart';
 import 'src/painting/flutter_logo/flutter_logo_style/core.dart';
 import 'src/painting/flutter_logo/flutter_logo_decoration/core.dart';
 import 'src/painting/image_resolution/asset_image/core.dart';
@@ -380,6 +381,7 @@ class FlutterEvalPlugin implements EvalPlugin {
         $ShapeDecorationProps.instance,
         $StadiumBorderProps.instance,
         $StarBorderProps.instance,
+        $StrutStyleProps.instance,
         $ClipContextProps.instance,
         $FlutterLogoStyleProps.instance,
         $FlutterLogoDecorationProps.instance,
