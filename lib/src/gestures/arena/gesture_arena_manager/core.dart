@@ -4,7 +4,7 @@ import 'package:flutter/gestures.dart';
 
 import '../core.dart';
 import '../gesture_arena_entry/core.dart';
-import '../../converter/gesture_arena_member/core.dart';
+import '../gesture_arena_member/core.dart';
 
 part 'constructors.dart';
 part 'methods.dart';

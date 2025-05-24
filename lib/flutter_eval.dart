@@ -192,7 +192,7 @@ import 'src/services/text_input/text_input_type/core.dart';
 import 'src/services/text_input/text_editing_value/core.dart';
 import 'src/services/text_input/text_input/core.dart';
 import 'src/gestures/arena/gesture_disposition/core.dart';
-import 'src/gestures/converter/gesture_arena_member/core.dart';
+import 'src/gestures/arena/gesture_arena_member/core.dart';
 import 'src/gestures/arena/gesture_arena_entry/core.dart';
 import 'src/gestures/arena/gesture_arena_manager/core.dart';
 import 'src/gestures/binding/sampling_clock/core.dart';
