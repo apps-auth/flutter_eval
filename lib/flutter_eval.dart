@@ -118,6 +118,7 @@ import 'src/sky_engine/ui/geometry/rect/core.dart';
 import 'src/sky_engine/ui/painting/tile_mode/tile_mode.dart';
 import 'src/sky_engine/ui/painting/image_filter/core.dart';
 import 'src/sky_engine/ui/painting/color_filter/core.dart';
+import 'src/sky_engine/ui/painting/shadow/core.dart';
 import 'src/sky_engine/ui/blend_mode/blend_mode/core.dart';
 
 /// Global instance of [FlutterEvalPlugin]
@@ -277,6 +278,7 @@ class FlutterEvalPlugin implements EvalPlugin {
         $RectProps.instance,
         $ImageFilterProps.instance,
         $ColorFilterProps.instance,
+        $ShadowProps.instance,
         $BoxShapeProps.instance,
         $TextStyleProps.instance,
         $TextAlignVerticalProps.instance,
