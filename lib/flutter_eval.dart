@@ -202,6 +202,15 @@ import 'src/gestures/drag_details/drag_down_details/core.dart';
 import 'src/gestures/drag_details/drag_start_details/core.dart';
 import 'src/gestures/drag_details/drag_update_details/core.dart';
 import 'src/gestures/drag_details/drag_end_details/core.dart';
+import 'src/gestures/events/pointer_event/core.dart';
+import 'src/gestures/events/pointer_signal_event/core.dart';
+import 'src/gestures/events/pointer_added_event/core.dart';
+import 'src/gestures/events/pointer_removed_event/core.dart';
+import 'src/gestures/events/pointer_down_event/core.dart';
+import 'src/gestures/events/pointer_move_event/core.dart';
+import 'src/gestures/events/pointer_up_event/core.dart';
+import 'src/gestures/events/pointer_cancel_event/core.dart';
+import 'src/gestures/events/pointer_scroll_event/core.dart';
 
 /// Global instance of [FlutterEvalPlugin]
 const flutterEvalPlugin = FlutterEvalPlugin();
@@ -445,6 +454,15 @@ class FlutterEvalPlugin implements EvalPlugin {
         $DragStartDetailsProps.instance,
         $DragUpdateDetailsProps.instance,
         $DragEndDetailsProps.instance,
+        $PointerEventProps.instance,
+        $PointerSignalEventProps.instance,
+        $PointerAddedEventProps.instance,
+        $PointerRemovedEventProps.instance,
+        $PointerDownEventProps.instance,
+        $PointerMoveEventProps.instance,
+        $PointerUpEventProps.instance,
+        $PointerCancelEventProps.instance,
+        $PointerScrollEventProps.instance,
       ];
 
   @override
