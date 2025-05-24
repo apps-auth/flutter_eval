@@ -1,7 +1,10 @@
 import 'package:dart_eval/dart_eval_bridge.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_eval/src/foundation/key.dart';
-import 'package:flutter_eval/src/gestures/drag_details.dart';
+import 'package:flutter_eval/src/gestures/drag_details/drag_down_details/core.dart';
+import 'package:flutter_eval/src/gestures/drag_details/drag_end_details/core.dart';
+import 'package:flutter_eval/src/gestures/drag_details/drag_start_details/core.dart';
+import 'package:flutter_eval/src/gestures/drag_details/drag_update_details/core.dart';
 import 'package:flutter_eval/src/gestures/long_press.dart';
 import 'package:flutter_eval/src/gestures/tap.dart';
 import 'package:flutter_eval/src/rendering/proxy_box.dart';

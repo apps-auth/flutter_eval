@@ -17,8 +17,6 @@ import 'package:flutter_eval/src/foundation.dart';
 import 'package:flutter_eval/src/foundation/change_notifier.dart';
 import 'package:flutter_eval/src/foundation/key.dart';
 import 'package:flutter_eval/src/gestures.dart';
-import 'package:flutter_eval/src/gestures/drag_details.dart';
-import 'package:flutter_eval/src/gestures/long_press.dart';
 import 'package:flutter_eval/src/gestures/tap.dart';
 import 'package:flutter_eval/src/gestures/velocity_tracker.dart';
 import 'package:flutter_eval/src/material.dart';
@@ -200,6 +198,10 @@ import 'src/gestures/arena/gesture_arena_manager/core.dart';
 import 'src/gestures/binding/sampling_clock/core.dart';
 import 'src/gestures/binding/flutter_error_details_for_pointer_event_dispatcher/core.dart';
 import 'src/gestures/drag/drag/core.dart';
+import 'src/gestures/drag_details/drag_down_details/core.dart';
+import 'src/gestures/drag_details/drag_start_details/core.dart';
+import 'src/gestures/drag_details/drag_update_details/core.dart';
+import 'src/gestures/drag_details/drag_end_details/core.dart';
 
 /// Global instance of [FlutterEvalPlugin]
 const flutterEvalPlugin = FlutterEvalPlugin();
@@ -293,13 +295,6 @@ class FlutterEvalPlugin implements EvalPlugin {
         $GestureDetector.$declaration,
         $TapDownDetails.$declaration,
         $TapUpDetails.$declaration,
-        $LongPressStartDetails.$declaration,
-        $LongPressMoveUpdateDetails.$declaration,
-        $LongPressEndDetails.$declaration,
-        $DragStartDetails.$declaration,
-        $DragUpdateDetails.$declaration,
-        $DragEndDetails.$declaration,
-        $DragDownDetails.$declaration,
         $BinaryMessenger.$declaration,
         $MethodCodec.$declaration,
         $MethodChannel.$declaration,
@@ -446,6 +441,10 @@ class FlutterEvalPlugin implements EvalPlugin {
         $SamplingClockProps.instance,
         $FlutterErrorDetailsForPointerEventDispatcherProps.instance,
         $DragProps.instance,
+        $DragDownDetailsProps.instance,
+        $DragStartDetailsProps.instance,
+        $DragUpdateDetailsProps.instance,
+        $DragEndDetailsProps.instance,
       ];
 
   @override
@@ -702,20 +701,6 @@ class FlutterEvalPlugin implements EvalPlugin {
           'TapDownDetails.', $TapDownDetails.$new)
       ..registerBridgeFunc('package:flutter/src/gestures/tap.dart',
           'TapUpDetails.', $TapUpDetails.$new)
-      ..registerBridgeFunc('package:flutter/src/gestures/long_press.dart',
-          'LongPressStartDetails.', $LongPressStartDetails.$new)
-      ..registerBridgeFunc('package:flutter/src/gestures/long_press.dart',
-          'LongPressMoveUpdateDetails.', $LongPressMoveUpdateDetails.$new)
-      ..registerBridgeFunc('package:flutter/src/gestures/long_press.dart',
-          'LongPressEndDetails.', $LongPressEndDetails.$new)
-      ..registerBridgeFunc('package:flutter/src/gestures/drag_details.dart',
-          'DragStartDetails.', $DragStartDetails.$new)
-      ..registerBridgeFunc('package:flutter/src/gestures/drag_details.dart',
-          'DragUpdateDetails.', $DragUpdateDetails.$new)
-      ..registerBridgeFunc('package:flutter/src/gestures/drag_details.dart',
-          'DragEndDetails.', $DragEndDetails.$new)
-      ..registerBridgeFunc('package:flutter/src/gestures/drag_details.dart',
-          'DragDownDetails.', $DragDownDetails.$new)
       ..registerBridgeFunc('package:flutter/src/gestures/velocity_tracker.dart',
           'Velocity.', $Velocity.$new)
       ..registerBridgeFunc(
