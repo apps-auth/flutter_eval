@@ -178,6 +178,7 @@ import 'src/painting/text_painter/text_painter/core.dart';
 import 'src/painting/text_span/text_span/core.dart';
 import 'src/services/clipboard/clipboard/core.dart';
 import 'src/services/clipboard/clipboard_data/core.dart';
+import 'src/services/text_editing/text_selection/core.dart';
 
 /// Global instance of [FlutterEvalPlugin]
 const flutterEvalPlugin = FlutterEvalPlugin();
@@ -402,6 +403,7 @@ class FlutterEvalPlugin implements EvalPlugin {
         $TextSpanProps.instance,
         $ClipboardProps.instance,
         $ClipboardDataProps.instance,
+        $TextSelectionProps.instance,
       ];
 
   @override
