@@ -161,6 +161,7 @@ import 'src/painting/box_shadow/box_shadow/core.dart';
 import 'src/painting/circle_border/circle_border/core.dart';
 import 'src/painting/flutter_logo/flutter_logo_style/core.dart';
 import 'src/painting/flutter_logo/flutter_logo_decoration/core.dart';
+import 'src/painting/image_resolution/asset_image/core.dart';
 
 /// Global instance of [FlutterEvalPlugin]
 const flutterEvalPlugin = FlutterEvalPlugin();
@@ -332,6 +333,7 @@ class FlutterEvalPlugin implements EvalPlugin {
         $NetworkImageProps.instance,
         $MemoryImageProps.instance,
         $ResizeImageProps.instance,
+        $AssetImageProps.instance,
         $ColorSwatchProps.instance,
         $HSVColorProps.instance,
         $HSLColorProps.instance,
