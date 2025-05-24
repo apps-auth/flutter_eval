@@ -217,6 +217,7 @@ import 'src/gestures/hit_test/hit_test_target/core.dart';
 import 'src/gestures/hit_test/hit_test_entry/core.dart';
 import 'src/gestures/hit_test/hit_test_result/core.dart';
 import 'src/gestures/pointer_router/pointer_router/core.dart';
+import 'src/gestures/pointer_signal_resolver/pointer_signal_resolver/core.dart';
 
 /// Global instance of [FlutterEvalPlugin]
 const flutterEvalPlugin = FlutterEvalPlugin();
@@ -475,6 +476,7 @@ class FlutterEvalPlugin implements EvalPlugin {
         $HitTestEntryProps.instance,
         $HitTestResultProps.instance,
         $PointerRouterProps.instance,
+        $PointerSignalResolverProps.instance,
       ];
 
   @override
