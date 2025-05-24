@@ -91,6 +91,7 @@ import 'package:flutter_eval/src/widgets/spacer.dart';
 import 'package:flutter_eval/src/widgets/text.dart';
 
 import 'src/painting/alignment/alignment/core.dart';
+import 'src/painting/alignment/alignment_directional/core.dart';
 import 'src/painting/alignment/alignment_geometry/core.dart';
 import 'src/painting/border_radius/border_radius/core.dart';
 import 'src/painting/border_radius/border_radius_geometry/core.dart';
@@ -251,6 +252,7 @@ class FlutterEvalPlugin implements EvalPlugin {
         $DecorationImageProps.instance,
         $BoxDecorationProps.instance,
         $AlignmentProps.instance,
+        $AlignmentDirectionalProps.instance,
         $AlignmentGeometryProps.instance,
         $BorderRadiusGeometryProps.instance,
         $BorderRadiusProps.instance,
