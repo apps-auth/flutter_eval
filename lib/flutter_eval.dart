@@ -179,6 +179,10 @@ import 'src/painting/text_span/text_span/core.dart';
 import 'src/services/clipboard/clipboard/core.dart';
 import 'src/services/clipboard/clipboard_data/core.dart';
 import 'src/services/text_editing/text_selection/core.dart';
+import 'src/services/text_formatter/max_length_enforcement/core.dart';
+import 'src/services/text_formatter/text_input_formatter/core.dart';
+import 'src/services/text_formatter/filtering_text_input_formatter/core.dart';
+import 'src/services/text_formatter/length_limiting_text_input_formatter/core.dart';
 
 /// Global instance of [FlutterEvalPlugin]
 const flutterEvalPlugin = FlutterEvalPlugin();
@@ -404,6 +408,10 @@ class FlutterEvalPlugin implements EvalPlugin {
         $ClipboardProps.instance,
         $ClipboardDataProps.instance,
         $TextSelectionProps.instance,
+        $MaxLengthEnforcementProps.instance,
+        $TextInputFormatterProps.instance,
+        $FilteringTextInputFormatterProps.instance,
+        $LengthLimitingTextInputFormatterProps.instance,
       ];
 
   @override
