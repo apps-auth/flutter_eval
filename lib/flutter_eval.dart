@@ -233,6 +233,8 @@ import 'src/gestures/velocity_tracker/velocity_estimate/core.dart';
 import 'src/gestures/velocity_tracker/velocity_tracker/core.dart';
 import 'src/gestures/velocity_tracker/ios_scroll_view_fling_velocity_tracker/core.dart';
 import 'src/gestures/velocity_tracker/macos_scroll_view_fling_velocity_tracker/core.dart';
+import 'src/gestures/lsq_solver/polynomial_fit/core.dart';
+import 'src/gestures/lsq_solver/least_squares_solver/core.dart';
 
 /// Global instance of [FlutterEvalPlugin]
 const flutterEvalPlugin = FlutterEvalPlugin();
@@ -507,6 +509,8 @@ class FlutterEvalPlugin implements EvalPlugin {
         $VelocityTrackerProps.instance,
         $IOSScrollViewFlingVelocityTrackerProps.instance,
         $MacOSScrollViewFlingVelocityTrackerProps.instance,
+        $PolynomialFitProps.instance,
+        $LeastSquaresSolverProps.instance,
       ];
 
   @override
