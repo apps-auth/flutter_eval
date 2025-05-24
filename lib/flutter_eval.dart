@@ -175,6 +175,7 @@ import 'src/painting/linear_border/linear_border_edge/core.dart';
 import 'src/painting/linear_border/linear_border/core.dart';
 import 'src/painting/text_painter/placeholder_dimensions/core.dart';
 import 'src/painting/text_painter/text_painter/core.dart';
+import 'src/painting/text_span/text_span/core.dart';
 
 /// Global instance of [FlutterEvalPlugin]
 const flutterEvalPlugin = FlutterEvalPlugin();
@@ -396,6 +397,7 @@ class FlutterEvalPlugin implements EvalPlugin {
         $LinearBorderProps.instance,
         $PlaceholderDimensionsProps.instance,
         $TextPainterProps.instance,
+        $TextSpanProps.instance,
       ];
 
   @override
