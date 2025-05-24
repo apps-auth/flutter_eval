@@ -140,6 +140,15 @@ import 'src/sky_engine/ui/painting/picture/core.dart';
 import 'src/sky_engine/ui/painting/picture_recorder/core.dart';
 import 'src/sky_engine/ui/painting/image_descriptor/core.dart';
 import 'src/sky_engine/ui/painting/color/core.dart';
+import 'src/sky_engine/ui/painting/paint/core.dart';
+import 'src/sky_engine/ui/painting/image/core.dart' as ui_image;
+import 'src/sky_engine/ui/painting/frame_info/core.dart';
+import 'src/sky_engine/ui/painting/mask_filter/core.dart';
+import 'src/sky_engine/ui/painting/picture_rasterization_exception/core.dart';
+import 'src/sky_engine/ui/painting/tangent/core.dart';
+import 'src/sky_engine/ui/painting/path_metrics/core.dart';
+import 'src/sky_engine/ui/painting/path_metric_iterator/core.dart';
+import 'src/sky_engine/ui/painting/path_metric/core.dart';
 
 /// Global instance of [FlutterEvalPlugin]
 const flutterEvalPlugin = FlutterEvalPlugin();
@@ -329,6 +338,15 @@ class FlutterEvalPlugin implements EvalPlugin {
         $PictureRecorderProps.instance,
         $ImageDescriptorProps.instance,
         $ColorProps.instance,
+        $PaintProps.instance,
+        ui_image.$ImageProps.instance,
+        $FrameInfoProps.instance,
+        $MaskFilterProps.instance,
+        $PictureRasterizationExceptionProps.instance,
+        $TangentProps.instance,
+        $PathMetricsProps.instance,
+        $PathMetricIteratorProps.instance,
+        $PathMetricProps.instance,
       ];
 
   @override
