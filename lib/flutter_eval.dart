@@ -115,11 +115,24 @@ import 'src/painting/beveled_rectangle_border/beveled_rectangle_border/core.dart
 import 'src/painting/borders/shape_border/core.dart';
 import 'src/painting/borders/outlined_border/core.dart';
 import 'src/sky_engine/ui/geometry/rect/core.dart';
-import 'src/sky_engine/ui/painting/tile_mode/tile_mode.dart';
+
 import 'src/sky_engine/ui/painting/image_filter/core.dart';
 import 'src/sky_engine/ui/painting/color_filter/core.dart';
 import 'src/sky_engine/ui/painting/shadow/core.dart';
 import 'src/sky_engine/ui/blend_mode/blend_mode/core.dart';
+import 'src/sky_engine/ui/painting/stroke_cap/core.dart';
+import 'src/sky_engine/ui/painting/stroke_join/core.dart';
+import 'src/sky_engine/ui/painting/painting_style/core.dart';
+import 'src/sky_engine/ui/painting/color_space/core.dart';
+import 'src/sky_engine/ui/painting/image_byte_format/core.dart';
+import 'src/sky_engine/ui/painting/pixel_format/core.dart';
+import 'src/sky_engine/ui/painting/path_fill_type/core.dart';
+import 'src/sky_engine/ui/painting/path_operation/core.dart';
+import 'src/sky_engine/ui/painting/blur_style/core.dart';
+import 'src/sky_engine/ui/painting/tile_mode/core.dart';
+import 'src/sky_engine/ui/painting/vertex_mode/core.dart';
+import 'src/sky_engine/ui/painting/point_mode/core.dart';
+import 'src/sky_engine/ui/painting/clip_op/core.dart';
 
 /// Global instance of [FlutterEvalPlugin]
 const flutterEvalPlugin = FlutterEvalPlugin();
@@ -290,6 +303,19 @@ class FlutterEvalPlugin implements EvalPlugin {
         $ColorSwatchProps.instance,
         $VerticalDirectionProps.instance,
         $AxisProps.instance,
+        $StrokeCapProps.instance,
+        $StrokeJoinProps.instance,
+        $PaintingStyleProps.instance,
+        $ColorSpaceProps.instance,
+        $ImageByteFormatProps.instance,
+        $PixelFormatProps.instance,
+        $PathFillTypeProps.instance,
+        $PathOperationProps.instance,
+        $BlurStyleProps.instance,
+        $TileModeProps.instance,
+        $VertexModeProps.instance,
+        $PointModeProps.instance,
+        $ClipOpProps.instance,
       ];
 
   @override
@@ -316,7 +342,6 @@ class FlutterEvalPlugin implements EvalPlugin {
     registry.defineBridgeEnum($Clip.$declaration);
     registry.defineBridgeEnum($StackFit.$declaration);
     registry.defineBridgeEnum($AnimationStatus.$declaration);
-    registry.defineBridgeEnum($TileMode.$declaration);
 
     registry.addSource(DartSource('dart:ui', dartUiSource));
 
@@ -591,7 +616,6 @@ class FlutterEvalPlugin implements EvalPlugin {
       ..registerBridgeEnumValues('package:flutter/src/rendering/flex.dart',
           'CrossAxisAlignment', $CrossAxisAlignment.$values)
       ..registerBridgeEnumValues('package:flutter/src/rendering/proxy_box.dart',
-          'HitTestBehavior', $HitTestBehavior.$values)
-      ..registerBridgeEnumValues('dart:ui', 'TileMode', $TileMode.$values);
+          'HitTestBehavior', $HitTestBehavior.$values);
   }
 }

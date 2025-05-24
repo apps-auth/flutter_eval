@@ -4,7 +4,7 @@ import 'dart:ui';
 import 'dart:typed_data';
 
 import '../core.dart';
-import '../tile_mode/tile_mode.dart';
+import '../tile_mode/core.dart';
 import '../../image.dart';
 
 part 'constructors.dart';

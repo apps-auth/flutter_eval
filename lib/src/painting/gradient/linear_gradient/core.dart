@@ -4,9 +4,9 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
+import '../../../sky_engine/ui/painting/tile_mode/core.dart';
 import '../../alignment/alignment/core.dart';
 import '../core.dart';
-import '../../../sky_engine/ui/painting/tile_mode/tile_mode.dart';
 import '../gradient-transform/core.dart';
 import '../gradient/core.dart';
 
