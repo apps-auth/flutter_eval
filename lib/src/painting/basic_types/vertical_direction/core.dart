@@ -28,8 +28,9 @@ class $VerticalDirectionProps extends InstanceDefaultEnumProps {
   @override
   BridgeTypeRef get type => _type;
   @override
-  List<String> get values =>
-      VerticalDirection.values.map((e) => e.name).toList();
+  List<$VerticalDirection> get values =>
+      VerticalDirection.values.map((e) => $VerticalDirection.wrap(e)).toList();
+
   @override
   final List<InstanceDefaultEnumPropsGetter> getters = [
     $VerticalDirectionGetterIndex(),

@@ -36,7 +36,8 @@ class $BoxShapeProps extends InstanceDefaultEnumProps {
   BridgeTypeRef get type => _type;
 
   @override
-  List<String> get values => BoxShape.values.map((e) => e.name).toList();
+  List<$BoxShape> get values =>
+      BoxShape.values.map((e) => $BoxShape.wrap(e)).toList();
 
   @override
   final List<InstanceDefaultEnumPropsGetter> getters = [

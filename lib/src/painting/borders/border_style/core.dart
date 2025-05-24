@@ -35,7 +35,8 @@ class $BorderStyleProps extends InstanceDefaultEnumProps {
   BridgeTypeRef get type => _type;
 
   @override
-  List<String> get values => BorderStyle.values.map((e) => e.name).toList();
+  List<$BorderStyle> get values =>
+      BorderStyle.values.map((e) => $BorderStyle.wrap(e)).toList();
 
   @override
   final List<InstanceDefaultEnumPropsGetter> getters = [

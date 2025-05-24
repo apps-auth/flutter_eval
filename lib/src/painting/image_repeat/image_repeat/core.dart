@@ -36,7 +36,8 @@ class $ImageRepeatProps extends InstanceDefaultEnumProps {
   BridgeTypeRef get type => _type;
 
   @override
-  List<String> get values => ImageRepeat.values.map((e) => e.name).toList();
+  List<$ImageRepeat> get values =>
+      ImageRepeat.values.map((e) => $ImageRepeat.wrap(e)).toList();
 
   @override
   final List<InstanceDefaultEnumPropsGetter> getters = [
