@@ -220,6 +220,13 @@ import 'src/gestures/pointer_router/pointer_router/core.dart';
 import 'src/gestures/pointer_signal_resolver/pointer_signal_resolver/core.dart';
 import 'src/gestures/resampler/pointer_event_resampler/core.dart';
 import 'src/gestures/converter/pointer_event_converter/core.dart';
+import 'src/gestures/recognizer/drag_start_behavior/core.dart';
+import 'src/gestures/recognizer/multitouch_drag_strategy/core.dart';
+import 'src/gestures/recognizer/gesture_recognizer_state/core.dart';
+import 'src/gestures/recognizer/gesture_recognizer/core.dart';
+import 'src/gestures/recognizer/one_sequence_gesture_recognizer/core.dart';
+import 'src/gestures/recognizer/primary_pointer_gesture_recognizer/core.dart';
+import 'src/gestures/recognizer/offset_pair/core.dart';
 
 /// Global instance of [FlutterEvalPlugin]
 const flutterEvalPlugin = FlutterEvalPlugin();
@@ -481,6 +488,13 @@ class FlutterEvalPlugin implements EvalPlugin {
         $PointerSignalResolverProps.instance,
         $PointerEventResamplerProps.instance,
         $PointerEventConverterProps.instance,
+        $DragStartBehaviorProps.instance,
+        $MultitouchDragStrategyProps.instance,
+        $GestureRecognizerStateProps.instance,
+        $GestureRecognizerProps.instance,
+        $OneSequenceGestureRecognizerProps.instance,
+        $PrimaryPointerGestureRecognizerProps.instance,
+        $OffsetPairProps.instance,
       ];
 
   @override
