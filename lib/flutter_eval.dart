@@ -115,6 +115,7 @@ import 'src/painting/gradient/gradient/core.dart';
 import 'src/painting/gradient/linear_gradient/core.dart';
 import 'src/painting/rounded_rectangle_border/rounded_rectangle_border/core.dart';
 import 'src/painting/beveled_rectangle_border/beveled_rectangle_border/core.dart';
+import 'src/painting/continuous_rectangle_border/continuous_rectangle_border/core.dart';
 import 'src/painting/borders/shape_border/core.dart';
 import 'src/painting/borders/outlined_border/core.dart';
 import 'src/sky_engine/ui/geometry/rect/core.dart';
@@ -306,6 +307,7 @@ class FlutterEvalPlugin implements EvalPlugin {
         $EdgeInsetsProps.instance,
         $RoundedRectangleBorderProps.instance,
         $BeveledRectangleBorderProps.instance,
+        $ContinuousRectangleBorderProps.instance,
         $ImageRepeatProps.instance,
         $BlendModeProps.instance,
         $RectProps.instance,
