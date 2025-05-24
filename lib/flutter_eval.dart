@@ -51,6 +51,8 @@ import 'package:flutter_eval/src/painting/image_provider/resize_image/core.dart'
 import 'package:flutter_eval/src/painting/image_repeat/image_repeat/core.dart';
 import 'package:flutter_eval/src/painting/text_style/text_style/core.dart';
 import 'package:flutter_eval/src/painting/colors/color_swatch/core.dart';
+import 'package:flutter_eval/src/painting/colors/hsv_color/core.dart';
+import 'package:flutter_eval/src/painting/colors/hsl_color/core.dart';
 import 'package:flutter_eval/src/painting/basic_types/vertical_direction/core.dart';
 import 'package:flutter_eval/src/painting/basic_types/axis/core.dart';
 import 'package:flutter_eval/src/rendering.dart';
@@ -319,6 +321,8 @@ class FlutterEvalPlugin implements EvalPlugin {
         $MemoryImageProps.instance,
         $ResizeImageProps.instance,
         $ColorSwatchProps.instance,
+        $HSVColorProps.instance,
+        $HSLColorProps.instance,
         $VerticalDirectionProps.instance,
         $AxisProps.instance,
         $StrokeCapProps.instance,
