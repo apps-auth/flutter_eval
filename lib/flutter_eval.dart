@@ -110,6 +110,7 @@ import 'src/painting/clip_context/clip_context/core.dart';
 import 'src/painting/decoration/decoration/core.dart';
 import 'src/painting/decoration/box_painter/core.dart';
 import 'src/painting/edge_insets/edge_insets/core.dart';
+import 'src/painting/edge_insets/edge_insets_directional/core.dart';
 import 'src/painting/edge_insets/edge_insets_geometry/core.dart';
 import 'src/painting/gradient/gradient-transform/core.dart';
 import 'src/painting/gradient/gradient/core.dart';
@@ -307,6 +308,7 @@ class FlutterEvalPlugin implements EvalPlugin {
         $BorderDirectionalProps.instance,
         $EdgeInsetsGeometryProps.instance,
         $EdgeInsetsProps.instance,
+        $EdgeInsetsDirectionalProps.instance,
         $RoundedRectangleBorderProps.instance,
         $BeveledRectangleBorderProps.instance,
         $ContinuousRectangleBorderProps.instance,
