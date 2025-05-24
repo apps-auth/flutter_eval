@@ -100,6 +100,7 @@ import 'src/painting/border_radius/border_radius_directional/core.dart';
 import 'src/painting/borders/border_side/core.dart';
 import 'src/painting/borders/border_style/core.dart';
 import 'src/painting/box_border/border/core.dart';
+import 'src/painting/box_border/border_directional/core.dart';
 import 'src/painting/box_border/box_border/core.dart';
 import 'src/painting/box_border/box_shape/core.dart';
 import 'src/painting/box_decoration/box_decoration/core.dart';
@@ -266,6 +267,7 @@ class FlutterEvalPlugin implements EvalPlugin {
         $BorderStyleProps.instance,
         $BoxBorderProps.instance,
         $BorderProps.instance,
+        $BorderDirectionalProps.instance,
         $EdgeInsetsGeometryProps.instance,
         $EdgeInsetsProps.instance,
         $RoundedRectangleBorderProps.instance,
