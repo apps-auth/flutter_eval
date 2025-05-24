@@ -183,6 +183,15 @@ import 'src/services/text_formatter/max_length_enforcement/core.dart';
 import 'src/services/text_formatter/text_input_formatter/core.dart';
 import 'src/services/text_formatter/filtering_text_input_formatter/core.dart';
 import 'src/services/text_formatter/length_limiting_text_input_formatter/core.dart';
+import 'src/services/text_input/smart_dashes_type/core.dart';
+import 'src/services/text_input/smart_quotes_type/core.dart';
+import 'src/services/text_input/text_input_action/core.dart';
+import 'src/services/text_input/text_capitalization/core.dart';
+import 'src/services/text_input/floating_cursor_drag_state/core.dart';
+import 'src/services/text_input/selection_changed_cause/core.dart';
+import 'src/services/text_input/scribble_client/core.dart';
+import 'src/services/text_input/text_input_type/core.dart';
+import 'src/services/text_input/text_editing_value/core.dart';
 
 /// Global instance of [FlutterEvalPlugin]
 const flutterEvalPlugin = FlutterEvalPlugin();
@@ -412,6 +421,15 @@ class FlutterEvalPlugin implements EvalPlugin {
         $TextInputFormatterProps.instance,
         $FilteringTextInputFormatterProps.instance,
         $LengthLimitingTextInputFormatterProps.instance,
+        $SmartDashesTypeProps.instance,
+        $SmartQuotesTypeProps.instance,
+        $TextInputActionProps.instance,
+        $TextCapitalizationProps.instance,
+        $FloatingCursorDragStateProps.instance,
+        $SelectionChangedCauseProps.instance,
+        $ScribbleClientProps.instance,
+        $TextInputTypeProps.instance,
+        $TextEditingValueProps.instance,
       ];
 
   @override
