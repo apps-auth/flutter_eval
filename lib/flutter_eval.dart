@@ -192,6 +192,7 @@ import 'src/services/text_input/selection_changed_cause/core.dart';
 import 'src/services/text_input/scribble_client/core.dart';
 import 'src/services/text_input/text_input_type/core.dart';
 import 'src/services/text_input/text_editing_value/core.dart';
+import 'src/services/text_input/text_input/core.dart';
 
 /// Global instance of [FlutterEvalPlugin]
 const flutterEvalPlugin = FlutterEvalPlugin();
@@ -430,6 +431,7 @@ class FlutterEvalPlugin implements EvalPlugin {
         $ScribbleClientProps.instance,
         $TextInputTypeProps.instance,
         $TextEditingValueProps.instance,
+        $TextInputProps.instance,
       ];
 
   @override
