@@ -159,6 +159,7 @@ import 'src/sky_engine/ui/painting/path_metric_iterator/core.dart';
 import 'src/sky_engine/ui/painting/path_metric/core.dart';
 import 'src/painting/box_shadow/box_shadow/core.dart';
 import 'src/painting/circle_border/circle_border/core.dart';
+import 'src/painting/oval_border/oval_border/core.dart';
 import 'src/painting/flutter_logo/flutter_logo_style/core.dart';
 import 'src/painting/flutter_logo/flutter_logo_decoration/core.dart';
 import 'src/painting/image_resolution/asset_image/core.dart';
@@ -372,6 +373,7 @@ class FlutterEvalPlugin implements EvalPlugin {
         $PathMetricProps.instance,
         $BoxShadowProps.instance,
         $CircleBorderProps.instance,
+        $OvalBorderProps.instance,
         $ClipContextProps.instance,
         $FlutterLogoStyleProps.instance,
         $FlutterLogoDecorationProps.instance,
