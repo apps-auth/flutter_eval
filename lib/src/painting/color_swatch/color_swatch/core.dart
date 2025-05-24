@@ -3,7 +3,7 @@ import 'package:dart_eval/stdlib/core.dart';
 import 'package:flutter/painting.dart';
 
 import '../core.dart';
-import '../../../sky_engine/ui/painting.dart';
+import '../../../sky_engine/ui/painting/color/core.dart';
 
 part 'constructors.dart';
 part 'getters.dart';

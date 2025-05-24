@@ -1,35 +1,33 @@
 import 'package:dart_eval/dart_eval_bridge.dart';
 import 'package:dart_eval/stdlib/core.dart';
-import 'package:flutter/painting.dart';
+import 'dart:ui';
 
-import '../../geometry.dart';
 import '../core.dart';
-import '../color/core.dart';
+import '../color_space/core.dart';
 
 part 'constructors.dart';
-part 'gettersStatic.dart';
 part 'getters.dart';
 part 'methods.dart';
 
-const String _className = "Shadow";
+const String _className = "Color";
 const _type = BridgeTypeRef(
   BridgeTypeSpec(flutterFileName, _className),
 );
 
-class $Shadow extends $InstanceDefault<Shadow> {
-  $Shadow.wrap(super.$value)
+class $Color extends $InstanceDefault<Color> {
+  $Color.wrap(super.$value)
       : super.wrap(
           superclass: $Object($value),
-          props: $ShadowProps.instance,
+          props: $ColorProps.instance,
         );
 
   static const $type = _type;
 }
 
-class $ShadowProps extends InstanceDefaultProps {
-  static final $ShadowProps instance = $ShadowProps._();
+class $ColorProps extends InstanceDefaultProps {
+  static final $ColorProps instance = $ColorProps._();
 
-  $ShadowProps._();
+  $ColorProps._();
 
   @override
   String get className => _className;
@@ -46,7 +44,10 @@ class $ShadowProps extends InstanceDefaultProps {
 
   @override
   final List<InstanceDefaultPropsConstructor> constructors = [
-    $ShadowConstructorDefault(),
+    $ColorConstructorDefault(),
+    $ColorConstructorFromARGB(),
+    $ColorConstructorFromRGBO(),
+    $ColorConstructorFrom(),
   ];
 
   @override
@@ -54,18 +55,26 @@ class $ShadowProps extends InstanceDefaultProps {
 
   @override
   final List<InstanceDefaultPropsGetter> getters = [
-    $ShadowGetterColor(),
-    $ShadowGetterOffset(),
-    $ShadowGetterBlurRadius(),
+    $ColorGetterAlpha(),
+    $ColorGetterRed(),
+    $ColorGetterGreen(),
+    $ColorGetterBlue(),
+    $ColorGetterValue(),
+    $ColorGetterOpacity(),
+    $ColorGetterColorSpace(),
+    $ColorGetterA(),
+    $ColorGetterR(),
+    $ColorGetterG(),
+    $ColorGetterB(),
   ];
 
   @override
   final List<InstanceDefaultPropsMethod> methods = [
-    $ShadowMethodScale(),
-    $ShadowMethodLerp(),
-    $ShadowMethodLerpList(),
-    $ShadowMethodToString(),
-    $ShadowMethodEquals(),
-    $ShadowMethodHashCode(),
+    $ColorMethodWithOpacity(),
+    $ColorMethodWithAlpha(),
+    $ColorMethodWithRed(),
+    $ColorMethodWithGreen(),
+    $ColorMethodWithBlue(),
+    $ColorMethodComputeLuminance(),
   ];
 }

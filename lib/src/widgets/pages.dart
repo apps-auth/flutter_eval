@@ -9,7 +9,8 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_eval/animation.dart';
 import 'package:flutter_eval/src/animation/animation.dart';
 import 'package:flutter_eval/src/animation/animation_controller.dart';
-import 'package:flutter_eval/src/sky_engine/ui/painting.dart';
+
+import 'package:flutter_eval/src/sky_engine/ui/painting/color/core.dart';
 import 'package:flutter_eval/src/widgets/framework.dart';
 import 'package:flutter_eval/src/widgets/navigator.dart';
 import 'package:flutter_eval/src/widgets/routes.dart';

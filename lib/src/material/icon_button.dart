@@ -3,7 +3,8 @@ import 'package:dart_eval/stdlib/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_eval/src/foundation/key.dart';
 import 'package:flutter_eval/src/rendering/box.dart';
-import 'package:flutter_eval/src/sky_engine/ui/painting.dart';
+
+import 'package:flutter_eval/src/sky_engine/ui/painting/color/core.dart';
 import 'package:flutter_eval/src/widgets/framework.dart';
 
 import '../painting/alignment/alignment_geometry/core.dart';

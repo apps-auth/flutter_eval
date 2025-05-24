@@ -67,7 +67,7 @@ import 'package:flutter_eval/src/services/message_codec.dart';
 import 'package:flutter_eval/src/services/platform_channel.dart';
 import 'package:flutter_eval/src/sky_engine/ui/geometry.dart';
 import 'package:flutter_eval/src/sky_engine/ui/image.dart';
-import 'package:flutter_eval/src/sky_engine/ui/painting.dart';
+
 import 'package:flutter_eval/src/sky_engine/ui/pointer.dart';
 import 'package:flutter_eval/src/sky_engine/ui/text.dart';
 import 'package:flutter_eval/src/sky_engine/ui/ui.dart';
@@ -139,6 +139,7 @@ import 'src/sky_engine/ui/painting/canvas/core.dart';
 import 'src/sky_engine/ui/painting/picture/core.dart';
 import 'src/sky_engine/ui/painting/picture_recorder/core.dart';
 import 'src/sky_engine/ui/painting/image_descriptor/core.dart';
+import 'src/sky_engine/ui/painting/color/core.dart';
 
 /// Global instance of [FlutterEvalPlugin]
 const flutterEvalPlugin = FlutterEvalPlugin();
@@ -177,7 +178,6 @@ class FlutterEvalPlugin implements EvalPlugin {
         $Text.$declaration,
         $Container.$declaration,
         $Key.$declaration,
-        $Color.$declaration,
         $WidgetsApp.$declaration,
         $MaterialApp.$declaration,
         $MaterialColor.$declaration,
@@ -328,6 +328,7 @@ class FlutterEvalPlugin implements EvalPlugin {
         $PictureProps.instance,
         $PictureRecorderProps.instance,
         $ImageDescriptorProps.instance,
+        $ColorProps.instance,
       ];
 
   @override
@@ -351,7 +352,6 @@ class FlutterEvalPlugin implements EvalPlugin {
     registry.defineBridgeEnum($FilterQuality.$declaration);
     registry.defineBridgeEnum($PointerDeviceKind.$declaration);
     registry.defineBridgeEnum($HitTestBehavior.$declaration);
-    registry.defineBridgeEnum($Clip.$declaration);
     registry.defineBridgeEnum($StackFit.$declaration);
     registry.defineBridgeEnum($AnimationStatus.$declaration);
 
@@ -411,10 +411,6 @@ class FlutterEvalPlugin implements EvalPlugin {
     }
 
     runtime
-      ..registerBridgeFunc('dart:ui', 'Color.', $Color.$new)
-      ..registerBridgeFunc('dart:ui', 'Color.fromARGB', $Color.$fromARGB)
-      ..registerBridgeFunc('dart:ui', 'Color.fromRGBO', $Color.$fromRGBO)
-      ..registerBridgeFunc('dart:ui', 'Color.from', $Color.$from)
       ..registerBridgeFunc('dart:ui', 'Size.', $Size.$new)
       ..registerBridgeFunc('dart:ui', 'Offset.', $Offset.$new)
       ..registerBridgeFunc('dart:ui', 'Radius.circular', $Radius.$circular)
@@ -618,7 +614,6 @@ class FlutterEvalPlugin implements EvalPlugin {
           'dart:ui', 'TextBaseline', $TextBaseline.$values)
       ..registerBridgeEnumValues(
           'dart:ui', 'PointerDeviceKind', $PointerDeviceKind.$values)
-      ..registerBridgeEnumValues('dart:ui', 'Clip', $Clip.$values)
       ..registerBridgeEnumValues(
           'dart:ui', 'FilterQuality', $FilterQuality.$values)
       ..registerBridgeEnumValues('package:flutter/src/rendering/flex.dart',

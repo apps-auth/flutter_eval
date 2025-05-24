@@ -5,7 +5,8 @@ import 'package:dart_eval/stdlib/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_eval/src/material/colors.dart';
 import 'package:flutter_eval/src/material/text_theme.dart';
-import 'package:flutter_eval/src/sky_engine/ui/painting.dart';
+
+import 'package:flutter_eval/src/sky_engine/ui/painting/color/core.dart';
 
 class $ThemeData implements $Instance {
   static const $type = BridgeTypeRef(BridgeTypeSpec(

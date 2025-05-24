@@ -3,11 +3,9 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_eval/src/foundation/key.dart';
 import 'package:flutter_eval/src/painting/box_fit/box_fit/core.dart';
 import 'package:flutter_eval/src/painting/image_provider/image_provider/core.dart';
-import 'package:flutter_eval/src/painting/image_provider/network_image/core.dart';
-import 'package:flutter_eval/src/painting/image_provider/memory_image/core.dart';
-import 'package:flutter_eval/src/painting/image_provider/resize_image/core.dart';
 import 'package:flutter_eval/src/sky_engine/ui/image.dart';
-import 'package:flutter_eval/src/sky_engine/ui/painting.dart';
+
+import 'package:flutter_eval/src/sky_engine/ui/painting/color/core.dart';
 import 'package:flutter_eval/src/widgets/framework.dart';
 
 import '../painting/alignment/alignment_geometry/core.dart';

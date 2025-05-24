@@ -1,7 +1,8 @@
 import 'package:dart_eval/dart_eval_bridge.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_eval/src/painting/color_swatch/color_swatch/core.dart';
-import 'package:flutter_eval/src/sky_engine/ui/painting.dart';
+
+import 'package:flutter_eval/src/sky_engine/ui/painting/color/core.dart';
 
 const materialColorsSource = '''
 import 'package:flutter/painting.dart';

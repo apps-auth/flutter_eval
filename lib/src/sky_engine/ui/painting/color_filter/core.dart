@@ -3,7 +3,7 @@ import 'dart:ui';
 
 import '../../blend_mode/blend_mode/core.dart';
 import '../core.dart';
-import '../../painting.dart';
+import '../color/core.dart';
 import '../image_filter/core.dart';
 
 part 'constructors.dart';

@@ -6,7 +6,8 @@ import 'package:flutter_eval/src/painting/basic_types/vertical_direction/core.da
 import 'package:flutter_eval/src/painting/box_fit/box_fit/core.dart';
 import 'package:flutter_eval/src/rendering/flex.dart';
 import 'package:flutter_eval/src/rendering/stack.dart';
-import 'package:flutter_eval/src/sky_engine/ui/painting.dart';
+
+import 'package:flutter_eval/src/sky_engine/ui/painting/color/core.dart';
 import 'package:flutter_eval/src/sky_engine/ui/text.dart';
 import 'package:flutter_eval/src/widgets/framework.dart';
 
@@ -14,6 +15,7 @@ import '../painting/alignment/alignment/core.dart';
 import '../painting/alignment/alignment_geometry/core.dart';
 import '../painting/border_radius/border_radius/core.dart';
 import '../painting/edge_insets/edge_insets_geometry/core.dart';
+import '../sky_engine/ui/painting/clip/core.dart';
 
 const widgetsBasicSource = '''
 export 'package:flutter/animation.dart';
