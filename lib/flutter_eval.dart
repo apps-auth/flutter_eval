@@ -3,6 +3,8 @@
 library flutter_eval;
 
 export 'src/flutter_eval.dart';
+export 'src/painting/text_painter/text_overflow/core.dart';
+export 'src/painting/text_painter/text_width_basis/core.dart';
 
 import 'package:dart_eval/dart_eval.dart';
 import 'package:dart_eval/dart_eval_bridge.dart';
