@@ -57,7 +57,44 @@ import 'package:flutter_eval/src/painting/basic_types/axis/core.dart';
 import 'package:flutter_eval/src/rendering.dart';
 import 'package:flutter_eval/src/rendering/flex.dart';
 import 'package:flutter_eval/src/rendering/object.dart';
-import 'package:flutter_eval/src/rendering/proxy_box.dart';
+import 'package:flutter_eval/src/rendering/proxy_box/render_proxy_box/core.dart';
+import 'package:flutter_eval/src/rendering/proxy_box/render_proxy_box_with_hit_test_behavior/core.dart';
+import 'package:flutter_eval/src/rendering/proxy_box/render_constrained_box/core.dart';
+import 'package:flutter_eval/src/rendering/proxy_box/render_opacity/core.dart';
+import 'package:flutter_eval/src/rendering/proxy_box/render_limited_box/core.dart';
+import 'package:flutter_eval/src/rendering/proxy_box/render_aspect_ratio/core.dart';
+import 'package:flutter_eval/src/rendering/proxy_box/render_animated_opacity/core.dart';
+import 'package:flutter_eval/src/rendering/proxy_box/render_ignore_pointer/core.dart';
+import 'package:flutter_eval/src/rendering/proxy_box/render_offstage/core.dart';
+import 'package:flutter_eval/src/rendering/proxy_box/render_intrinsic_width/core.dart';
+import 'package:flutter_eval/src/rendering/proxy_box/render_intrinsic_height/core.dart';
+import 'package:flutter_eval/src/rendering/proxy_box/render_absorb_pointer/core.dart';
+import 'package:flutter_eval/src/rendering/proxy_box/render_decorated_box/core.dart';
+import 'package:flutter_eval/src/rendering/proxy_box/render_transform/core.dart';
+import 'package:flutter_eval/src/rendering/proxy_box/render_clip_rect/core.dart';
+import 'package:flutter_eval/src/rendering/proxy_box/render_clip_rrect/core.dart';
+import 'package:flutter_eval/src/rendering/proxy_box/render_clip_oval/core.dart';
+import 'package:flutter_eval/src/rendering/proxy_box/render_clip_path/core.dart';
+import 'package:flutter_eval/src/rendering/proxy_box/render_physical_model/core.dart';
+import 'package:flutter_eval/src/rendering/proxy_box/render_physical_shape/core.dart';
+import 'package:flutter_eval/src/rendering/proxy_box/render_fitted_box/core.dart';
+import 'package:flutter_eval/src/rendering/proxy_box/render_fractional_translation/core.dart';
+import 'package:flutter_eval/src/rendering/proxy_box/render_pointer_listener/core.dart';
+import 'package:flutter_eval/src/rendering/proxy_box/render_mouse_region/core.dart';
+import 'package:flutter_eval/src/rendering/proxy_box/render_repaint_boundary/core.dart';
+import 'package:flutter_eval/src/rendering/proxy_box/render_meta_data/core.dart';
+import 'package:flutter_eval/src/rendering/proxy_box/render_semantics_gesture_handler/core.dart';
+import 'package:flutter_eval/src/rendering/proxy_box/render_semantics_annotations/core.dart';
+import 'package:flutter_eval/src/rendering/proxy_box/render_block_semantics/core.dart';
+import 'package:flutter_eval/src/rendering/proxy_box/render_merge_semantics/core.dart';
+import 'package:flutter_eval/src/rendering/proxy_box/render_exclude_semantics/core.dart';
+import 'package:flutter_eval/src/rendering/proxy_box/render_indexed_semantics/core.dart';
+import 'package:flutter_eval/src/rendering/proxy_box/render_leader_layer/core.dart';
+import 'package:flutter_eval/src/rendering/proxy_box/render_follower_layer/core.dart';
+import 'package:flutter_eval/src/rendering/proxy_box/render_annotated_region/core.dart';
+import 'package:flutter_eval/src/rendering/proxy_box/render_shader_mask/core.dart';
+import 'package:flutter_eval/src/rendering/proxy_box/render_backdrop_filter/core.dart';
+import 'package:flutter_eval/src/rendering/proxy_box/render_custom_paint/core.dart';
 import 'package:flutter_eval/src/rendering/stack.dart';
 import 'package:flutter_eval/src/rendering/debug/rendering_flutter_binding/core.dart';
 import 'package:flutter_eval/src/rendering/debug_overflow_indicator/debug_overflow_indicator_mixin/core.dart';
@@ -296,10 +333,6 @@ import 'src/gestures/scale/scale_update_details/core.dart';
 import 'src/gestures/scale/scale_end_details/core.dart';
 import 'src/gestures/scale/scale_gesture_recognizer/core.dart';
 import 'package:flutter_eval/src/rendering/sliver/render_sliver/core.dart';
-import 'package:flutter_eval/src/rendering/sliver/sliver_constraints/core.dart';
-import 'package:flutter_eval/src/rendering/sliver/sliver_geometry/core.dart';
-import 'package:flutter_eval/src/rendering/sliver/sliver_logical_parent_data/core.dart';
-import 'package:flutter_eval/src/rendering/sliver/sliver_hit_test_result/core.dart';
 
 /// Global instance of [FlutterEvalPlugin]
 const flutterEvalPlugin = FlutterEvalPlugin();
@@ -635,11 +668,45 @@ class FlutterEvalPlugin implements EvalPlugin {
         $RenderPaddingProps.instance,
         $RenderPositionedBoxProps.instance,
         $RenderConstrainedOverflowBoxProps.instance,
+        $RenderProxyBoxProps.instance,
+        $RenderProxyBoxWithHitTestBehaviorProps.instance,
+        $RenderConstrainedBoxProps.instance,
+        $RenderOpacityProps.instance,
+        $RenderLimitedBoxProps.instance,
+        $RenderAspectRatioProps.instance,
+        $RenderAnimatedOpacityProps.instance,
+        $RenderIgnorePointerProps.instance,
+        $RenderOffstageProps.instance,
+        $RenderIntrinsicWidthProps.instance,
+        $RenderIntrinsicHeightProps.instance,
+        $RenderAbsorbPointerProps.instance,
+        $RenderDecoratedBoxProps.instance,
+        $RenderTransformProps.instance,
+        $RenderClipRectProps.instance,
+        $RenderClipRRectProps.instance,
+        $RenderClipOvalProps.instance,
+        $RenderClipPathProps.instance,
+        $RenderPhysicalModelProps.instance,
+        $RenderPhysicalShapeProps.instance,
+        $RenderFittedBoxProps.instance,
+        $RenderFractionalTranslationProps.instance,
+        $RenderPointerListenerProps.instance,
+        $RenderMouseRegionProps.instance,
+        $RenderRepaintBoundaryProps.instance,
+        $RenderMetaDataProps.instance,
+        $RenderSemanticsGestureHandlerProps.instance,
+        $RenderSemanticsAnnotationsProps.instance,
+        $RenderBlockSemanticsProps.instance,
+        $RenderMergeSemanticsProps.instance,
+        $RenderExcludeSemanticsProps.instance,
+        $RenderIndexedSemanticsProps.instance,
+        $RenderLeaderLayerProps.instance,
+        $RenderFollowerLayerProps.instance,
+        $RenderAnnotatedRegionProps.instance,
+        $RenderShaderMaskProps.instance,
+        $RenderBackdropFilterProps.instance,
+        $RenderCustomPaintProps.instance,
         $RenderSliverProps.instance,
-        $SliverConstraintsProps.instance,
-        $SliverGeometryProps.instance,
-        $SliverLogicalParentDataProps.instance,
-        $SliverHitTestResultProps.instance,
       ];
 
   @override
@@ -662,7 +729,6 @@ class FlutterEvalPlugin implements EvalPlugin {
 
     registry.defineBridgeEnum($FilterQuality.$declaration);
     registry.defineBridgeEnum($PointerDeviceKind.$declaration);
-    registry.defineBridgeEnum($HitTestBehavior.$declaration);
     registry.defineBridgeEnum($StackFit.$declaration);
     registry.defineBridgeEnum($AnimationStatus.$declaration);
 
@@ -904,8 +970,6 @@ class FlutterEvalPlugin implements EvalPlugin {
       ..registerBridgeEnumValues('package:flutter/src/rendering/flex.dart',
           'MainAxisAlignment', $MainAxisAlignment.$values)
       ..registerBridgeEnumValues('package:flutter/src/rendering/flex.dart',
-          'CrossAxisAlignment', $CrossAxisAlignment.$values)
-      ..registerBridgeEnumValues('package:flutter/src/rendering/proxy_box.dart',
-          'HitTestBehavior', $HitTestBehavior.$values);
+          'CrossAxisAlignment', $CrossAxisAlignment.$values);
   }
 }

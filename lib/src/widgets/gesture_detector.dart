@@ -7,7 +7,6 @@ import 'package:flutter_eval/src/gestures/drag_details/drag_start_details/core.d
 import 'package:flutter_eval/src/gestures/drag_details/drag_update_details/core.dart';
 import 'package:flutter_eval/src/gestures/long_press.dart';
 import 'package:flutter_eval/src/gestures/tap.dart';
-import 'package:flutter_eval/src/rendering/proxy_box.dart';
 import 'package:flutter_eval/widgets.dart';
 
 const gestureDetectorSource = '''
@@ -272,8 +271,8 @@ class $GestureDetector implements $Instance {
                   'onScaleEnd',
                   BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.function)),
                   true),
-              BridgeParameter('behavior',
-                  BridgeTypeAnnotation($HitTestBehavior.$type), true),
+              // BridgeParameter('behavior',
+              //     BridgeTypeAnnotation($HitTestBehavior.$type), true),
               BridgeParameter('excludeFromSemantics',
                   BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.bool)), true),
               //BridgeParameter('dragStartBehavior', BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.int)), true),
