@@ -13,7 +13,7 @@ void main(List<String> args) {
     case 'class':
       if (args.length < 2) {
         print(
-            '❌ Uso: dart run generate_proxy_box_classes.dart class <nome_da_classe> [--config=config.json]');
+            '❌ Uso: dart run generator/main.dart class <nome_da_classe> [--config=config.json]');
         return;
       }
       generateClass(args[1], getConfig(args));
@@ -22,7 +22,7 @@ void main(List<String> args) {
     case 'enum':
       if (args.length < 2) {
         print(
-            '❌ Uso: dart run generate_proxy_box_classes.dart enum <nome_do_enum> [--config=config.json]');
+            '❌ Uso: dart run generator/main.dart enum <nome_do_enum> [--config=config.json]');
         return;
       }
       generateEnum(args[1], getConfig(args));
@@ -30,8 +30,7 @@ void main(List<String> args) {
 
     case 'batch':
       if (args.length < 2) {
-        print(
-            '❌ Uso: dart run generate_proxy_box_classes.dart batch <config.json>');
+        print('❌ Uso: dart run generator/main.dart batch <config.json>');
         return;
       }
       generateBatch(args[1]);
@@ -57,11 +56,11 @@ void printUsage() {
   template [nome]  - Cria um template de configuração
 
 📝 Exemplos:
-  dart run generate_proxy_box_classes.dart class BorderSide
-  dart run generate_proxy_box_classes.dart class BorderSide --config=border_config.json
-  dart run generate_proxy_box_classes.dart enum BorderStyle
-  dart run generate_proxy_box_classes.dart batch proxy_box_config.json
-  dart run generate_proxy_box_classes.dart template
+  dart run generator/main.dart class BorderSide
+  dart run generator/main.dart class BorderSide --config=border_config.json
+  dart run generator/main.dart enum BorderStyle
+  dart run generator/main.dart batch proxy_box_config.json
+  dart run generator/main.dart template
 
 🔧 Configuração via JSON para controle total dos parâmetros!
 ''');
@@ -105,7 +104,7 @@ void generateTemplate(String fileName) {
         "type": "class",
         "isAbstract": false,
         "sourceFile": "package:flutter/src/painting/borders.dart",
-        "baseFolder": "border_side",
+        "baseFolder": "borders",
         "extends": "Object",
         "constructors": [
           {
@@ -166,7 +165,7 @@ void generateTemplate(String fileName) {
       {
         "name": "BorderStyle",
         "sourceFile": "package:flutter/src/painting/borders.dart",
-        "baseFolder": "border_style",
+        "baseFolder": "borders",
         "values": ["none", "solid"],
         "customProperties": [
           {
@@ -188,7 +187,7 @@ void generateTemplate(String fileName) {
   file.writeAsStringSync(JsonEncoder.withIndent('  ').convert(template));
   print('✅ Template criado: $fileName');
   print(
-      '📝 Edite o arquivo e execute: dart run generate_proxy_box_classes.dart batch $fileName');
+      '📝 Edite o arquivo e execute: dart run generator/main.dart batch $fileName');
 }
 
 void generateBatch(String configPath) {
@@ -205,7 +204,7 @@ void generateBatch(String configPath) {
 
   final results = <String>[];
 
-  // Gerar classes
+  // Gerar classes individualmente para evitar sobrescrita
   for (final classConfig in classes) {
     final className = classConfig['name'] as String;
     try {
@@ -217,7 +216,7 @@ void generateBatch(String configPath) {
     }
   }
 
-  // Gerar enums
+  // Gerar enums individualmente
   for (final enumConfig in enums) {
     final enumName = enumConfig['name'] as String;
     try {
@@ -302,52 +301,55 @@ void generateClassFromConfig(
 
   final outputPath = globalSettings['baseOutputPath'] as String? ??
       'lib/src/rendering/proxy_box';
+
+  // CORREÇÃO: Estrutura correta de pastas
   final baseFolderPath = '$outputPath/$baseFolder';
-  final folderPath = '$baseFolderPath/$baseFolder';
+  final classSnakeName = toSnakeCase(className);
+  final classFolderPath = '$baseFolderPath/$classSnakeName';
 
   // Criar estrutura de pastas
   Directory(baseFolderPath).createSync(recursive: true);
-  Directory(folderPath).createSync(recursive: true);
+  Directory(classFolderPath).createSync(recursive: true);
 
-  // Gerar core.dart na pasta pai (flutterFileName)
-  final parentCoreContent = generateParentCore(sourceFile);
-  File('$baseFolderPath/core.dart').writeAsStringSync(parentCoreContent);
+  // Gerar core.dart na pasta pai (flutterFileName) apenas se não existir
+  final parentCoreFile = File('$baseFolderPath/core.dart');
+  if (!parentCoreFile.existsSync()) {
+    final parentCoreContent = generateParentCore(sourceFile);
+    parentCoreFile.writeAsStringSync(parentCoreContent);
+  }
 
-  // Gerar core.dart
+  // Gerar core.dart da classe
   final coreContent = generateClassCore(className, sourceFile, extendsClass,
       isAbstract, constructors, properties, staticProperties, methods);
-  File('$folderPath/core.dart').writeAsStringSync(coreContent);
+  File('$classFolderPath/core.dart').writeAsStringSync(coreContent);
 
   // Gerar constructors.dart
   final constructorsContent =
       generateClassConstructors(className, constructors);
-  File('$folderPath/constructors.dart').writeAsStringSync(constructorsContent);
+  File('$classFolderPath/constructors.dart')
+      .writeAsStringSync(constructorsContent);
 
   // Gerar getters.dart se há propriedades
   if (properties.isNotEmpty) {
     final gettersContent = generateClassGetters(className, properties);
-    File('$folderPath/getters.dart').writeAsStringSync(gettersContent);
+    File('$classFolderPath/getters.dart').writeAsStringSync(gettersContent);
   }
 
   // Gerar gettersStatic.dart se há propriedades estáticas
   if (staticProperties.isNotEmpty) {
     final gettersStaticContent =
         generateClassGettersStatic(className, staticProperties);
-    File('$folderPath/gettersStatic.dart')
+    File('$classFolderPath/gettersStatic.dart')
         .writeAsStringSync(gettersStaticContent);
   }
 
-  // Gerar methods.dart se há métodos
-  if (methods.isNotEmpty) {
-    final methodsContent = generateClassMethods(className, methods);
-    File('$folderPath/methods.dart').writeAsStringSync(methodsContent);
-  } else {
-    // Arquivo vazio para manter estrutura
-    File('$folderPath/methods.dart')
-        .writeAsStringSync(generateEmptyMethods(className));
-  }
+  // Gerar methods.dart sempre (mesmo que vazio)
+  final methodsContent = methods.isNotEmpty
+      ? generateClassMethods(className, methods)
+      : generateEmptyMethods(className);
+  File('$classFolderPath/methods.dart').writeAsStringSync(methodsContent);
 
-  print('📁 Gerado: $folderPath/');
+  print('📁 Gerado: $classFolderPath/');
 }
 
 void generateEnumFromConfig(
@@ -360,27 +362,33 @@ void generateEnumFromConfig(
 
   final outputPath = globalSettings['baseOutputPath'] as String? ??
       'lib/src/rendering/proxy_box';
+
+  // CORREÇÃO: Estrutura correta para enums
   final baseFolderPath = '$outputPath/$baseFolder';
-  final folderPath = '$baseFolderPath/$baseFolder';
+  final enumSnakeName = toSnakeCase(enumName);
+  final enumFolderPath = '$baseFolderPath/$enumSnakeName';
 
   // Criar estrutura de pastas
   Directory(baseFolderPath).createSync(recursive: true);
-  Directory(folderPath).createSync(recursive: true);
+  Directory(enumFolderPath).createSync(recursive: true);
 
-  // Gerar core.dart na pasta pai (flutterFileName)
-  final parentCoreContent = generateParentCore(sourceFile);
-  File('$baseFolderPath/core.dart').writeAsStringSync(parentCoreContent);
+  // Gerar core.dart na pasta pai (flutterFileName) apenas se não existir
+  final parentCoreFile = File('$baseFolderPath/core.dart');
+  if (!parentCoreFile.existsSync()) {
+    final parentCoreContent = generateParentCore(sourceFile);
+    parentCoreFile.writeAsStringSync(parentCoreContent);
+  }
 
-  // Gerar core.dart
+  // Gerar core.dart do enum
   final coreContent =
       generateEnumCore(enumName, sourceFile, values, customProperties);
-  File('$folderPath/core.dart').writeAsStringSync(coreContent);
+  File('$enumFolderPath/core.dart').writeAsStringSync(coreContent);
 
   // Gerar getters.dart
   final gettersContent = generateEnumGetters(enumName, customProperties);
-  File('$folderPath/getters.dart').writeAsStringSync(gettersContent);
+  File('$enumFolderPath/getters.dart').writeAsStringSync(gettersContent);
 
-  print('📁 Gerado: $folderPath/');
+  print('📁 Gerado: $enumFolderPath/');
 }
 
 String generateParentCore(String sourceFile) {
@@ -404,7 +412,7 @@ String generateClassCore(
   final parts = <String>['constructors.dart'];
   if (hasGettersStatic) parts.add('gettersStatic.dart');
   if (hasGetters) parts.add('getters.dart');
-  if (hasMethods) parts.add('methods.dart');
+  parts.add('methods.dart'); // Sempre incluir methods.dart
 
   final partStatements = parts.map((part) => "part '$part';").join('\n');
 
@@ -422,6 +430,15 @@ String generateClassCore(
 
   final importStatements = imports.join('\n');
 
+  // CORREÇÃO: Usar superclass correta baseada na herança
+  final superclassCall = extendsClass != 'Object'
+      ? '\$${extendsClass}.wrap(\$value)'
+      : '\$Object(\$value)';
+
+  // CORREÇÃO: Adicionar $extends apenas se não for Object
+  final extendsDeclaration =
+      extendsClass != 'Object' ? '\$extends: \$${extendsClass}.\$type,' : '';
+
   return '''$importStatements
 
 $partStatements
@@ -434,7 +451,7 @@ const _type = BridgeTypeRef(
 class \$$className extends \$InstanceDefault<$className> {
   \$$className.wrap(super.\$value)
       : super.wrap(
-          superclass: ${extendsClass != 'Object' ? '\$${extendsClass}.wrap(\$value)' : '\$Object(\$value)'},
+          superclass: $superclassCall,
           props: \$${className}Props.instance,
         );
 
@@ -456,7 +473,7 @@ class \$${className}Props extends InstanceDefaultProps {
   BridgeClassType get type => const BridgeClassType(
         _type,
         isAbstract: $isAbstract,
-        ${extendsClass != 'Object' ? '\$extends: \$${extendsClass}.\$type,' : ''}
+        $extendsDeclaration
       );
 
   @override
@@ -474,10 +491,10 @@ class \$${className}Props extends InstanceDefaultProps {
     ${properties.map((p) => '\$${className}Getter${capitalize(p['name'] as String)}(),').join('\n    ')}
   ];''' : '@override\n  final List<InstanceDefaultPropsGetter> getters = [];'}
 
-  ${hasMethods ? '''@override
+  @override
   final List<InstanceDefaultPropsMethod> methods = [
     ${methods.map((m) => '\$${className}Method${capitalize(m['name'] as String)}(),').join('\n    ')}
-  ];''' : '@override\n  final List<InstanceDefaultPropsMethod> methods = [];'}
+  ];
 }
 ''';
 }
@@ -551,6 +568,7 @@ String generateConstructorCall(String className, String constructorName,
     final defaultValue = param['defaultValue'] as String?;
     final nullable = param['nullable'] as bool? ?? false;
 
+    // CORREÇÃO: Usar $reified ao invés de $value
     if (defaultValue != null) {
       return '$paramName: args[$index]?.\$reified ?? $defaultValue,';
     } else if (nullable) {
@@ -649,6 +667,13 @@ String generateClassMethods(String className, List<dynamic> methods) {
             ),''';
     }).join('\n');
 
+    // CORREÇÃO: Usar $reified nos parâmetros
+    final paramAccess = parameters
+        .asMap()
+        .entries
+        .map((e) => 'args[${e.key}]!.\$reified')
+        .join(', ');
+
     return '''
 class \$${className}Method${capitalize(methodName)} implements _InstanceDefaultPropsMethod {
   @override
@@ -666,7 +691,7 @@ $bridgeParams
 
   @override
   \$Value? run(Runtime runtime, \$$className target, List<\$Value?> args) {
-    final result = target.\$reified.$methodName(${parameters.asMap().entries.map((e) => 'args[${e.key}]!.\$reified').join(', ')});
+    final result = target.\$reified.$methodName($paramAccess);
     return ${wrapValue('result', returnType)};
   }
 }''';
@@ -691,6 +716,7 @@ abstract class _InstanceDefaultPropsMethod
 String generateEnumCore(String enumName, String sourceFile,
     List<dynamic> values, List<dynamic> customProperties) {
   return '''import 'package:dart_eval/dart_eval_bridge.dart';
+import 'package:dart_eval/stdlib/core.dart';
 import 'package:flutter/rendering.dart';
 
 import '../core.dart';
@@ -727,7 +753,7 @@ class \$${enumName}Props extends InstanceDefaultEnumProps {
   BridgeTypeRef get type => _type;
 
   @override
-  List<String> get values => $enumName.values.map((e) => e.name).toList();
+  List<\$$enumName> get values => $enumName.values.map((e) => \$$enumName.wrap(e)).toList();
 
   @override
   final List<InstanceDefaultEnumPropsGetter> getters = [
@@ -776,7 +802,7 @@ class \$${enumName}GetterIndex implements _InstanceDefaultEnumPropsGetter {
   @override
   BridgeMethodDef get definition => const BridgeMethodDef(
         BridgeFunctionDef(
-          returns: BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.int)),
+          returns: BridgeTypeAnnotation(\$int.\$type),
         ),
       );
 
@@ -793,7 +819,7 @@ class \$${enumName}GetterName implements _InstanceDefaultEnumPropsGetter {
   @override
   BridgeMethodDef get definition => const BridgeMethodDef(
         BridgeFunctionDef(
-          returns: BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.string)),
+          returns: BridgeTypeAnnotation(\$String.\$type),
         ),
       );
 
@@ -813,8 +839,9 @@ void updateFlutterEvalDart(List<dynamic> classes, List<dynamic> enums) {
   for (final classConfig in classes) {
     final className = classConfig['name'] as String;
     final baseFolder = classConfig['baseFolder'] as String;
+    final classSnakeName = toSnakeCase(className);
     print(
-        "  import 'package:flutter_eval/src/rendering/proxy_box/$baseFolder/$baseFolder/core.dart';");
+        "  import 'package:flutter_eval/src/rendering/proxy_box/$baseFolder/$classSnakeName/core.dart';");
   }
 
   print('\n  E adicionar à lista classesDefault:');
@@ -849,6 +876,8 @@ String mapTypeToBridge(String type) {
     'Rect': 'BridgeTypeRef(BridgeTypeSpec(\'dart:ui\', \'Rect\'))',
     'RenderBox':
         'BridgeTypeRef(BridgeTypeSpec(\'package:flutter/src/rendering/box.dart\', \'RenderBox\'))',
+    'RenderSliver':
+        'BridgeTypeRef(BridgeTypeSpec(\'package:flutter/src/rendering/sliver.dart\', \'RenderSliver\'))',
     'Widget': '\$Widget.\$type',
     'Key': '\$Key.\$type',
   };
