@@ -56,6 +56,8 @@ import 'package:flutter_eval/src/painting/basic_types/vertical_direction/core.da
 import 'package:flutter_eval/src/painting/basic_types/axis/core.dart';
 import 'package:flutter_eval/src/rendering.dart';
 import 'package:flutter_eval/src/rendering/flex.dart';
+import 'package:flutter_eval/src/rendering/flex/flex_parent_data/core.dart';
+import 'package:flutter_eval/src/rendering/flex/render_flex/core.dart';
 import 'package:flutter_eval/src/rendering/object.dart';
 import 'package:flutter_eval/src/rendering/proxy_box/render_proxy_box/core.dart';
 import 'package:flutter_eval/src/rendering/proxy_box/render_proxy_box_with_hit_test_behavior/core.dart';
@@ -715,6 +717,8 @@ class FlutterEvalPlugin implements EvalPlugin {
         $RenderSliverOpacityProps.instance,
         $RenderSliverIgnorePointerProps.instance,
         $RenderSliverOffstageProps.instance,
+        $FlexParentDataProps.instance,
+        $RenderFlexProps.instance,
       ];
 
   @override

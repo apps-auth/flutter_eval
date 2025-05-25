@@ -419,13 +419,44 @@ String generateClassCore(
   // Determinar imports necessários
   final imports = <String>[];
   imports.add("import 'package:dart_eval/dart_eval_bridge.dart';");
+  imports.add("import 'package:dart_eval/stdlib/core.dart';");
   imports.add("import 'package:flutter/rendering.dart';");
   imports.add("import '../core.dart';");
 
+  // CORREÇÃO: Adicionar imports dos enums locais
+  final enumTypes = <String>{};
+
+  // Coletar tipos de enum das propriedades
+  for (final prop in properties) {
+    final propType = prop['type'] as String;
+    if (_isLocalEnumType(propType)) {
+      enumTypes.add(propType);
+    }
+  }
+
+  // Coletar tipos de enum dos construtores
+  for (final constructor in constructors) {
+    final parameters = constructor['parameters'] as List<dynamic>? ?? [];
+    for (final param in parameters) {
+      final paramType = param['type'] as String;
+      if (_isLocalEnumType(paramType)) {
+        enumTypes.add(paramType);
+      }
+    }
+  }
+
+  // Adicionar imports dos enums locais
+  for (final enumType in enumTypes) {
+    final enumSnakeName = toSnakeCase(enumType);
+    imports.add("import '../$enumSnakeName/core.dart';");
+  }
+
   // Adicionar import da classe pai se não for Object
   if (extendsClass != 'Object') {
-    final parentFolder = toSnakeCase(extendsClass);
-    imports.add("import '../../$parentFolder/$parentFolder/core.dart';");
+    // CORREÇÃO: Não tentar importar classes que podem não existir ainda
+    // Comentar por enquanto para evitar erros
+    // final parentFolder = toSnakeCase(extendsClass);
+    // imports.add("import '../../$parentFolder/$parentFolder/core.dart';");
   }
 
   final importStatements = imports.join('\n');
@@ -497,6 +528,17 @@ class \$${className}Props extends InstanceDefaultProps {
   ];
 }
 ''';
+}
+
+// CORREÇÃO: Função para identificar tipos de enum locais
+bool _isLocalEnumType(String type) {
+  final localEnumTypes = {
+    'FlexFit', 'MainAxisSize', 'MainAxisAlignment', 'CrossAxisAlignment',
+    'BorderStyle', 'BoxShape', 'Clip', 'BlendMode', 'TileMode',
+    'Axis', 'TextDirection', 'VerticalDirection',
+    'TextBaseline' // Adicionando mais tipos
+  };
+  return localEnumTypes.contains(type);
 }
 
 String generateClassConstructors(String className, List<dynamic> constructors) {
@@ -802,7 +844,7 @@ class \$${enumName}GetterIndex implements _InstanceDefaultEnumPropsGetter {
   @override
   BridgeMethodDef get definition => const BridgeMethodDef(
         BridgeFunctionDef(
-          returns: BridgeTypeAnnotation(\$int.\$type),
+          returns: BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.int)),
         ),
       );
 
@@ -819,7 +861,7 @@ class \$${enumName}GetterName implements _InstanceDefaultEnumPropsGetter {
   @override
   BridgeMethodDef get definition => const BridgeMethodDef(
         BridgeFunctionDef(
-          returns: BridgeTypeAnnotation(\$String.\$type),
+          returns: BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.string)),
         ),
       );
 
@@ -866,18 +908,44 @@ String capitalize(String input) {
 
 String mapTypeToBridge(String type) {
   final typeMap = {
+    // Tipos primitivos
     'bool': 'BridgeTypeRef(CoreTypes.bool)',
     'int': 'BridgeTypeRef(CoreTypes.int)',
     'double': 'BridgeTypeRef(CoreTypes.double)',
     'String': 'BridgeTypeRef(CoreTypes.string)',
+    'void': 'BridgeTypeRef(CoreTypes.voidType)',
+
+    // Tipos de coleção
+    'List': 'BridgeTypeRef(CoreTypes.list)',
+    'List<RenderBox>': 'BridgeTypeRef(CoreTypes.list)',
+
+    // Tipos Flutter UI
     'Color': 'BridgeTypeRef(BridgeTypeSpec(\'dart:ui\', \'Color\'))',
     'Offset': 'BridgeTypeRef(BridgeTypeSpec(\'dart:ui\', \'Offset\'))',
     'Size': 'BridgeTypeRef(BridgeTypeSpec(\'dart:ui\', \'Size\'))',
     'Rect': 'BridgeTypeRef(BridgeTypeSpec(\'dart:ui\', \'Rect\'))',
+
+    // Tipos Flutter Rendering
     'RenderBox':
         'BridgeTypeRef(BridgeTypeSpec(\'package:flutter/src/rendering/box.dart\', \'RenderBox\'))',
     'RenderSliver':
         'BridgeTypeRef(BridgeTypeSpec(\'package:flutter/src/rendering/sliver.dart\', \'RenderSliver\'))',
+    'RenderObject':
+        'BridgeTypeRef(BridgeTypeSpec(\'package:flutter/src/rendering/object.dart\', \'RenderObject\'))',
+
+    // Tipos Flutter Foundation
+    'Axis':
+        'BridgeTypeRef(BridgeTypeSpec(\'package:flutter/src/painting/basic_types.dart\', \'Axis\'))',
+    'TextDirection':
+        'BridgeTypeRef(BridgeTypeSpec(\'package:flutter/src/painting/basic_types.dart\', \'TextDirection\'))',
+    'VerticalDirection':
+        'BridgeTypeRef(BridgeTypeSpec(\'package:flutter/src/painting/basic_types.dart\', \'VerticalDirection\'))',
+    'TextBaseline':
+        'BridgeTypeRef(BridgeTypeSpec(\'package:flutter/src/painting/basic_types.dart\', \'TextBaseline\'))',
+    'Clip':
+        'BridgeTypeRef(BridgeTypeSpec(\'package:flutter/src/painting/clip.dart\', \'Clip\'))',
+
+    // Tipos Widget
     'Widget': '\$Widget.\$type',
     'Key': '\$Key.\$type',
   };
@@ -888,9 +956,10 @@ String mapTypeToBridge(String type) {
 String wrapValue(String value, String type) {
   final wrapMap = {
     'bool': '\$bool($value)',
-    'int': '\$int($value)',
+    'int': '\$int($value ?? 0)',
     'double': '\$double($value)',
     'String': '\$String($value)',
+    'void': 'null',
   };
 
   return wrapMap[type] ?? '\$${type}.wrap($value)';
