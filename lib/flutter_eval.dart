@@ -61,6 +61,7 @@ import 'package:flutter_eval/src/rendering/object.dart';
 import 'package:flutter_eval/src/rendering/proxy_box.dart';
 import 'package:flutter_eval/src/rendering/stack.dart';
 import 'package:flutter_eval/src/rendering/debug/rendering_flutter_binding/core.dart';
+import 'package:flutter_eval/src/rendering/debug_overflow_indicator/debug_overflow_indicator_mixin/core.dart';
 import 'package:flutter_eval/src/scheduler.dart';
 import 'package:flutter_eval/src/scheduler/ticker.dart';
 import 'package:flutter_eval/src/services.dart';
@@ -582,6 +583,7 @@ class FlutterEvalPlugin implements EvalPlugin {
         $ScaleEndDetailsProps.instance,
         $ScaleGestureRecognizerProps.instance,
         $RenderingFlutterBindingProps.instance,
+        $DebugOverflowIndicatorMixinProps.instance,
       ];
 
   @override
