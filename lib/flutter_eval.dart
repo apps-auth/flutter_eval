@@ -70,6 +70,12 @@ import 'package:flutter_eval/src/rendering/object/container_render_object_mixin/
 import 'package:flutter_eval/src/rendering/object/parent_data/core.dart';
 import 'package:flutter_eval/src/rendering/object/painting_context/core.dart';
 import 'package:flutter_eval/src/rendering/object/semantics_handle/core.dart';
+import 'package:flutter_eval/src/rendering/layer/layer/core.dart';
+import 'package:flutter_eval/src/rendering/layer/container_layer/core.dart';
+import 'package:flutter_eval/src/rendering/layer/layer_handle/core.dart';
+import 'package:flutter_eval/src/rendering/layer/offset_layer/core.dart';
+import 'package:flutter_eval/src/rendering/layer/opacity_layer/core.dart';
+import 'package:flutter_eval/src/rendering/layer/transform_layer/core.dart';
 import 'package:flutter_eval/src/scheduler.dart';
 import 'package:flutter_eval/src/scheduler/ticker.dart';
 import 'package:flutter_eval/src/services.dart';
@@ -600,6 +606,12 @@ class FlutterEvalPlugin implements EvalPlugin {
         $ParentDataProps.instance,
         $PaintingContextProps.instance,
         $SemanticsHandleProps.instance,
+        $LayerProps.instance,
+        $ContainerLayerProps.instance,
+        $LayerHandleProps.instance,
+        $OffsetLayerProps.instance,
+        $OpacityLayerProps.instance,
+        $TransformLayerProps.instance,
       ];
 
   @override
