@@ -17,7 +17,6 @@ import 'package:flutter_eval/src/foundation.dart';
 import 'package:flutter_eval/src/foundation/change_notifier.dart';
 import 'package:flutter_eval/src/foundation/key.dart';
 import 'package:flutter_eval/src/gestures.dart';
-import 'package:flutter_eval/src/gestures/tap.dart';
 import 'package:flutter_eval/src/material.dart';
 import 'package:flutter_eval/src/material/app.dart';
 import 'package:flutter_eval/src/material/app_bar.dart';
@@ -246,6 +245,10 @@ import 'src/gestures/multidrag/immediate_multi_drag_gesture_recognizer/core.dart
 import 'src/gestures/multidrag/horizontal_multi_drag_gesture_recognizer/core.dart';
 import 'src/gestures/multidrag/vertical_multi_drag_gesture_recognizer/core.dart';
 import 'src/gestures/multidrag/delayed_multi_drag_gesture_recognizer/core.dart';
+import 'src/gestures/tap/base_tap_gesture_recognizer/core.dart';
+import 'src/gestures/tap/tap_down_details/core.dart';
+import 'src/gestures/tap/tap_up_details/core.dart';
+import 'src/gestures/tap/tap_gesture_recognizer/core.dart';
 
 /// Global instance of [FlutterEvalPlugin]
 const flutterEvalPlugin = FlutterEvalPlugin();
@@ -336,8 +339,6 @@ class FlutterEvalPlugin implements EvalPlugin {
         $Image.$declaration,
         $Offset.$declaration,
         $GestureDetector.$declaration,
-        $TapDownDetails.$declaration,
-        $TapUpDetails.$declaration,
         $BinaryMessenger.$declaration,
         $MethodCodec.$declaration,
         $MethodChannel.$declaration,
@@ -533,6 +534,10 @@ class FlutterEvalPlugin implements EvalPlugin {
         $HorizontalMultiDragGestureRecognizerProps.instance,
         $VerticalMultiDragGestureRecognizerProps.instance,
         $DelayedMultiDragGestureRecognizerProps.instance,
+        $BaseTapGestureRecognizerProps.instance,
+        $TapDownDetailsProps.instance,
+        $TapUpDetailsProps.instance,
+        $TapGestureRecognizerProps.instance,
       ];
 
   @override
@@ -785,10 +790,6 @@ class FlutterEvalPlugin implements EvalPlugin {
           'Navigator.of', $Navigator.$of)
       ..registerBridgeFunc('package:flutter/src/widgets/gesture_detector.dart',
           'GestureDetector.', $GestureDetector.$new)
-      ..registerBridgeFunc('package:flutter/src/gestures/tap.dart',
-          'TapDownDetails.', $TapDownDetails.$new)
-      ..registerBridgeFunc('package:flutter/src/gestures/tap.dart',
-          'TapUpDetails.', $TapUpDetails.$new)
       ..registerBridgeFunc(
         'package:flutter/src/services/platform_channel.dart',
         'MethodChannel.',
