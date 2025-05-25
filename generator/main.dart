@@ -407,7 +407,6 @@ String generateClassCore(
     List<dynamic> methods) {
   final hasGetters = properties.isNotEmpty;
   final hasGettersStatic = staticProperties.isNotEmpty;
-  final hasMethods = methods.isNotEmpty;
 
   final parts = <String>['constructors.dart'];
   if (hasGettersStatic) parts.add('gettersStatic.dart');
@@ -451,12 +450,34 @@ String generateClassCore(
     imports.add("import '../$enumSnakeName/core.dart';");
   }
 
-  // Adicionar import da classe pai se não for Object
-  if (extendsClass != 'Object') {
-    // CORREÇÃO: Não tentar importar classes que podem não existir ainda
-    // Comentar por enquanto para evitar erros
-    // final parentFolder = toSnakeCase(extendsClass);
-    // imports.add("import '../../$parentFolder/$parentFolder/core.dart';");
+  // Adicionar imports de tipos específicos já implementados
+  final specificTypes = <String>{};
+
+  // Coletar tipos específicos das propriedades
+  for (final prop in properties) {
+    final propType = prop['type'] as String;
+    if (_needsSpecificImport(propType)) {
+      specificTypes.add(propType);
+    }
+  }
+
+  // Coletar tipos específicos dos construtores
+  for (final constructor in constructors) {
+    final parameters = constructor['parameters'] as List<dynamic>? ?? [];
+    for (final param in parameters) {
+      final paramType = param['type'] as String;
+      if (_needsSpecificImport(paramType)) {
+        specificTypes.add(paramType);
+      }
+    }
+  }
+
+  // Adicionar imports específicos
+  for (final type in specificTypes) {
+    final importPath = _getSpecificImportPath(type);
+    if (importPath != null) {
+      imports.add("import '$importPath';");
+    }
   }
 
   final importStatements = imports.join('\n');
@@ -534,11 +555,39 @@ class \$${className}Props extends InstanceDefaultProps {
 bool _isLocalEnumType(String type) {
   final localEnumTypes = {
     'FlexFit', 'MainAxisSize', 'MainAxisAlignment', 'CrossAxisAlignment',
-    'BorderStyle', 'BoxShape', 'Clip', 'BlendMode', 'TileMode',
-    'Axis', 'TextDirection', 'VerticalDirection',
-    'TextBaseline' // Adicionando mais tipos
+    'BorderStyle', 'BoxShape', 'BlendMode', 'TileMode',
+    // Removendo tipos que já estão implementados globalmente
   };
   return localEnumTypes.contains(type);
+}
+
+// NOVA: Função para identificar tipos que precisam de imports específicos
+bool _needsSpecificImport(String type) {
+  final specificTypes = {
+    'Axis',
+    'TextDirection',
+    'VerticalDirection',
+    'TextBaseline',
+    'Clip',
+    'RenderBox',
+    'RenderObject'
+  };
+  return specificTypes.contains(type);
+}
+
+// NOVA: Função para obter o caminho de import específico
+String? _getSpecificImportPath(String type) {
+  final importMap = {
+    'Axis': '../../../painting/basic_types/axis/core.dart',
+    'TextDirection': '../../../sky_engine/ui/text.dart',
+    'VerticalDirection':
+        '../../../painting/basic_types/vertical_direction/core.dart',
+    'TextBaseline': '../../../sky_engine/ui/text.dart',
+    'Clip': '../../../sky_engine/ui/painting/clip/core.dart',
+    'RenderBox': '../../box/render_box/core.dart',
+    'RenderObject': '../../object/render_object/core.dart',
+  };
+  return importMap[type];
 }
 
 String generateClassConstructors(String className, List<dynamic> constructors) {
@@ -596,9 +645,6 @@ $constructorImpls
 
 String generateConstructorCall(String className, String constructorName,
     bool isFactory, List<dynamic> parameters) {
-  final prefix = isFactory ? '$className.$constructorName' : className;
-  final suffix = constructorName.isEmpty ? '' : '.$constructorName';
-
   if (parameters.isEmpty) {
     return isFactory ? '$className.$constructorName()' : '$className()';
   }
@@ -906,6 +952,7 @@ String capitalize(String input) {
   return input[0].toUpperCase() + input.substring(1);
 }
 
+// MELHORADO: Mapeamento de tipos mais preciso usando $Type.$type
 String mapTypeToBridge(String type) {
   final typeMap = {
     // Tipos primitivos
@@ -919,40 +966,38 @@ String mapTypeToBridge(String type) {
     'List': 'BridgeTypeRef(CoreTypes.list)',
     'List<RenderBox>': 'BridgeTypeRef(CoreTypes.list)',
 
-    // Tipos Flutter UI
-    'Color': 'BridgeTypeRef(BridgeTypeSpec(\'dart:ui\', \'Color\'))',
-    'Offset': 'BridgeTypeRef(BridgeTypeSpec(\'dart:ui\', \'Offset\'))',
-    'Size': 'BridgeTypeRef(BridgeTypeSpec(\'dart:ui\', \'Size\'))',
-    'Rect': 'BridgeTypeRef(BridgeTypeSpec(\'dart:ui\', \'Rect\'))',
-
-    // Tipos Flutter Rendering
-    'RenderBox':
-        'BridgeTypeRef(BridgeTypeSpec(\'package:flutter/src/rendering/box.dart\', \'RenderBox\'))',
-    'RenderSliver':
-        'BridgeTypeRef(BridgeTypeSpec(\'package:flutter/src/rendering/sliver.dart\', \'RenderSliver\'))',
-    'RenderObject':
-        'BridgeTypeRef(BridgeTypeSpec(\'package:flutter/src/rendering/object.dart\', \'RenderObject\'))',
-
-    // Tipos Flutter Foundation
-    'Axis':
-        'BridgeTypeRef(BridgeTypeSpec(\'package:flutter/src/painting/basic_types.dart\', \'Axis\'))',
-    'TextDirection':
-        'BridgeTypeRef(BridgeTypeSpec(\'package:flutter/src/painting/basic_types.dart\', \'TextDirection\'))',
-    'VerticalDirection':
-        'BridgeTypeRef(BridgeTypeSpec(\'package:flutter/src/painting/basic_types.dart\', \'VerticalDirection\'))',
-    'TextBaseline':
-        'BridgeTypeRef(BridgeTypeSpec(\'package:flutter/src/painting/basic_types.dart\', \'TextBaseline\'))',
-    'Clip':
-        'BridgeTypeRef(BridgeTypeSpec(\'package:flutter/src/painting/clip.dart\', \'Clip\'))',
-
-    // Tipos Widget
+    // Tipos já implementados no flutter_eval - usar $Type.$type
+    'Color': '\$Color.\$type',
+    'Offset': '\$Offset.\$type',
+    'Size': '\$Size.\$type',
+    'Rect': '\$Rect.\$type',
     'Widget': '\$Widget.\$type',
     'Key': '\$Key.\$type',
+    'Axis': '\$Axis.\$type',
+    'TextDirection': '\$TextDirection.\$type',
+    'VerticalDirection': '\$VerticalDirection.\$type',
+    'TextBaseline': '\$TextBaseline.\$type',
+    'Clip': '\$Clip.\$type',
+    'RenderBox': '\$RenderBox.\$type',
+    'RenderObject': '\$RenderObject.\$type',
+
+    // Enums do flex
+    'FlexFit': '\$FlexFit.\$type',
+    'MainAxisSize': '\$MainAxisSize.\$type',
+    'MainAxisAlignment': '\$MainAxisAlignment.\$type',
+    'CrossAxisAlignment': '\$CrossAxisAlignment.\$type',
   };
 
-  return typeMap[type] ?? '\$${type}.\$type';
+  // Se o tipo está no mapa, usar o mapeamento
+  if (typeMap.containsKey(type)) {
+    return typeMap[type]!;
+  }
+
+  // Para tipos customizados, usar $Type.$type
+  return '\$${type}.\$type';
 }
 
+// MELHORADO: Wrapper de valores mais preciso
 String wrapValue(String value, String type) {
   final wrapMap = {
     'bool': '\$bool($value)',
@@ -962,5 +1007,11 @@ String wrapValue(String value, String type) {
     'void': 'null',
   };
 
-  return wrapMap[type] ?? '\$${type}.wrap($value)';
+  // Se é um tipo primitivo, usar o wrapper específico
+  if (wrapMap.containsKey(type)) {
+    return wrapMap[type]!;
+  }
+
+  // Para tipos customizados, usar $Type.wrap()
+  return '\$${type}.wrap($value)';
 }
