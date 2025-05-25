@@ -1,0 +1,216 @@
+{
+    "classes": [
+        {
+            "name": "BorderSide",
+            "type": "class",
+            "isAbstract": false,
+            "sourceFile": "package:flutter/src/painting/borders.dart",
+            "baseFolder": "borders",
+            "extends": "Object",
+            "constructors": [
+                {
+                    "name": "",
+                    "isFactory": false,
+                    "parameters": [
+                        {
+                            "name": "color",
+                            "type": "Color",
+                            "isRequired": false,
+                            "defaultValue": "const Color(0xFF000000)",
+                            "nullable": false
+                        },
+                        {
+                            "name": "width",
+                            "type": "double",
+                            "isRequired": false,
+                            "defaultValue": "1.0",
+                            "nullable": false
+                        },
+                        {
+                            "name": "style",
+                            "type": "BorderStyle",
+                            "isRequired": false,
+                            "defaultValue": "BorderStyle.solid",
+                            "nullable": false
+                        }
+                    ]
+                },
+                {
+                    "name": "none",
+                    "isFactory": true,
+                    "parameters": []
+                },
+                {
+                    "name": "merge",
+                    "isFactory": true,
+                    "parameters": [
+                        {
+                            "name": "a",
+                            "type": "BorderSide",
+                            "isRequired": true,
+                            "nullable": false
+                        },
+                        {
+                            "name": "b",
+                            "type": "BorderSide",
+                            "isRequired": true,
+                            "nullable": false
+                        }
+                    ]
+                },
+                {
+                    "name": "lerp",
+                    "isFactory": true,
+                    "parameters": [
+                        {
+                            "name": "a",
+                            "type": "BorderSide",
+                            "isRequired": true,
+                            "nullable": true
+                        },
+                        {
+                            "name": "b",
+                            "type": "BorderSide",
+                            "isRequired": true,
+                            "nullable": true
+                        },
+                        {
+                            "name": "t",
+                            "type": "double",
+                            "isRequired": true,
+                            "nullable": false
+                        }
+                    ]
+                }
+            ],
+            "properties": [
+                {
+                    "name": "color",
+                    "type": "Color",
+                    "isStatic": false
+                },
+                {
+                    "name": "width",
+                    "type": "double",
+                    "isStatic": false
+                },
+                {
+                    "name": "style",
+                    "type": "BorderStyle",
+                    "isStatic": false
+                }
+            ],
+            "staticProperties": [
+                {
+                    "name": "none",
+                    "type": "BorderSide",
+                    "value": "BorderSide.none"
+                }
+            ],
+            "methods": [
+                {
+                    "name": "copyWith",
+                    "returnType": "BorderSide",
+                    "parameters": [
+                        {
+                            "name": "color",
+                            "type": "Color",
+                            "nullable": true
+                        },
+                        {
+                            "name": "width",
+                            "type": "double",
+                            "nullable": true
+                        },
+                        {
+                            "name": "style",
+                            "type": "BorderStyle",
+                            "nullable": true
+                        }
+                    ]
+                },
+                {
+                    "name": "scale",
+                    "returnType": "BorderSide",
+                    "parameters": [
+                        {
+                            "name": "t",
+                            "type": "double",
+                            "nullable": false
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "ShapeBorder",
+            "type": "class",
+            "isAbstract": true,
+            "sourceFile": "package:flutter/src/painting/borders.dart",
+            "baseFolder": "shape_border",
+            "extends": "Object",
+            "constructors": [
+                {
+                    "name": "",
+                    "isFactory": false,
+                    "parameters": []
+                }
+            ],
+            "properties": [],
+            "staticProperties": [],
+            "methods": [
+                {
+                    "name": "add",
+                    "returnType": "ShapeBorder",
+                    "parameters": [
+                        {
+                            "name": "other",
+                            "type": "ShapeBorder",
+                            "nullable": false
+                        },
+                        {
+                            "name": "reversed",
+                            "type": "bool",
+                            "nullable": false
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "enums": [
+        {
+            "name": "BorderStyle",
+            "sourceFile": "package:flutter/src/painting/borders.dart",
+            "baseFolder": "border_style",
+            "values": [
+                "none",
+                "solid"
+            ],
+            "customProperties": [
+                {
+                    "name": "isVisible",
+                    "type": "bool",
+                    "implementation": "target.$reified == BorderStyle.solid"
+                }
+            ]
+        },
+        {
+            "name": "Clip",
+            "sourceFile": "package:flutter/src/painting/clip.dart",
+            "baseFolder": "clip",
+            "values": [
+                "none",
+                "hardEdge",
+                "antiAlias",
+                "antiAliasWithSaveLayer"
+            ],
+            "customProperties": []
+        }
+    ],
+    "globalSettings": {
+        "baseOutputPath": "lib/src/rendering/proxy_box",
+        "addToFlutterEval": true,
+        "removeUnusedImports": true
+    }
+}

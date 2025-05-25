@@ -1,0 +1,116 @@
+{
+  "classes": [
+    {
+      "name": "BorderSide",
+      "type": "class",
+      "isAbstract": false,
+      "sourceFile": "package:flutter/src/painting/borders.dart",
+      "baseFolder": "border_side",
+      "extends": "Object",
+      "constructors": [
+        {
+          "name": "",
+          "isFactory": false,
+          "parameters": [
+            {
+              "name": "color",
+              "type": "Color",
+              "isRequired": false,
+              "defaultValue": "const Color(0xFF000000)",
+              "nullable": false
+            },
+            {
+              "name": "width",
+              "type": "double",
+              "isRequired": false,
+              "defaultValue": "1.0",
+              "nullable": false
+            },
+            {
+              "name": "style",
+              "type": "BorderStyle",
+              "isRequired": false,
+              "defaultValue": "BorderStyle.solid",
+              "nullable": false
+            }
+          ]
+        },
+        {
+          "name": "none",
+          "isFactory": true,
+          "parameters": []
+        }
+      ],
+      "properties": [
+        {
+          "name": "color",
+          "type": "Color",
+          "isStatic": false
+        },
+        {
+          "name": "width",
+          "type": "double",
+          "isStatic": false
+        },
+        {
+          "name": "style",
+          "type": "BorderStyle",
+          "isStatic": false
+        }
+      ],
+      "staticProperties": [
+        {
+          "name": "none",
+          "type": "BorderSide",
+          "value": "const BorderSide(width: 0.0, style: BorderStyle.none)"
+        }
+      ],
+      "methods": [
+        {
+          "name": "copyWith",
+          "returnType": "BorderSide",
+          "parameters": [
+            {
+              "name": "color",
+              "type": "Color",
+              "nullable": true
+            },
+            {
+              "name": "width",
+              "type": "double",
+              "nullable": true
+            },
+            {
+              "name": "style",
+              "type": "BorderStyle",
+              "nullable": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "enums": [
+    {
+      "name": "BorderStyle",
+      "sourceFile": "package:flutter/src/painting/borders.dart",
+      "baseFolder": "border_style",
+      "values": [
+        "none",
+        "solid"
+      ],
+      "customProperties": [
+        {
+          "name": "isVisible",
+          "type": "bool",
+          "implementation": "this == BorderStyle.solid"
+        }
+      ]
+    }
+  ],
+  "globalSettings": {
+    "baseOutputPath": "lib/src/rendering/proxy_box",
+    "addToFlutterEval": true,
+    "removeUnusedImports": true
+  }
+}
