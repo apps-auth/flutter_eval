@@ -254,6 +254,12 @@ import 'src/gestures/tap_and_drag/tap_drag_down_details/core.dart';
 import 'src/gestures/tap_and_drag/tap_drag_up_details/core.dart';
 import 'src/gestures/tap_and_drag/tap_drag_start_details/core.dart';
 import 'src/gestures/tap_and_drag/tap_and_drag_gesture_recognizer/core.dart';
+import 'src/gestures/multitap/serial_tap_down_details/core.dart';
+import 'src/gestures/multitap/serial_tap_cancel_details/core.dart';
+import 'src/gestures/multitap/serial_tap_up_details/core.dart';
+import 'src/gestures/multitap/double_tap_gesture_recognizer/core.dart';
+import 'src/gestures/multitap/multi_tap_gesture_recognizer/core.dart';
+import 'src/gestures/multitap/serial_tap_gesture_recognizer/core.dart';
 
 /// Global instance of [FlutterEvalPlugin]
 const flutterEvalPlugin = FlutterEvalPlugin();
@@ -548,6 +554,12 @@ class FlutterEvalPlugin implements EvalPlugin {
         $TapDragUpDetailsProps.instance,
         $TapDragStartDetailsProps.instance,
         $TapAndDragGestureRecognizerProps.instance,
+        $SerialTapDownDetailsProps.instance,
+        $SerialTapCancelDetailsProps.instance,
+        $SerialTapUpDetailsProps.instance,
+        $DoubleTapGestureRecognizerProps.instance,
+        $MultiTapGestureRecognizerProps.instance,
+        $SerialTapGestureRecognizerProps.instance,
       ];
 
   @override
