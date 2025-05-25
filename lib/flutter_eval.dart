@@ -260,6 +260,10 @@ import 'src/gestures/multitap/serial_tap_up_details/core.dart';
 import 'src/gestures/multitap/double_tap_gesture_recognizer/core.dart';
 import 'src/gestures/multitap/multi_tap_gesture_recognizer/core.dart';
 import 'src/gestures/multitap/serial_tap_gesture_recognizer/core.dart';
+import 'src/gestures/long_press/long_press_start_details/core.dart';
+import 'src/gestures/long_press/long_press_move_update_details/core.dart';
+import 'src/gestures/long_press/long_press_end_details/core.dart';
+import 'src/gestures/long_press/long_press_gesture_recognizer/core.dart';
 
 /// Global instance of [FlutterEvalPlugin]
 const flutterEvalPlugin = FlutterEvalPlugin();
@@ -560,6 +564,10 @@ class FlutterEvalPlugin implements EvalPlugin {
         $DoubleTapGestureRecognizerProps.instance,
         $MultiTapGestureRecognizerProps.instance,
         $SerialTapGestureRecognizerProps.instance,
+        $LongPressStartDetailsProps.instance,
+        $LongPressMoveUpdateDetailsProps.instance,
+        $LongPressEndDetailsProps.instance,
+        $LongPressGestureRecognizerProps.instance,
       ];
 
   @override
