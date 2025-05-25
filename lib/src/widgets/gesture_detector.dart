@@ -20,9 +20,9 @@ export 'package:flutter/gestures.dart' show
   LongPressEndDetails,
   LongPressMoveUpdateDetails,
   LongPressStartDetails,
-  // ScaleEndDetails,
-  // ScaleStartDetails,
-  // ScaleUpdateDetails,
+  ScaleEndDetails,
+  ScaleStartDetails,
+  ScaleUpdateDetails,
   TapDownDetails,
   TapUpDetails,
   Velocity;
