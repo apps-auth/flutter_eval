@@ -55,7 +55,6 @@ import 'package:flutter_eval/src/painting/colors/hsl_color/core.dart';
 import 'package:flutter_eval/src/painting/basic_types/vertical_direction/core.dart';
 import 'package:flutter_eval/src/painting/basic_types/axis/core.dart';
 import 'package:flutter_eval/src/rendering.dart';
-import 'package:flutter_eval/src/rendering/box.dart';
 import 'package:flutter_eval/src/rendering/flex.dart';
 import 'package:flutter_eval/src/rendering/object.dart';
 import 'package:flutter_eval/src/rendering/proxy_box.dart';
@@ -79,6 +78,8 @@ import 'package:flutter_eval/src/rendering/layer/transform_layer/core.dart';
 import 'package:flutter_eval/src/rendering/view/view_configuration/core.dart';
 import 'package:flutter_eval/src/rendering/view/render_view/core.dart';
 import 'package:flutter_eval/src/rendering/layout_helper/child_layout_helper/core.dart';
+import 'package:flutter_eval/src/rendering/box/render_box/core.dart';
+import 'package:flutter_eval/src/rendering/box/box_parent_data/core.dart';
 import 'package:flutter_eval/src/scheduler.dart';
 import 'package:flutter_eval/src/scheduler/ticker.dart';
 import 'package:flutter_eval/src/services.dart';
@@ -353,7 +354,6 @@ class FlutterEvalPlugin implements EvalPlugin {
         $ElevatedButton.$declaration,
         $Builder.$declaration,
         $Constraints.$declaration,
-        $BoxConstraints.$declaration,
         $ParametricCurve.$declaration,
         $Curve.$declaration,
         $_Linear.$declaration,
@@ -618,6 +618,8 @@ class FlutterEvalPlugin implements EvalPlugin {
         $ViewConfigurationProps.instance,
         $RenderViewProps.instance,
         $ChildLayoutHelperProps.instance,
+        $RenderBoxProps.instance,
+        $BoxParentDataProps.instance,
       ];
 
   @override
@@ -740,14 +742,6 @@ class FlutterEvalPlugin implements EvalPlugin {
           'ElasticOutCurve.', $ElasticOutCurve.$new)
       ..registerBridgeFunc('package:flutter/src/animation/curves.dart',
           'ElasticInOutCurve.', $ElasticInOutCurve.$new)
-      ..registerBridgeFunc('package:flutter/src/rendering/box.dart',
-          'BoxConstraints.', $BoxConstraints.$new)
-      ..registerBridgeFunc('package:flutter/src/rendering/box.dart',
-          'BoxConstraints.tightFor', $BoxConstraints.$tightFor)
-      ..registerBridgeFunc('package:flutter/src/rendering/box.dart',
-          'BoxConstraints.tightForFinite', $BoxConstraints.$tightForFinite)
-      ..registerBridgeFunc('package:flutter/src/rendering/box.dart',
-          'BoxConstraints.expand', $BoxConstraints.$expand)
       ..registerBridgeFunc(
           'package:flutter/src/scheduler/ticker.dart', 'Ticker.', $Ticker.$new)
       ..registerBridgeFunc('package:flutter/src/widgets/app.dart',
