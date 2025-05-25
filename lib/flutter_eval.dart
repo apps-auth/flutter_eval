@@ -64,6 +64,12 @@ import 'package:flutter_eval/src/rendering/debug/rendering_flutter_binding/core.
 import 'package:flutter_eval/src/rendering/debug_overflow_indicator/debug_overflow_indicator_mixin/core.dart';
 import 'package:flutter_eval/src/rendering/service_extensions/rendering_service_extensions/core.dart';
 import 'package:flutter_eval/src/rendering/binding/renderer_binding/core.dart';
+import 'package:flutter_eval/src/rendering/object/render_object/core.dart';
+import 'package:flutter_eval/src/rendering/object/render_object_with_child_mixin/core.dart';
+import 'package:flutter_eval/src/rendering/object/container_render_object_mixin/core.dart';
+import 'package:flutter_eval/src/rendering/object/parent_data/core.dart';
+import 'package:flutter_eval/src/rendering/object/painting_context/core.dart';
+import 'package:flutter_eval/src/rendering/object/semantics_handle/core.dart';
 import 'package:flutter_eval/src/scheduler.dart';
 import 'package:flutter_eval/src/scheduler/ticker.dart';
 import 'package:flutter_eval/src/services.dart';
@@ -588,6 +594,12 @@ class FlutterEvalPlugin implements EvalPlugin {
         $DebugOverflowIndicatorMixinProps.instance,
         $RenderingServiceExtensionsProps.instance,
         $RendererBindingProps.instance,
+        $RenderObjectProps.instance,
+        $RenderObjectWithChildMixinProps.instance,
+        $ContainerRenderObjectMixinProps.instance,
+        $ParentDataProps.instance,
+        $PaintingContextProps.instance,
+        $SemanticsHandleProps.instance,
       ];
 
   @override
