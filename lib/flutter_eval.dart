@@ -76,6 +76,8 @@ import 'package:flutter_eval/src/rendering/layer/layer_handle/core.dart';
 import 'package:flutter_eval/src/rendering/layer/offset_layer/core.dart';
 import 'package:flutter_eval/src/rendering/layer/opacity_layer/core.dart';
 import 'package:flutter_eval/src/rendering/layer/transform_layer/core.dart';
+import 'package:flutter_eval/src/rendering/view/view_configuration/core.dart';
+import 'package:flutter_eval/src/rendering/view/render_view/core.dart';
 import 'package:flutter_eval/src/scheduler.dart';
 import 'package:flutter_eval/src/scheduler/ticker.dart';
 import 'package:flutter_eval/src/services.dart';
@@ -612,6 +614,8 @@ class FlutterEvalPlugin implements EvalPlugin {
         $OffsetLayerProps.instance,
         $OpacityLayerProps.instance,
         $TransformLayerProps.instance,
+        $ViewConfigurationProps.instance,
+        $RenderViewProps.instance,
       ];
 
   @override
