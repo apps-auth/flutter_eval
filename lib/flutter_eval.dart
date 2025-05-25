@@ -290,6 +290,11 @@ import 'src/gestures/scale/scale_start_details/core.dart';
 import 'src/gestures/scale/scale_update_details/core.dart';
 import 'src/gestures/scale/scale_end_details/core.dart';
 import 'src/gestures/scale/scale_gesture_recognizer/core.dart';
+import 'package:flutter_eval/src/rendering/sliver/render_sliver/core.dart';
+import 'package:flutter_eval/src/rendering/sliver/sliver_constraints/core.dart';
+import 'package:flutter_eval/src/rendering/sliver/sliver_geometry/core.dart';
+import 'package:flutter_eval/src/rendering/sliver/sliver_logical_parent_data/core.dart';
+import 'package:flutter_eval/src/rendering/sliver/sliver_hit_test_result/core.dart';
 
 /// Global instance of [FlutterEvalPlugin]
 const flutterEvalPlugin = FlutterEvalPlugin();
@@ -620,6 +625,11 @@ class FlutterEvalPlugin implements EvalPlugin {
         $ChildLayoutHelperProps.instance,
         $RenderBoxProps.instance,
         $BoxParentDataProps.instance,
+        $RenderSliverProps.instance,
+        $SliverConstraintsProps.instance,
+        $SliverGeometryProps.instance,
+        $SliverLogicalParentDataProps.instance,
+        $SliverHitTestResultProps.instance,
       ];
 
   @override
