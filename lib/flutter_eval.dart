@@ -333,6 +333,10 @@ import 'src/gestures/scale/scale_update_details/core.dart';
 import 'src/gestures/scale/scale_end_details/core.dart';
 import 'src/gestures/scale/scale_gesture_recognizer/core.dart';
 import 'package:flutter_eval/src/rendering/sliver/render_sliver/core.dart';
+import 'package:flutter_eval/src/rendering/proxy_sliver/render_proxy_sliver/core.dart';
+import 'package:flutter_eval/src/rendering/proxy_sliver/render_sliver_opacity/core.dart';
+import 'package:flutter_eval/src/rendering/proxy_sliver/render_sliver_ignore_pointer/core.dart';
+import 'package:flutter_eval/src/rendering/proxy_sliver/render_sliver_offstage/core.dart';
 
 /// Global instance of [FlutterEvalPlugin]
 const flutterEvalPlugin = FlutterEvalPlugin();
@@ -707,6 +711,10 @@ class FlutterEvalPlugin implements EvalPlugin {
         $RenderBackdropFilterProps.instance,
         $RenderCustomPaintProps.instance,
         $RenderSliverProps.instance,
+        $RenderProxySliverProps.instance,
+        $RenderSliverOpacityProps.instance,
+        $RenderSliverIgnorePointerProps.instance,
+        $RenderSliverOffstageProps.instance,
       ];
 
   @override
