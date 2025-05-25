@@ -1,0 +1,374 @@
+{
+    "classes": [
+        {
+            "name": "RelativeRect",
+            "type": "class",
+            "isAbstract": false,
+            "sourceFile": "package:flutter/src/rendering/stack.dart",
+            "baseFolder": "stack",
+            "extends": "Object",
+            "constructors": [
+                {
+                    "name": "",
+                    "isFactory": false,
+                    "parameters": [
+                        {
+                            "name": "left",
+                            "type": "double",
+                            "isRequired": true,
+                            "nullable": false
+                        },
+                        {
+                            "name": "top",
+                            "type": "double",
+                            "isRequired": true,
+                            "nullable": false
+                        },
+                        {
+                            "name": "right",
+                            "type": "double",
+                            "isRequired": true,
+                            "nullable": false
+                        },
+                        {
+                            "name": "bottom",
+                            "type": "double",
+                            "isRequired": true,
+                            "nullable": false
+                        }
+                    ]
+                },
+                {
+                    "name": "fromLTRB",
+                    "isFactory": true,
+                    "parameters": [
+                        {
+                            "name": "left",
+                            "type": "double",
+                            "isRequired": true,
+                            "nullable": false
+                        },
+                        {
+                            "name": "top",
+                            "type": "double",
+                            "isRequired": true,
+                            "nullable": false
+                        },
+                        {
+                            "name": "right",
+                            "type": "double",
+                            "isRequired": true,
+                            "nullable": false
+                        },
+                        {
+                            "name": "bottom",
+                            "type": "double",
+                            "isRequired": true,
+                            "nullable": false
+                        }
+                    ]
+                },
+                {
+                    "name": "fromRect",
+                    "isFactory": true,
+                    "parameters": [
+                        {
+                            "name": "rect",
+                            "type": "Rect",
+                            "isRequired": true,
+                            "nullable": false
+                        },
+                        {
+                            "name": "container",
+                            "type": "Rect",
+                            "isRequired": true,
+                            "nullable": false
+                        }
+                    ]
+                }
+            ],
+            "properties": [
+                {
+                    "name": "left",
+                    "type": "double",
+                    "isStatic": false
+                },
+                {
+                    "name": "top",
+                    "type": "double",
+                    "isStatic": false
+                },
+                {
+                    "name": "right",
+                    "type": "double",
+                    "isStatic": false
+                },
+                {
+                    "name": "bottom",
+                    "type": "double",
+                    "isStatic": false
+                }
+            ],
+            "staticProperties": [
+                {
+                    "name": "fill",
+                    "type": "RelativeRect",
+                    "value": "const RelativeRect.fromLTRB(0.0, 0.0, 0.0, 0.0)"
+                }
+            ],
+            "methods": [
+                {
+                    "name": "shift",
+                    "returnType": "RelativeRect",
+                    "parameters": [
+                        {
+                            "name": "offset",
+                            "type": "Offset",
+                            "nullable": false
+                        }
+                    ]
+                },
+                {
+                    "name": "inflate",
+                    "returnType": "RelativeRect",
+                    "parameters": [
+                        {
+                            "name": "delta",
+                            "type": "double",
+                            "nullable": false
+                        }
+                    ]
+                },
+                {
+                    "name": "deflate",
+                    "returnType": "RelativeRect",
+                    "parameters": [
+                        {
+                            "name": "delta",
+                            "type": "double",
+                            "nullable": false
+                        }
+                    ]
+                },
+                {
+                    "name": "intersect",
+                    "returnType": "RelativeRect",
+                    "parameters": [
+                        {
+                            "name": "other",
+                            "type": "RelativeRect",
+                            "nullable": false
+                        }
+                    ]
+                },
+                {
+                    "name": "toRect",
+                    "returnType": "Rect",
+                    "parameters": [
+                        {
+                            "name": "container",
+                            "type": "Rect",
+                            "nullable": false
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "StackParentData",
+            "type": "class",
+            "isAbstract": false,
+            "sourceFile": "package:flutter/src/rendering/stack.dart",
+            "baseFolder": "stack",
+            "extends": "ContainerBoxParentData",
+            "constructors": [
+                {
+                    "name": "",
+                    "isFactory": false,
+                    "parameters": []
+                }
+            ],
+            "properties": [
+                {
+                    "name": "top",
+                    "type": "double",
+                    "isStatic": false
+                },
+                {
+                    "name": "right",
+                    "type": "double",
+                    "isStatic": false
+                },
+                {
+                    "name": "bottom",
+                    "type": "double",
+                    "isStatic": false
+                },
+                {
+                    "name": "left",
+                    "type": "double",
+                    "isStatic": false
+                },
+                {
+                    "name": "width",
+                    "type": "double",
+                    "isStatic": false
+                },
+                {
+                    "name": "height",
+                    "type": "double",
+                    "isStatic": false
+                }
+            ],
+            "staticProperties": [],
+            "methods": [
+                {
+                    "name": "isPositioned",
+                    "returnType": "bool",
+                    "parameters": []
+                }
+            ]
+        },
+        {
+            "name": "RenderStack",
+            "type": "class",
+            "isAbstract": false,
+            "sourceFile": "package:flutter/src/rendering/stack.dart",
+            "baseFolder": "stack",
+            "extends": "RenderBox",
+            "constructors": [
+                {
+                    "name": "",
+                    "isFactory": false,
+                    "parameters": [
+                        {
+                            "name": "children",
+                            "type": "List",
+                            "isRequired": false,
+                            "nullable": true
+                        },
+                        {
+                            "name": "alignment",
+                            "type": "AlignmentGeometry",
+                            "isRequired": false,
+                            "defaultValue": "AlignmentDirectional.topStart",
+                            "nullable": false
+                        },
+                        {
+                            "name": "textDirection",
+                            "type": "TextDirection",
+                            "isRequired": false,
+                            "nullable": true
+                        },
+                        {
+                            "name": "fit",
+                            "type": "StackFit",
+                            "isRequired": false,
+                            "defaultValue": "StackFit.loose",
+                            "nullable": false
+                        },
+                        {
+                            "name": "clipBehavior",
+                            "type": "Clip",
+                            "isRequired": false,
+                            "defaultValue": "Clip.hardEdge",
+                            "nullable": false
+                        }
+                    ]
+                }
+            ],
+            "properties": [
+                {
+                    "name": "alignment",
+                    "type": "AlignmentGeometry",
+                    "isStatic": false
+                },
+                {
+                    "name": "textDirection",
+                    "type": "TextDirection",
+                    "isStatic": false
+                },
+                {
+                    "name": "fit",
+                    "type": "StackFit",
+                    "isStatic": false
+                },
+                {
+                    "name": "clipBehavior",
+                    "type": "Clip",
+                    "isStatic": false
+                }
+            ],
+            "staticProperties": [],
+            "methods": [
+                {
+                    "name": "setupParentData",
+                    "returnType": "void",
+                    "parameters": [
+                        {
+                            "name": "child",
+                            "type": "RenderObject",
+                            "nullable": false
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "RenderIndexedStack",
+            "type": "class",
+            "isAbstract": false,
+            "sourceFile": "package:flutter/src/rendering/stack.dart",
+            "baseFolder": "stack",
+            "extends": "RenderStack",
+            "constructors": [
+                {
+                    "name": "",
+                    "isFactory": false,
+                    "parameters": [
+                        {
+                            "name": "children",
+                            "type": "List",
+                            "isRequired": false,
+                            "nullable": true
+                        },
+                        {
+                            "name": "alignment",
+                            "type": "AlignmentGeometry",
+                            "isRequired": false,
+                            "defaultValue": "AlignmentDirectional.topStart",
+                            "nullable": false
+                        },
+                        {
+                            "name": "textDirection",
+                            "type": "TextDirection",
+                            "isRequired": false,
+                            "nullable": true
+                        },
+                        {
+                            "name": "index",
+                            "type": "int",
+                            "isRequired": false,
+                            "defaultValue": "0",
+                            "nullable": true
+                        }
+                    ]
+                }
+            ],
+            "properties": [
+                {
+                    "name": "index",
+                    "type": "int",
+                    "isStatic": false
+                }
+            ],
+            "staticProperties": [],
+            "methods": []
+        }
+    ],
+    "globalSettings": {
+        "baseOutputPath": "lib/src/rendering",
+        "addToFlutterEval": true,
+        "removeUnusedImports": true
+    }
+}

@@ -339,6 +339,12 @@ import 'package:flutter_eval/src/rendering/proxy_sliver/render_proxy_sliver/core
 import 'package:flutter_eval/src/rendering/proxy_sliver/render_sliver_opacity/core.dart';
 import 'package:flutter_eval/src/rendering/proxy_sliver/render_sliver_ignore_pointer/core.dart';
 import 'package:flutter_eval/src/rendering/proxy_sliver/render_sliver_offstage/core.dart';
+import 'package:flutter_eval/src/rendering/flex/render_flex/core.dart';
+import 'package:flutter_eval/src/rendering/object.dart';
+import 'package:flutter_eval/src/rendering/stack/relative_rect/core.dart';
+import 'package:flutter_eval/src/rendering/stack/stack_parent_data/core.dart';
+import 'package:flutter_eval/src/rendering/stack/render_stack/core.dart';
+import 'package:flutter_eval/src/rendering/stack/render_indexed_stack/core.dart';
 
 /// Global instance of [FlutterEvalPlugin]
 const flutterEvalPlugin = FlutterEvalPlugin();
@@ -719,6 +725,10 @@ class FlutterEvalPlugin implements EvalPlugin {
         $RenderSliverOffstageProps.instance,
         $FlexParentDataProps.instance,
         $RenderFlexProps.instance,
+        $RelativeRectProps.instance,
+        $StackParentDataProps.instance,
+        $RenderStackProps.instance,
+        $RenderIndexedStackProps.instance,
       ];
 
   @override
