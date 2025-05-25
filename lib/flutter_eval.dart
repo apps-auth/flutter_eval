@@ -63,6 +63,7 @@ import 'package:flutter_eval/src/rendering/stack.dart';
 import 'package:flutter_eval/src/rendering/debug/rendering_flutter_binding/core.dart';
 import 'package:flutter_eval/src/rendering/debug_overflow_indicator/debug_overflow_indicator_mixin/core.dart';
 import 'package:flutter_eval/src/rendering/service_extensions/rendering_service_extensions/core.dart';
+import 'package:flutter_eval/src/rendering/binding/renderer_binding/core.dart';
 import 'package:flutter_eval/src/scheduler.dart';
 import 'package:flutter_eval/src/scheduler/ticker.dart';
 import 'package:flutter_eval/src/services.dart';
@@ -586,6 +587,7 @@ class FlutterEvalPlugin implements EvalPlugin {
         $RenderingFlutterBindingProps.instance,
         $DebugOverflowIndicatorMixinProps.instance,
         $RenderingServiceExtensionsProps.instance,
+        $RendererBindingProps.instance,
       ];
 
   @override
