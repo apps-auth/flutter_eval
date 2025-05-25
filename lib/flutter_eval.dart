@@ -80,6 +80,11 @@ import 'package:flutter_eval/src/rendering/view/render_view/core.dart';
 import 'package:flutter_eval/src/rendering/layout_helper/child_layout_helper/core.dart';
 import 'package:flutter_eval/src/rendering/box/render_box/core.dart';
 import 'package:flutter_eval/src/rendering/box/box_parent_data/core.dart';
+import 'package:flutter_eval/src/rendering/shifted_box/render_shifted_box/core.dart';
+import 'package:flutter_eval/src/rendering/shifted_box/render_aligning_shifted_box/core.dart';
+import 'package:flutter_eval/src/rendering/shifted_box/render_padding/core.dart';
+import 'package:flutter_eval/src/rendering/shifted_box/render_positioned_box/core.dart';
+import 'package:flutter_eval/src/rendering/shifted_box/render_constrained_overflow_box/core.dart';
 import 'package:flutter_eval/src/scheduler.dart';
 import 'package:flutter_eval/src/scheduler/ticker.dart';
 import 'package:flutter_eval/src/services.dart';
@@ -625,6 +630,11 @@ class FlutterEvalPlugin implements EvalPlugin {
         $ChildLayoutHelperProps.instance,
         $RenderBoxProps.instance,
         $BoxParentDataProps.instance,
+        $RenderShiftedBoxProps.instance,
+        $RenderAligningShiftedBoxProps.instance,
+        $RenderPaddingProps.instance,
+        $RenderPositionedBoxProps.instance,
+        $RenderConstrainedOverflowBoxProps.instance,
         $RenderSliverProps.instance,
         $SliverConstraintsProps.instance,
         $SliverGeometryProps.instance,
