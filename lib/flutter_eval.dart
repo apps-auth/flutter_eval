@@ -264,6 +264,8 @@ import 'src/gestures/long_press/long_press_start_details/core.dart';
 import 'src/gestures/long_press/long_press_move_update_details/core.dart';
 import 'src/gestures/long_press/long_press_end_details/core.dart';
 import 'src/gestures/long_press/long_press_gesture_recognizer/core.dart';
+import 'src/gestures/force_press/force_press_details/core.dart';
+import 'src/gestures/force_press/force_press_gesture_recognizer/core.dart';
 
 /// Global instance of [FlutterEvalPlugin]
 const flutterEvalPlugin = FlutterEvalPlugin();
@@ -568,6 +570,8 @@ class FlutterEvalPlugin implements EvalPlugin {
         $LongPressMoveUpdateDetailsProps.instance,
         $LongPressEndDetailsProps.instance,
         $LongPressGestureRecognizerProps.instance,
+        $ForcePressDetailsProps.instance,
+        $ForcePressGestureRecognizerProps.instance,
       ];
 
   @override

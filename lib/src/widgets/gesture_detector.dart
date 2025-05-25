@@ -16,7 +16,7 @@ export 'package:flutter/gestures.dart' show
   DragEndDetails,
   DragStartDetails,
   DragUpdateDetails,
-  // ForcePressDetails,
+  ForcePressDetails,
   LongPressEndDetails,
   LongPressMoveUpdateDetails,
   LongPressStartDetails,
