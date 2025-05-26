@@ -192,7 +192,7 @@ class $ChangeNotifier$bridge extends ChangeNotifier
   final _$listenerNativeCache = <Function, $Function>{};
 
   @override
-  $Value? $bridgeGet(String identifier) {
+  $Value? $bridgeGet(Runtime runtime, String identifier) {
     switch (identifier) {
       case 'addListener':
         return $Function((runtime, target, args) {
@@ -223,7 +223,7 @@ class $ChangeNotifier$bridge extends ChangeNotifier
   }
 
   @override
-  void $bridgeSet(String identifier, $Value value) {
+  void $bridgeSet(Runtime runtime, String identifier, $Value value) {
     throw UnimplementedError();
   }
 

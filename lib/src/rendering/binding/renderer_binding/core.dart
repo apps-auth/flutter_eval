@@ -1,5 +1,6 @@
 import 'package:dart_eval/dart_eval_bridge.dart';
 import 'package:dart_eval/stdlib/core.dart';
+import 'package:flutter/rendering.dart';
 
 import '../core.dart';
 
@@ -12,7 +13,7 @@ const _type = BridgeTypeRef(
   BridgeTypeSpec(flutterFileName, _className),
 );
 
-class $RendererBinding extends $InstanceDefault<Object> {
+class $RendererBinding extends $InstanceDefault<RendererBinding> {
   $RendererBinding.wrap(super.$value)
       : super.wrap(
           superclass: $Object($value),

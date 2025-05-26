@@ -196,7 +196,7 @@ class $StatelessWidget$bridge extends StatelessWidget
   }
 
   @override
-  $Value? $bridgeGet(String identifier) {
+  $Value? $bridgeGet(Runtime runtime, String identifier) {
     switch (identifier) {
       case 'key':
         final key = super.key;
@@ -227,7 +227,7 @@ class $StatelessWidget$bridge extends StatelessWidget
   }
 
   @override
-  void $bridgeSet(String identifier, $Value value) {
+  void $bridgeSet(Runtime runtime, String identifier, $Value value) {
     throw UnimplementedError(
         'Cannot set "$identifier" of abstract class StatelessWidget');
   }
@@ -312,7 +312,7 @@ class $StatefulWidget$bridge extends StatefulWidget
   }
 
   @override
-  $Value? $bridgeGet(String identifier) {
+  $Value? $bridgeGet(Runtime runtime, String identifier) {
     switch (identifier) {
       case 'key':
         final key = super.key;
@@ -343,7 +343,7 @@ class $StatefulWidget$bridge extends StatefulWidget
   }
 
   @override
-  void $bridgeSet(String identifier, $Value value) {
+  void $bridgeSet(Runtime runtime, String identifier, $Value value) {
     throw UnimplementedError();
   }
 
@@ -401,7 +401,7 @@ class $State$bridge<T extends StatefulWidget> extends State<T>
   }
 
   @override
-  $Value? $bridgeGet(String identifier) {
+  $Value? $bridgeGet(Runtime runtime, String identifier) {
     switch (identifier) {
       case 'setState':
         return $Function((runtime, target, args) {
@@ -431,7 +431,7 @@ class $State$bridge<T extends StatefulWidget> extends State<T>
   }
 
   @override
-  void $bridgeSet(String identifier, $Value value) {
+  void $bridgeSet(Runtime runtime, String identifier, $Value value) {
     throw UnimplementedError();
   }
 

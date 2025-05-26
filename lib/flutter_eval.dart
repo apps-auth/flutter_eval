@@ -185,8 +185,10 @@ import 'src/painting/beveled_rectangle_border/beveled_rectangle_border/core.dart
 import 'src/painting/continuous_rectangle_border/continuous_rectangle_border/core.dart';
 import 'src/painting/borders/shape_border/core.dart';
 import 'src/painting/borders/outlined_border/core.dart';
+import 'src/rendering/box/box_constraints/core.dart';
 import 'src/sky_engine/ui/geometry/rect/core.dart';
 
+import 'src/sky_engine/ui/painting/clip/core.dart';
 import 'src/sky_engine/ui/painting/image_filter/core.dart';
 import 'src/sky_engine/ui/painting/color_filter/core.dart';
 import 'src/sky_engine/ui/painting/shadow/core.dart';
@@ -339,8 +341,6 @@ import 'package:flutter_eval/src/rendering/proxy_sliver/render_proxy_sliver/core
 import 'package:flutter_eval/src/rendering/proxy_sliver/render_sliver_opacity/core.dart';
 import 'package:flutter_eval/src/rendering/proxy_sliver/render_sliver_ignore_pointer/core.dart';
 import 'package:flutter_eval/src/rendering/proxy_sliver/render_sliver_offstage/core.dart';
-import 'package:flutter_eval/src/rendering/flex/render_flex/core.dart';
-import 'package:flutter_eval/src/rendering/object.dart';
 import 'package:flutter_eval/src/rendering/stack/relative_rect/core.dart';
 import 'package:flutter_eval/src/rendering/stack/stack_parent_data/core.dart';
 import 'package:flutter_eval/src/rendering/stack/render_stack/core.dart';
@@ -501,6 +501,7 @@ class FlutterEvalPlugin implements EvalPlugin {
         $TextStyleProps.instance,
         $TextAlignVerticalProps.instance,
         $BoxFitProps.instance,
+        $BoxConstraintsProps.instance,
         $ImageProviderProps.instance,
         $NetworkImageProps.instance,
         $MemoryImageProps.instance,
@@ -523,6 +524,7 @@ class FlutterEvalPlugin implements EvalPlugin {
         $TileModeProps.instance,
         $VertexModeProps.instance,
         $PointModeProps.instance,
+        $ClipProps.instance,
         $ClipOpProps.instance,
         $EngineLayerProps.instance,
         $PathProps.instance,

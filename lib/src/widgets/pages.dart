@@ -42,7 +42,7 @@ class $PageRoute$bridge extends PageRoute with $Bridge<PageRoute> {
       $_get('willDisposeAnimationController');
 
   @override
-  $Value? $bridgeGet(String identifier) {
+  $Value? $bridgeGet(Runtime runtime, String identifier) {
     switch (identifier) {
       case 'offstage':
         return $bool(super.offstage);
@@ -55,7 +55,7 @@ class $PageRoute$bridge extends PageRoute with $Bridge<PageRoute> {
   }
 
   @override
-  void $bridgeSet(String identifier, $Value value) {
+  void $bridgeSet(Runtime runtime, String identifier, $Value value) {
     throw UnimplementedError();
   }
 

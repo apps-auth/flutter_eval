@@ -69,25 +69,28 @@ enum HotSwapStrategy {
 /// the [outputFile] path.
 ///
 class CompilerWidget extends StatefulWidget {
-  const CompilerWidget(
-      {required this.packages,
-      required this.library,
-      this.function = 'main',
-      this.args = const [],
-      this.outputFile,
-      this.onError,
-      this.permissions = const [],
-      super.key});
+  const CompilerWidget({
+    required this.packages,
+    required this.library,
+    this.function = 'main',
+    required this.args,
+    this.outputFile,
+    this.onError,
+    this.permissions = const [],
+    this.plugins = const [flutterEvalPlugin],
+    super.key,
+  });
 
   final Map<String, Map<String, String>> packages;
   final String library;
   final String function;
-  final List<dynamic> args;
+  final List<dynamic> Function(Runtime runtime) args;
   final String? outputFile;
   final EvalErrorBuilder? onError;
 
   /// Permissions to be granted to the dart_eval runtime
   final List<Permission> permissions;
+  final List<EvalPlugin> plugins;
 
   @override
   State<CompilerWidget> createState() => _CompilerWidgetState();
@@ -95,7 +98,7 @@ class CompilerWidget extends StatefulWidget {
 
 class _CompilerWidgetState extends State<CompilerWidget> {
   late Compiler compiler;
-  late Runtime runtime;
+  Runtime? runtime;
   late Map<String, Map<String, String>> codeCache;
   dynamic setupError;
   StackTrace? setupErrorTrace;
@@ -103,7 +106,10 @@ class _CompilerWidgetState extends State<CompilerWidget> {
   @override
   void initState() {
     super.initState();
-    compiler = Compiler()..addPlugin(flutterEvalPlugin);
+    compiler = Compiler();
+    for (var plugin in widget.plugins) {
+      compiler.addPlugin(plugin);
+    }
     try {
       _recompile(false);
     } catch (e, stackTrace) {
@@ -128,9 +134,11 @@ class _CompilerWidgetState extends State<CompilerWidget> {
     void setupRuntime() {
       runtime = Runtime.ofProgram(program);
       for (final permission in widget.permissions) {
-        runtime.grant(permission);
+        runtime!.grant(permission);
       }
-      runtime.addPlugin(flutterEvalPlugin);
+      for (var plugin in widget.plugins) {
+        runtime!.addPlugin(plugin);
+      }
     }
 
     if (!inBuild) {
@@ -168,11 +176,24 @@ class _CompilerWidgetState extends State<CompilerWidget> {
         codeCache = widget.packages;
         _recompile(false);
       }
-      final result =
-          runtime.executeLib(widget.library, widget.function, widget.args);
-      return Container(
-          child: (result as $Value).$value,
-          key: ValueKey(Random().nextDouble()));
+      if (runtime == null) {
+        return const SizedBox.shrink();
+      }
+
+      final result = runtime!
+          .executeLib(widget.library, widget.function, widget.args(runtime!));
+      final resultWidget = (result as $Value).$value;
+
+      if (resultWidget is Widget) {
+        return Container(
+          key: ValueKey(Random().nextDouble()),
+          child: resultWidget,
+        );
+      } else {
+        return Card(
+          child: Text(resultWidget.toString()),
+        );
+      }
     } catch (e, stackTrace) {
       if (widget.onError != null) {
         return widget.onError!(context, e, stackTrace);

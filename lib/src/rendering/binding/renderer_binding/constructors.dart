@@ -17,6 +17,7 @@ class $RendererBindingConstructorDefault
   @override
   $Value? run(Runtime runtime, $Value? target, List<$Value?> args) {
     // RendererBinding é uma classe de binding para renderização
-    return $RendererBinding.wrap(Object());
+    // return $RendererBinding.wrap(Object());
+    return null;
   }
 }

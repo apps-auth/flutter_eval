@@ -10,8 +10,8 @@ class EvalExample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CompilerWidget(
-      packages: {
+    return CompilerWidget(
+      packages: const {
         'example': {
           'main.dart': '''
               import 'package:flutter/material.dart';
@@ -95,7 +95,7 @@ class EvalExample extends StatelessWidget {
       /// should be dart_eval [$Value] objects, but when invoking a static or
       /// top-level function or constructor, [int]s, [double]s, and [bool]s
       /// should be passed directly.
-      args: [null],
+      args: (runtime) => [null],
     );
   }
 }
