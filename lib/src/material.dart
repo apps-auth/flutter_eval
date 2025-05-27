@@ -22,4 +22,5 @@ export 'src/material/text_theme.dart';
 export 'src/material/theme_data.dart';
 export 'src/material/theme.dart';
 export 'src/material/ink_well.dart';
+export 'src/material/time.dart';
 ''';

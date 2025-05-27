@@ -38,6 +38,7 @@ import 'package:flutter_eval/src/material/text_field.dart';
 import 'package:flutter_eval/src/material/text_theme.dart';
 import 'package:flutter_eval/src/material/theme.dart';
 import 'package:flutter_eval/src/material/theme_data.dart';
+import 'package:flutter_eval/src/material/time/time_of_day/core.dart';
 import 'package:flutter_eval/src/painting.dart';
 import 'package:flutter_eval/src/painting/basic_types/basic_types.dart';
 import 'package:flutter_eval/src/painting/box_fit/box_fit/core.dart';
@@ -731,6 +732,7 @@ class FlutterEvalPlugin implements EvalPlugin {
         $StackParentDataProps.instance,
         $RenderStackProps.instance,
         $RenderIndexedStackProps.instance,
+        $TimeOfDayProps.instance,
       ];
 
   @override
