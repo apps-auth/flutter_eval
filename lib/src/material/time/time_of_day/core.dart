@@ -23,6 +23,16 @@ class $TimeOfDay extends $InstanceDefault<TimeOfDay> {
   static const $type = _type;
 }
 
+extension $TimeOfDayExt on TimeOfDay? {
+  $TimeOfDay? get toEval {
+    if (this == null) {
+      return null;
+    }
+
+    return $TimeOfDay.wrap(this!);
+  }
+}
+
 class $TimeOfDayProps extends InstanceDefaultProps {
   static final $TimeOfDayProps instance = $TimeOfDayProps._();
 
