@@ -182,7 +182,7 @@ class _CompilerWidgetState extends State<CompilerWidget> {
 
       final result = runtime!
           .executeLib(widget.library, widget.function, widget.args(runtime!));
-      final resultWidget = (result as $Value).$value;
+      final resultWidget = result is $Value ? result.$value : result;
 
       if (resultWidget is Widget) {
         return Container(

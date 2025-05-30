@@ -1860,8 +1860,15 @@ class $MaterialAccentColor implements $Instance {
       wrap: true);
 
   static $Value? $new(Runtime runtime, $Value? target, List<$Value?> args) {
-    return $MaterialAccentColor
-        .wrap(MaterialAccentColor(args[0]!.$value, args[1]!.$reified));
+    Map<int, Color> swatch = (args[1]!.$reified as Map).cast<int, Color>();
+
+    return $MaterialAccentColor.wrap(
+      MaterialAccentColor(
+        args[0]!.$value,
+        swatch,
+      ),
+    );
+    
   }
 
   $MaterialAccentColor.wrap(this.$value)
