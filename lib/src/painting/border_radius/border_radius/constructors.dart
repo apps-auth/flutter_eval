@@ -60,12 +60,12 @@ class $BorderRadiusConstructorVertical extends InstanceDefaultPropsConstructor {
             BridgeParameter(
               'top',
               BridgeTypeAnnotation($Radius.$type),
-              false,
+              true,
             ),
             BridgeParameter(
               'bottom',
               BridgeTypeAnnotation($Radius.$type),
-              false,
+              true,
             )
           ],
         ),
@@ -74,8 +74,8 @@ class $BorderRadiusConstructorVertical extends InstanceDefaultPropsConstructor {
   @override
   $Value? run(Runtime runtime, $Value? target, List<$Value?> args) {
     return $BorderRadius.wrap(BorderRadius.vertical(
-      top: args[0]!.$value ?? Radius.zero,
-      bottom: args[1]!.$value ?? Radius.zero,
+      top: args[0]?.$value ?? Radius.zero,
+      bottom: args[1]?.$value ?? Radius.zero,
     ));
   }
 }
@@ -93,12 +93,12 @@ class $BorderRadiusConstructorHorizontal
             BridgeParameter(
               'left',
               BridgeTypeAnnotation($Radius.$type),
-              false,
+              true,
             ),
             BridgeParameter(
               'right',
               BridgeTypeAnnotation($Radius.$type),
-              false,
+              true,
             ),
           ],
         ),
@@ -107,8 +107,8 @@ class $BorderRadiusConstructorHorizontal
   @override
   $Value? run(Runtime runtime, $Value? target, List<$Value?> args) {
     return $BorderRadius.wrap(BorderRadius.horizontal(
-      left: args[0]!.$value ?? Radius.zero,
-      right: args[1]!.$value ?? Radius.zero,
+      left: args[0]?.$value ?? Radius.zero,
+      right: args[1]?.$value ?? Radius.zero,
     ));
   }
 }

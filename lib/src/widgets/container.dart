@@ -18,6 +18,8 @@ class $Container implements Container, $Instance {
   static const $type = BridgeTypeRef(BridgeTypeSpec(
       'package:flutter/src/widgets/container.dart', 'Container'));
 
+  late final $Instance? superclass;
+
   /// [Container] compile-type class declaration for dart_eval
   static const $declaration = BridgeClassDef(
       BridgeClassType($type, $extends: $StatelessWidget$bridge.$type),
@@ -98,7 +100,9 @@ class $Container implements Container, $Instance {
   }
 
   /// Wrap a [Container] for use in the dart_eval VM
-  $Container.wrap(this.$value);
+  $Container.wrap(this.$value) {
+    superclass = $StatelessWidget.wrap($value);
+  }
 
   /// The underlying [Container] value for this wrapper
   @override
@@ -110,7 +114,7 @@ class $Container implements Container, $Instance {
 
   @override
   $Value? $getProperty(Runtime runtime, String identifier) {
-    throw UnimplementedError();
+    return superclass?.$getProperty(runtime, identifier);
   }
 
   @override
