@@ -738,6 +738,9 @@ class FlutterEvalPlugin implements EvalPlugin {
       ];
 
   @override
+  void configureCompiler(Compiler compiler) {}
+
+  @override
   void configureForCompile(BridgeDeclarationRegistry registry) {
     for (final cls in classes) {
       registry.defineBridgeClass(cls);
