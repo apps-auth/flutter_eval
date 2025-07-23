@@ -3,6 +3,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_eval/src/foundation/key.dart';
 import 'package:flutter_eval/src/painting/text_style/text_style/core.dart';
+import 'package:flutter_eval/src/painting/text_painter/text_overflow/core.dart';
+import 'package:flutter_eval/src/painting/text_painter/text_width_basis/core.dart';
+import 'package:flutter_eval/src/painting/strut_style/strut_style/core.dart';
+import 'package:flutter_eval/src/sky_engine/ui/text.dart';
 import 'package:flutter_eval/src/widgets/framework.dart';
 
 /// dart_eval wrapper for [Text]
@@ -24,6 +28,51 @@ class $Text implements Text, $Instance {
               'key', BridgeTypeAnnotation($Key.$type, nullable: true), true),
           BridgeParameter('style',
               BridgeTypeAnnotation($TextStyle.$type, nullable: true), true),
+          BridgeParameter('strutStyle',
+              BridgeTypeAnnotation($StrutStyle.$type, nullable: true), true),
+          BridgeParameter(
+              'textAlign',
+              BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.object),
+                  nullable: true),
+              true),
+          BridgeParameter('textDirection',
+              BridgeTypeAnnotation($TextDirection.$type, nullable: true), true),
+          BridgeParameter(
+              'locale',
+              BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.object),
+                  nullable: true),
+              true),
+          BridgeParameter(
+              'softWrap',
+              BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.bool),
+                  nullable: true),
+              true),
+          BridgeParameter('overflow',
+              BridgeTypeAnnotation($TextOverflow.$type, nullable: true), true),
+          BridgeParameter(
+              'textScaler',
+              BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.object),
+                  nullable: true),
+              true),
+          BridgeParameter(
+              'maxLines',
+              BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.int),
+                  nullable: true),
+              true),
+          BridgeParameter(
+              'semanticsLabel',
+              BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.string),
+                  nullable: true),
+              true),
+          BridgeParameter(
+              'textWidthBasis',
+              BridgeTypeAnnotation($TextWidthBasis.$type, nullable: true),
+              true),
+          BridgeParameter(
+              'textHeightBehavior',
+              BridgeTypeAnnotation(BridgeTypeRef(CoreTypes.object),
+                  nullable: true),
+              true),
         ]))
       },
       wrap: true);
@@ -37,6 +86,17 @@ class $Text implements Text, $Instance {
       args[0]!.$value,
       key: args[1]?.$value,
       style: args[2]?.$value,
+      strutStyle: args[3]?.$value,
+      textAlign: args[4]?.$value,
+      textDirection: args[5]?.$value,
+      locale: args[6]?.$value,
+      softWrap: args[7]?.$value,
+      overflow: args[8]?.$value,
+      textScaler: args[9]?.$value,
+      maxLines: args[10]?.$value,
+      semanticsLabel: args[11]?.$value,
+      textWidthBasis: args[12]?.$value,
+      textHeightBehavior: args[13]?.$value,
     ));
   }
 

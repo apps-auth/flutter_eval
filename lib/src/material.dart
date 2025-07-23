@@ -13,6 +13,7 @@ export 'src/material/floating_action_button.dart';
 export 'src/material/icons.dart';
 export 'src/material/icon_button.dart';
 export 'src/material/list_tile.dart';
+export 'src/material/material.dart';
 export 'src/material/switch_list_tile.dart';
 export 'src/material/page.dart';
 export 'src/material/scaffold.dart';

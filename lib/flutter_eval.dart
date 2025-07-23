@@ -30,6 +30,7 @@ import 'package:flutter_eval/src/material/icon_button.dart';
 import 'package:flutter_eval/src/material/icons.dart';
 import 'package:flutter_eval/src/material/ink_well.dart';
 import 'package:flutter_eval/src/material/list_tile.dart';
+import 'package:flutter_eval/src/material/material/material/core.dart';
 import 'package:flutter_eval/src/material/page.dart';
 import 'package:flutter_eval/src/material/scaffold.dart';
 import 'package:flutter_eval/src/material/snack_bar.dart';
@@ -158,6 +159,7 @@ import 'package:flutter_eval/src/widgets/scroll_view.dart';
 import 'package:flutter_eval/src/widgets/spacer.dart';
 import 'package:flutter_eval/src/widgets/text.dart';
 
+import 'flutter_eval.dart';
 import 'src/painting/alignment/alignment/core.dart';
 import 'src/painting/alignment/alignment_directional/core.dart';
 import 'src/painting/alignment/alignment_geometry/core.dart';
@@ -737,6 +739,9 @@ class FlutterEvalPlugin implements EvalPlugin {
         $TimeOfDayProps.instance,
         $DateTimeRangeProps.instance,
         $ButtonStyleProps.instance,
+        $MaterialProps.instance,
+        $TextOverflowProps.instance,
+        $TextWidthBasisProps.instance,
       ];
 
   @override

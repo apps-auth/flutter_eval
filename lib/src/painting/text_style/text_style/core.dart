@@ -5,6 +5,7 @@ import 'package:flutter/painting.dart';
 import '../core.dart';
 import '../../../sky_engine/ui/painting/color/core.dart';
 import '../../../sky_engine/ui/text.dart';
+import '../../text_painter/text_overflow/core.dart';
 
 part 'constructors.dart';
 part 'getters.dart';
@@ -61,6 +62,18 @@ class $TextStyleProps extends InstanceDefaultProps {
     $TextStyleGetterLetterSpacing(),
     $TextStyleGetterWordSpacing(),
     $TextStyleGetterHeight(),
+    $TextStyleGetterFontFamily(),
+    $TextStyleGetterDecoration(),
+    $TextStyleGetterDecorationColor(),
+    $TextStyleGetterDecorationStyle(),
+    $TextStyleGetterDecorationThickness(),
+    $TextStyleGetterTextBaseline(),
+    $TextStyleGetterLocale(),
+    $TextStyleGetterShadows(),
+    $TextStyleGetterFontFeatures(),
+    $TextStyleGetterFontVariations(),
+    $TextStyleGetterDebugLabel(),
+    $TextStyleGetterOverflow(),
   ];
 
   @override
