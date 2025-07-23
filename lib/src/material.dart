@@ -2,8 +2,9 @@ const materialSource = '''
 library material;
 
 export 'widgets.dart';
-export 'src/material/app.dart';
 export 'src/material/app_bar.dart';
+export 'src/material/app.dart';
+export 'src/material/button_style.dart';
 export 'src/material/card.dart';
 export 'src/material/colors.dart';
 export 'src/material/drawer.dart';

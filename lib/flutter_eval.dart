@@ -20,6 +20,7 @@ import 'package:flutter_eval/src/gestures.dart';
 import 'package:flutter_eval/src/material.dart';
 import 'package:flutter_eval/src/material/app.dart';
 import 'package:flutter_eval/src/material/app_bar.dart';
+import 'package:flutter_eval/src/material/button_style/button_style/core.dart';
 import 'package:flutter_eval/src/material/card.dart';
 import 'package:flutter_eval/src/material/colors.dart';
 import 'package:flutter_eval/src/material/drawer.dart';
@@ -735,6 +736,7 @@ class FlutterEvalPlugin implements EvalPlugin {
         $RenderIndexedStackProps.instance,
         $TimeOfDayProps.instance,
         $DateTimeRangeProps.instance,
+        $ButtonStyleProps.instance,
       ];
 
   @override
@@ -931,6 +933,10 @@ class FlutterEvalPlugin implements EvalPlugin {
           'MaterialAccentColor.', $MaterialAccentColor.$new)
       ..registerBridgeFunc('package:flutter/src/material/elevated_button.dart',
           'ElevatedButton.', $ElevatedButton.$new)
+      ..registerBridgeFunc('package:flutter/src/material/elevated_button.dart',
+          'ElevatedButton.icon', $ElevatedButton.$icon)
+      ..registerBridgeFunc('package:flutter/src/material/elevated_button.dart',
+          'ElevatedButton.styleFrom', $ElevatedButton.$styleFrom)
       ..registerBridgeFunc(
           'package:flutter/src/material/floating_action_button.dart',
           'FloatingActionButton.',

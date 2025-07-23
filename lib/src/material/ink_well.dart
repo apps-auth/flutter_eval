@@ -7,6 +7,7 @@ import 'package:flutter_eval/src/sky_engine/ui/painting/color/core.dart';
 import 'package:flutter_eval/src/widgets/framework.dart';
 
 import '../painting/borders/shape_border/core.dart';
+import '../painting/border_radius/border_radius/core.dart';
 
 class $InkWell implements $Instance {
   static const $type = BridgeTypeRef(
@@ -132,6 +133,14 @@ class $InkWell implements $Instance {
               true,
             ),
             BridgeParameter(
+              'borderRadius',
+              BridgeTypeAnnotation(
+                $BorderRadius.$type,
+                nullable: true,
+              ),
+              true,
+            ),
+            BridgeParameter(
               'customBorder',
               BridgeTypeAnnotation(
                 $ShapeBorder.$type,
@@ -196,9 +205,10 @@ class $InkWell implements $Instance {
         highlightColor: args[11]?.$value,
         splashColor: args[12]?.$value,
         radius: args[13]?.$value,
-        customBorder: args[14]?.$value,
-        autofocus: args[15]?.$value ?? false,
-        child: args[16]?.$value,
+        borderRadius: args[14]?.$value,
+        customBorder: args[15]?.$value,
+        autofocus: args[16]?.$value ?? false,
+        child: args[17]?.$value,
       ),
     );
   }
